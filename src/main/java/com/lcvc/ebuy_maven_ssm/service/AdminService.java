@@ -3,6 +3,7 @@ package com.lcvc.ebuy_maven_ssm.service;
 import com.lcvc.ebuy_maven_ssm.dao.AdminDao;
 import com.lcvc.ebuy_maven_ssm.model.Admin;
 import com.lcvc.ebuy_maven_ssm.util.SHA;
+import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
@@ -91,4 +92,19 @@ public class AdminService {
         }
         return status;
     }
+    /**
+     * 查找在数据库中和指定用户名重名的个数
+     * @param username
+     * @param id
+     * @return 返回重名的个数
+     */
+    public boolean existsAdmin(String username,Integer id){
+        if (adminDao.existsAdmin(username,id)==0){
+            return false;
+        }else {
+            return true;
+        }
+    }
+
+
 }
