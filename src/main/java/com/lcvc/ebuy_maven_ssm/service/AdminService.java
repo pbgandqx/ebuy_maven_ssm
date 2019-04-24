@@ -106,5 +106,14 @@ public class AdminService {
         }
     }
 
+    public boolean saveAdmin(Admin admin) {
+        boolean stsatus = false;
+        if (adminDao.saveAdmin(admin)==1){
+            stsatus= true;
+        }else {
+            stsatus= false;
+        }
+        return stsatus;
+    }
 
 }

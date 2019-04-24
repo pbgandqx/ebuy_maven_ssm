@@ -64,7 +64,9 @@
     <div class="tools">
 
         <ul class="toolbar">
-            <li class="click"><span><img src="<%=basePath%>jsp/backstage/images/t01.png"/></span>添加管理账户</li>
+         <a href="<%=basePath%>backstage/adminmanage/toAddAdmin">
+             <li class="click"><span><img src="<%=basePath%>jsp/backstage/images/t01.png"/></span>添加管理账户</li>
+         </a>
         </ul>
 
 

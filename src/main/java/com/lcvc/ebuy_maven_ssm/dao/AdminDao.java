@@ -57,4 +57,8 @@ public interface AdminDao {
      * @return 删除了多少条记录
      */
     int deleteAdmin(Integer id);
+
+
+   int saveAdmin(Admin admin);
+
 }
