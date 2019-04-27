@@ -53,15 +53,15 @@ public class AdminManageController {
 			request.setAttribute("myMessage","添加管理员失败：账户名重名！");
 		}
 		else {
-			if(adminService.saveAdmin(admin)){
-				admin.setId(id);
+		//	if(adminService.saveAdmin(admin)){
+			//	admin.setId(id);
 				admin.setUsername(username);
 				admin.setPassword(password);
 				admin.setName(name);
 				admin.setCreateTime(new Date());
 				adminService.saveAdmin(admin);
-				request.setAttribute("myMessage","基本信息修改成功！");
-			}
+				request.setAttribute("myMessage","管理员添加成功！");
+			//}
 
 		}
 		return "/jsp/backstage/adminmanage/adminadd.jsp";
