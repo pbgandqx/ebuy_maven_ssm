@@ -3,7 +3,6 @@
     <output-path>$PROJECT_DIR$/target</output-path>
     <root id="archive" name="ebuy_maven_ssm.war">
       <element id="artifact" artifact-name="ebuy_maven_ssm:war exploded" />
-      <element id="dir-copy" path="$PROJECT_DIR$" />
     </root>
   </artifact>
 </component>

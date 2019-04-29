@@ -25,18 +25,18 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <span>位置：</span>
     <ul class="placeul">
     <li><a href="#">首页</a></li>
-    <li><a href="#">创建管理员账户</a></li>
+    <li><a href="#">修改管理员账户</a></li>
     </ul>
     </div>
     
     <div class="formbody">
     
-    <div class="formtitle"><span>创建管理员账户</span></div>
+    <div class="formtitle"><span>编辑管理员账户</span></div>
     <form action="<%=basePath%>backstage/admin/doSaveAdmin" method="post">
     <ul class="forminfo">
-    <li><label>账户名</label><input name="username" type="text" class="dfinput" value=""/><i></i></li>
-    <li><label>网名</label><input name="name" type="text" class="dfinput" value=""/><i></i></li>
-    <li><label>&nbsp;</label><input name="" type="submit" class="btn" value="创建管理员账户"/></li>
+    <li><label>账户名</label><input name="username" type="text" class="dfinput" value="${requestScope.admin.username}"/><i></i></li>
+    <li><label>网名</label><input name="name" type="text" class="dfinput" value="${requestScope.admin.name}"/><i></i></li>
+    <li><label>&nbsp;</label><input name="" type="submit" class="btn" value="编辑管理员账户"/></li>
     </ul>
     </form>
     

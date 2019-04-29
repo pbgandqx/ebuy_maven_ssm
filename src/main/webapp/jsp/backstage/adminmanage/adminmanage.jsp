@@ -9,7 +9,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <title>网站后台管理系统HTML模板--模板之家 www.cssmoban.com</title>
+    <title>订餐系统后台管理</title>
     <link href="<%=basePath%>jsp/backstage/css/style.css" rel="stylesheet" type="text/css"/>
     <script type="text/javascript" src="<%=basePath%>jsp/backstage/js/jquery.js"></script>
 
@@ -96,7 +96,7 @@
             <td>${admin.name}</td>
             <td>江苏南京</td>
             <td><fmt:formatDate value="${admin.createTime}" pattern="yyyy年MM月dd日 HH:mm"/></td>
-            <td><a href="#" class="tablelink">查看</a> <a id="${admin.username}" name="deleteAdmin"  href="<%=basePath%>backstage/adminmanage/doDeleteAdmin?id=${admin.id}" class="tablelink"> 删除</a></td>
+            <td><a href="<%=basePath%>backstage/adminmanage/toUpdateAdmin?id=${admin.id}" class="tablelink">修改</a> <a id="${admin.username}" name="deleteAdmin"  href="<%=basePath%>backstage/adminmanage/doDeleteAdmin?id=${admin.id}" class="tablelink"> 删除</a></td>
         </tr>
         </c:forEach>
 
@@ -105,7 +105,7 @@
 
 
     <div class="pagin">
-        <div class="message">共<i class="blue">1256</i>条记录，当前显示第&nbsp;<i class="blue">2&nbsp;</i>页</div>
+        <div class="message">共<i class="blue"></i>条记录，当前显示第&nbsp;<i class="blue">2&nbsp;</i>页</div>
         <ul class="paginList">
 
         </ul>

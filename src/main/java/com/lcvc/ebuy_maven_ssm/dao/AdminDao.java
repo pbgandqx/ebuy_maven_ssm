@@ -61,4 +61,17 @@ public interface AdminDao {
 
    int saveAdmin(Admin admin);
 
+    /**
+     * 查找在数据库中和指定用户名重名的个数
+     * @param username
+     * @return 返回重名的个数，0表示不重名
+     */
+    int existsUsername(@Param(value = "username")String username);
+
+      /*
+       *  根据标识符获取相应的管理账户对象
+       *  @param id
+       *  @return null 表示没有找到
+       * */
+    Admin getAdmin(int id);
 }

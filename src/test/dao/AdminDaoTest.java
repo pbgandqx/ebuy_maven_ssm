@@ -76,4 +76,10 @@ public class AdminDaoTest extends SpringJunitTest {
 
       }
 
+      @Test
+    public void testGetAdmin(){
+          System.out.println(adminDao.getAdmin(1));
+          System.out.println(adminDao.getAdmin(22));
+      }
+
 }

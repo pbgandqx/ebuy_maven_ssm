@@ -41,30 +41,29 @@ public class AdminManageController {
 	//执行管理员添加页面
 
 	@RequestMapping(value = "/backstage/admin/doSaveAdmin", method = RequestMethod.POST)
-	public String doSaveAdmin(Integer id,String username,String name,String password,HttpSession session,HttpServletRequest request){
-		Admin admin=(Admin)session.getAttribute("admin");
-		if (username.equals("")){
-			request.setAttribute("myMessage","添加管理员失败：账户名不能为空！");
-		}else if (password.equals("")){
-			request.setAttribute("myMessage","添加管理员失败：密码不能为空！");
-		} else if (name.equals("")){
-			request.setAttribute("myMessage","添加管理员失败：姓名不能为空！");
-		}else if (adminService.existsAdmin(username,admin.getId())==true){
-			request.setAttribute("myMessage","添加管理员失败：账户名重名！");
-		}
-		else {
-		//	if(adminService.saveAdmin(admin)){
-			//	admin.setId(id);
-				admin.setUsername(username);
-				admin.setPassword(password);
-				admin.setName(name);
-				admin.setCreateTime(new Date());
-				adminService.saveAdmin(admin);
-				request.setAttribute("myMessage","管理员添加成功！");
-			//}
-
+	public String doSaveAdmin(HttpServletRequest request,Admin admin){
+		admin.setUsername(admin.getUsername().trim());
+		admin.setName(admin.getName().trim());
+		if(admin.getUsername().length()==0){
+			request.setAttribute("myMessage","账户创建失败:账户名不能为空");
+		}else if(admin.getName().length()==0){
+			request.setAttribute("myMessage","账户创建失败:网名不能为空");
+		}else if(adminService.existsUsername(admin.getUsername())){
+			request.setAttribute("myMessage","账户创建失败:账户名已存在，请选择其他的账户名");
+		}else{
+			if(adminService.saveAdmin(admin)){
+				request.setAttribute("myMessage","账户创建成功");
+			}else{
+				request.setAttribute("myMessage","账户创建失败");
+			}
 		}
 		return "/jsp/backstage/adminmanage/adminadd.jsp";
 	}
+//跳转到管理员编辑页面
+             @RequestMapping(value = "/backstage/adminmanage/toUpdateAdmin", method = RequestMethod.GET)
+            public String toUpdateAdmin(HttpServletRequest request,Integer id){
+		request.setAttribute("admin",adminService.getAdmin(id));
+	            return "/jsp/backstage/adminmanage/adminupdate.jsp";
+}
 
 }

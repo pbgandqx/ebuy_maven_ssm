@@ -7,6 +7,7 @@ import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
+import java.util.Date;
 import java.util.List;
 
 @Service
@@ -106,8 +107,16 @@ public class AdminService {
         }
     }
 
+    /*
+    * 将账户信息存进数据库
+    * @param  admin
+    * @return true表示保存成功，false表示保存失败
+    * */
+
     public boolean saveAdmin(Admin admin) {
         boolean stsatus = false;
+        admin.setPassword(SHA.getResult("123456"));
+        admin.setCreateTime(new Date());//系统当前时间为创建日期
         if (adminDao.saveAdmin(admin)==1){
             stsatus= true;
         }else {
@@ -115,5 +124,32 @@ public class AdminService {
         }
         return stsatus;
     }
+
+
+    /**
+     * 判断账户名是否存在（用于创建新账户的时候）
+     * @param username
+     * @return true表示存在，false表示存在
+     */
+    public boolean existsUsername(String username){
+        if(adminDao.existsUsername(username)==0){
+            return false;
+        }else{
+            return true;
+        }
+    }
+
+    /*
+        *  根据标识符获取相应的管理账户对象
+        *  @param id
+        *  @return null 表示没有找到
+        * */
+   public Admin getAdmin(Integer id){
+        Admin admin=null;
+        if (id!=null){
+            admin=adminDao.getAdmin(id);
+        }
+        return admin;
+   }
 
 }
