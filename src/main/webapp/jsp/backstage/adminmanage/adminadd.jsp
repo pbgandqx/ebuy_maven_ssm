@@ -32,7 +32,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <div class="formbody">
     
     <div class="formtitle"><span>创建管理员账户</span></div>
-    <form action="<%=basePath%>backstage/admin/doSaveAdmin" method="post">
+    <form action="<%=basePath%>backstage/adminmanage/doSaveAdmin" method="post">
     <ul class="forminfo">
     <li><label>账户名</label><input name="username" type="text" class="dfinput" value=""/><i></i></li>
     <li><label>网名</label><input name="name" type="text" class="dfinput" value=""/><i></i></li>

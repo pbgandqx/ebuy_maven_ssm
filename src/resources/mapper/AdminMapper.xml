@@ -38,7 +38,7 @@
 	</insert>
 
 	<select id="getAdmin" resultType="com.lcvc.ebuy_maven_ssm.model.Admin">
-		select * from admin where id=#{id}
-	</select>
+	select * from admin where id=#{id}
+</select>
 
 </mapper>
