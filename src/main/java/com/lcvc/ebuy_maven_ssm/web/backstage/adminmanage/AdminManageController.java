@@ -68,24 +68,25 @@ public class AdminManageController {
 
     //执行管理员编辑操作
 	@RequestMapping(value = "/backstage/adminmanage/doUpdateAdmin", method = RequestMethod.POST)
-	public String doUpdateAdmin(String username,String name,HttpSession session,HttpServletRequest request){
-		Admin admin=(Admin)session.getAttribute("admin");
-		if (username.equals("")){
-			request.setAttribute("myMessage","账户名不能为空！");
-		}else if (name.equals("")){
-			request.setAttribute("myMessage","姓名不能为空！");
-		}else if (adminService.existsAdmin(username,admin.getId())==true){
-			request.setAttribute("myMessage","账户名重名！");
+	public String doUpdateAdmin(HttpSession session,HttpServletRequest request,Admin admin){
+		admin.setUsername(admin.getUsername().trim());
+		admin.setName(admin.getName().trim());
+		if (admin.getUsername().equals("")){
+			request.setAttribute("myMessage","编辑失败：账户名不能为空！");
+		}else if (admin.getName().equals("")){
+			request.setAttribute("myMessage","编辑失败：网名不能为空！");
+		}else if (adminService.existsAdmin(admin.getUsername(),admin.getId())==true){
+			request.setAttribute("myMessage","编辑失败：账户名重名！");
 		}
 		else {
-			if(adminService.updateAdmin(username,name,admin.getId())){
-				admin.setUsername(username);
-				admin.setName(name);
-				request.setAttribute("myMessage","基本信息修改成功！");
+			if (adminService.updateAdmin(admin.getUsername(),admin.getName(),admin.getId())){
+				request.setAttribute("myMessage","基本信息编辑成功！");
+		}else {
+				request.setAttribute("myMessage","基本信息编辑失败！");
 			}
 
-
 		}
+
 		return "/jsp/backstage/adminmanage/adminupdate.jsp";
 	}
 

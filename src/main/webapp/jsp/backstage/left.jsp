@@ -58,6 +58,33 @@
         </ul>
     </dd>
 
+    <dd>
+        <div class="title">
+            <span><img src="images/leftico01.png"/></span>产品模块
+        </div>
+        <ul class="menuson">
+            <li><cite></cite><a href="<%=basePath%>backstage/product/toProductAdmin" target="rightFrame">产品分类管理</a><i></i></li>
+            <li><cite></cite><a href="<%=basePath%>backstage/admin/toUpdateAdmin" target="rightFrame">产品管理</a><i></i></li>
+        </ul>
+    </dd>
+
+    <dd>
+        <div class="title">
+            <span><img src="images/leftico01.png"/></span>客户模块
+        </div>
+        <ul class="menuson">
+            <li><cite></cite><a href="<%=basePath %>backstage/adminmanage/toManageAdmin" target="rightFrame">客户管理</a><i></i></li>
+        </ul>
+    </dd>
+
+    <dd>
+        <div class="title">
+            <span><img src="images/leftico01.png"/></span>订单管理
+        </div>
+        <ul class="menuson">
+            <li><cite></cite><a href="<%=basePath %>backstage/adminmanage/toManageAdmin" target="rightFrame">所有客户</a><i></i></li>
+        </ul>
+    </dd>
 
 </dl>
 </body>

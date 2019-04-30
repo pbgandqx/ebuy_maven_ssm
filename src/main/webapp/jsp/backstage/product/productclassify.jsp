@@ -30,7 +30,7 @@
             $(".cancel").click(function () {
                 $(".tip").fadeOut(100);
             });
-            
+
             $("a[name='deleteAdmin']").click(function () {
                 var url=$(this).attr("href");
                 var username=$(this).attr("id");
@@ -54,7 +54,7 @@
     <span>位置：</span>
     <ul class="placeul">
         <li><a href="#">首页</a></li>
-        <li><a href="#">管理员账号管理</a></li>
+        <li><a href="#">产品分类管理</a></li>
 
     </ul>
 </div>
@@ -64,9 +64,9 @@
     <div class="tools">
 
         <ul class="toolbar">
-         <a href="<%=basePath%>backstage/adminmanage/toAddAdmin">
-             <li class="click"><span><img src="<%=basePath%>jsp/backstage/images/t01.png"/></span>添加管理账户</li>
-         </a>
+            <a href="<%=basePath%>backstage/adminmanage/toAddAdmin">
+                <li class="click"><span><img src="<%=basePath%>jsp/backstage/images/t01.png"/></span>添加产品分类</li>
+            </a>
         </ul>
 
 
@@ -81,23 +81,26 @@
         <thead>
         <tr>
             <th><input name="" type="checkbox" value="" checked="checked"/></th>
-            <th>账户名<i class="sort"><img src="images/px.gif"/></i></th>
-            <th>姓名</th>
-            <th>籍贯</th>
-            <th>发布时间</th>
+            <th>产品分类名<i class="sort"><img src="images/px.gif"/></i></th>
+            <th>图片</th>
+            <th>外部链接</th>
+            <th>优先级</th>
+            <th>产品数量</th>
             <th>操作</th>
         </tr>
         </thead>
         <tbody>
         <c:forEach var="admin" items="${requestScope.list}">
-        <tr>
-            <td><input name="" type="checkbox" value=""/></td>
-            <td>${admin.username}</td>
-            <td>${admin.name}</td>
-            <td>江苏南京</td>
-            <td><fmt:formatDate value="${admin.createTime}" pattern="yyyy年MM月dd日 HH:mm"/></td>
-            <td><a href="<%=basePath%>backstage/adminmanage/toUpdateAdmin?id=${admin.id}" class="tablelink">修改</a> <a id="${admin.username}" name="deleteAdmin"  href="<%=basePath%>backstage/adminmanage/doDeleteAdmin?id=${admin.id}" class="tablelink"> 删除</a></td>
-        </tr>
+            <tr>
+                <td><input name="" type="checkbox" value=""/></td>
+                <td>${product.name}</td>
+                <td>图片</td>
+                <td>无</td>
+                <td>${producttype.orderNum}</td>
+                <td>${producttype.intro}</td>
+
+                <td><a href="#" class="tablelink">修改</a> <a id="${admin.username}" name="deleteAdmin"  href="<%=basePath%>backstage/adminmanage/doDeleteAdmin?id=${admin.id}" class="tablelink"> 删除</a></td>
+            </tr>
         </c:forEach>
 
         </tbody>

@@ -25,7 +25,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <span>位置：</span>
     <ul class="placeul">
     <li><a href="#">首页</a></li>
-    <li><a href="#">创建管理员账户</a></li>
+    <li><a href="<%=basePath%>/backstage/adminmanage/toManageAdmin">管理员账户</a></li>
+        <li><a href="#">创建管理员账户</a></li>
     </ul>
     </div>
     
