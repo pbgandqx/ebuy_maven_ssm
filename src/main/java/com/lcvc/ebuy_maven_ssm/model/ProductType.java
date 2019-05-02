@@ -84,5 +84,7 @@ public class ProductType implements java.io.Serializable {
 	public void setProductNumber(Integer productNumber) {
 		this.productNumber = productNumber;
 	}
-	
+
+
+
 }

@@ -33,8 +33,8 @@ public class AdminManageController {
 	}
 
 	//跳转到管理员添加页面
-	@RequestMapping(value = "/backstage/adminmanage/toAddAdmin", method = RequestMethod.GET)
-	public String toAddAdmin(HttpServletRequest request){
+	@RequestMapping(value = "/backstage/adminmanage/toSaveAdmin", method = RequestMethod.GET)
+	public String toSaveAdmin(HttpServletRequest request){
 		return "/jsp/backstage/adminmanage/adminadd.jsp";
 	}
 
@@ -48,6 +48,8 @@ public class AdminManageController {
 			request.setAttribute("myMessage","账户创建失败:账户名不能为空");
 		}else if(admin.getName().length()==0){
 			request.setAttribute("myMessage","账户创建失败:网名不能为空");
+		}else if(adminService.existsUsername(admin.getUsername())){
+			request.setAttribute("myMessage","账户创建失败:账户名已存在，请选择其他的账户名");
 		}else if(adminService.existsUsername(admin.getUsername())){
 			request.setAttribute("myMessage","账户创建失败:账户名已存在，请选择其他的账户名");
 		}else{

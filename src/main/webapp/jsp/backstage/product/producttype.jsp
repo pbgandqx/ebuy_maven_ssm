@@ -64,7 +64,7 @@
     <div class="tools">
 
         <ul class="toolbar">
-            <a href="<%=basePath%>backstage/adminmanage/toAddAdmin">
+            <a href="<%=basePath%>backstage/product/toSaveProductType">
                 <li class="click"><span><img src="<%=basePath%>jsp/backstage/images/t01.png"/></span>添加产品分类</li>
             </a>
         </ul>
@@ -90,16 +90,16 @@
         </tr>
         </thead>
         <tbody>
-        <c:forEach var="admin" items="${requestScope.list}">
+        <c:forEach var="producttype" items="${requestScope.list}">
             <tr>
                 <td><input name="" type="checkbox" value=""/></td>
-                <td>${product.name}</td>
+                <td>${producttype.name}</td>
                 <td>图片</td>
                 <td>无</td>
                 <td>${producttype.orderNum}</td>
                 <td>${producttype.intro}</td>
 
-                <td><a href="#" class="tablelink">修改</a> <a id="${admin.username}" name="deleteAdmin"  href="<%=basePath%>backstage/adminmanage/doDeleteAdmin?id=${admin.id}" class="tablelink"> 删除</a></td>
+                <td><a href="#" class="tablelink">修改</a> <a id="" name=""  href="#" class="tablelink"> 删除</a></td>
             </tr>
         </c:forEach>
 

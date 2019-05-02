@@ -74,4 +74,7 @@ public interface AdminDao {
        *  @return null 表示没有找到
        * */
     Admin getAdmin(int id);
+
+
+
 }
