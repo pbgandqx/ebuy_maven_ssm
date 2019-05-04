@@ -31,10 +31,10 @@
                 $(".tip").fadeOut(100);
             });
 
-            $("a[name='deleteAdmin']").click(function () {
+            $("a[name='deleteProductType']").click(function () {
                 var url=$(this).attr("href");
-                var username=$(this).attr("id");
-                if(window.confirm("确认删除该账户("+username+")吗？")){
+                var name=$(this).attr("id");
+                if(window.confirm("确认删除该产品分类("+name+")吗？")){
                     return true;//执行链接跳转
                 }else{
                     return false;//不执行链接的跳转
@@ -99,7 +99,7 @@
                 <td>${producttype.orderNum}</td>
                 <td>${producttype.intro}</td>
 
-                <td><a href="#" class="tablelink">修改</a> <a id="" name=""  href="#" class="tablelink"> 删除</a></td>
+                <td><a href="<%=basePath%>/backstage/product/toProductTypeupdate" class="tablelink">修改</a> <a id="${producttype.name}" name="deleteProductType"  href="<%=basePath%>backstage/product/dodeleteProductType?id=${producttype.id}" class="tablelink"> 删除</a></td>
             </tr>
         </c:forEach>
 

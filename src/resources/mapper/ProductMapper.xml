@@ -13,5 +13,19 @@
 		insert into producttype(id,name,linkUrl,imageUrl,intro,orderNum) values(null,#{name},#{linkUrl},#{imageUrl},#{intro},#{orderNum})
 	</insert>
 
+	<delete id="deleteProductType">
+		delete from producttype where id=#{id}
+	</delete>
 
+	<select id="existsProductType" resultType="int">
+		select count(id) from producttype where name=#{name} and id!=#{id}
+	</select>
+
+	<update id="updateProductType">
+		update producttype set name=#{name} where id=#{id}
+	</update>
+
+	<select id="getProductType" resultType="com.lcvc.ebuy_maven_ssm.model.ProductType">
+		select * from producttype where id=#{id}
+	</select>
 </mapper>
