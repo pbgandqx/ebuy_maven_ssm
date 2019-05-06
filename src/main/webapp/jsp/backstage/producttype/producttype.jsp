@@ -64,7 +64,7 @@
     <div class="tools">
 
         <ul class="toolbar">
-            <a href="<%=basePath%>backstage/product/toSaveProductType">
+            <a href="<%=basePath%>backstage/producttype/toSaveProductType">
                 <li class="click"><span><img src="<%=basePath%>jsp/backstage/images/t01.png"/></span>添加产品分类</li>
             </a>
         </ul>
@@ -95,11 +95,11 @@
                 <td><input name="" type="checkbox" value=""/></td>
                 <td>${producttype.name}</td>
                 <td>图片</td>
-                <td>无</td>
+                <td>无${producttype.linkUrl}</td>
                 <td>${producttype.orderNum}</td>
                 <td>${producttype.intro}</td>
 
-                <td><a href="<%=basePath%>/backstage/product/toProductTypeupdate" class="tablelink">修改</a> <a id="${producttype.name}" name="deleteProductType"  href="<%=basePath%>backstage/product/dodeleteProductType?id=${producttype.id}" class="tablelink"> 删除</a></td>
+                <td><a href="<%=basePath%>backstage/producttype/toProductTypeupdate" class="tablelink">修改</a> <a id="${producttype.name}" name="deleteProductType"  href="<%=basePath%>backstage/producttype/dodeleteProductType?id=${producttype.id}" class="tablelink"> 删除</a></td>
             </tr>
         </c:forEach>
 

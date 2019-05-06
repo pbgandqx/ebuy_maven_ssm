@@ -25,7 +25,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <span>位置：</span>
     <ul class="placeul">
     <li><a href="#">首页</a></li>
-    <li><a href="<%=basePath%>/backstage/product/toProducttype">产品类别管理</a></li>
+    <li><a href="<%=basePath%>/backstage/producttype/toProducttype">产品类别管理</a></li>
         <li><a href="#">产品类别添加</a></li>
     </ul>
     </div>
@@ -33,15 +33,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <div class="formbody">
     
     <div class="formtitle"><span>产品类别添加</span></div>
-    <form action="<%=basePath%>backstage/product/doSaveProductType" method="post">
+    <form action="<%=basePath%>backstage/producttype/doSaveProductType" method="post">
     <ul class="forminfo">
-        <input name="id" type="hidden" class="dfinput"
-               value="${requestScope.productType.id}"/>
-    <li><label>*产品分类名称</label><input name="name" type="text" class="dfinput" value="${productType.name}"/><i></i></li>
-    <li><label>*图片</label><input name="imageUrl" type="text" class="dfinput" value="${productType.imageUrl}"/><i></i></li>
-        <li><label>*优先级</label><input name="name" type="text" class="dfinput" value=""/><i></i></li>
-        <li><label>外部链接地址</label><input name="linkUrl" type="text" class="dfinput" value="${productType.linkUrl}"/><i></i></li>
-        <li><label>产品描述</label><input name="name" type="text" class="dfinput" value=""/><i></i></li>
+    <li><label>*产品分类名称</label><input name="name" type="text" class="dfinput" /><i></i></li>
+    <li><label>*图片</label><input name="imageUrl" type="text" class="dfinput"/><i></i></li>
+        <li><label>*优先级</label><input name="orderNum" type="text" class="dfinput" /><i></i></li>
+        <li><label>外部链接地址</label><input name="linkUrl" type="text" class="dfinput" /><i></i></li>
+        <li><label>产品描述</label><input name="intro" type="text" class="dfinput"/><i></i></li>
         <li><label>&nbsp;</label><input name="" type="submit" class="btn" value="添加产品类别"/></li>
     </ul>
     </form>

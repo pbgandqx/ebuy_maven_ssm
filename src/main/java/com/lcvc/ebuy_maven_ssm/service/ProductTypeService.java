@@ -1,28 +1,23 @@
 package com.lcvc.ebuy_maven_ssm.service;
 
-import com.lcvc.ebuy_maven_ssm.dao.AdminDao;
-import com.lcvc.ebuy_maven_ssm.dao.ProductDao;
-import com.lcvc.ebuy_maven_ssm.model.Admin;
-import com.lcvc.ebuy_maven_ssm.model.Product;
+import com.lcvc.ebuy_maven_ssm.dao.ProductTypeDao;
 import com.lcvc.ebuy_maven_ssm.model.ProductType;
-import com.lcvc.ebuy_maven_ssm.util.SHA;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
-import java.util.Date;
 import java.util.List;
 
 @Service
-public class ProductService {
+public class ProductTypeService {
     @Resource
-    private ProductDao productDao;
+    private ProductTypeDao productTypeDao;
 
     /**
      * 返回所有的管理账户集合
      * @return 以List方式返回
      */
     public List<ProductType> getProductTypeList(){
-        return productDao.getProductTypeList();
+        return productTypeDao.getProductTypeList();
     }
 
  /*
@@ -32,7 +27,7 @@ public class ProductService {
     * */
  public boolean SaveProductType(ProductType productType) {
      boolean stsatus = false;
-     if (productDao.SaveProductType(productType)==1){
+     if (productTypeDao.SaveProductType(productType)==1){
          stsatus= true;
      }else {
          stsatus= false;
@@ -44,16 +39,12 @@ public class ProductService {
      * @param id 被删除的账户id
      * @return true表示删除成功
      */
-    public boolean deleteProductType(Integer id,Integer productTypeId){
+    public boolean deleteProductType(Integer id){
         boolean status=false;//存储修改结果
-        if(id!=null&&productTypeId!=null){
-            if(productTypeId!=id.intValue()){//如果不是自己删除自己
-                int n=productDao.deleteProductType(id);
+        int n=productTypeDao.deleteProductType(id);
                 if(n==1){
                     status=true;
                 }
-            }
-        }
         return status;
     }
 
@@ -64,7 +55,7 @@ public class ProductService {
      * @return 返回重名的个数
      */
     public boolean existsProductType(String name,Integer id){
-        if (productDao.existsProductType(name,id)==0){
+        if (productTypeDao.existsProductType(name,id)==0){
             return false;
         }else {
             return true;
@@ -80,15 +71,14 @@ public class ProductService {
      * @param
      * @return false表示修改失败，true表示修改成功
      */
-    public boolean updateProductType(String name,Integer id){
+    public boolean updateProductType(ProductType productType){
         boolean status=false;//存储修改结果
-        if(productDao.existsProductType(name,id)==0){//如果不重名
-            if(productDao.updateProductType(name,id)==1){
+            if(productTypeDao.updateProductType(productType)==1){
                 status=true;
             }else{
                 status=false;
             }
-        }
+
         return status;
     }
 
@@ -100,7 +90,7 @@ public class ProductService {
     public ProductType getProductType(Integer id){
         ProductType productType=null;
         if (id!=null){
-            productType=productDao.getProductType(id);
+            productType=productTypeDao.getProductType(id);
         }
         return productType;
     }

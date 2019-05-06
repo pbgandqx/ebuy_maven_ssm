@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-public interface ProductDao {
+public interface ProductTypeDao {
 
     /**
      * 返回所有的管理账户集合
@@ -31,7 +31,7 @@ public interface ProductDao {
      * 修改账户的基本信息
      * @return 更改了多少条记录
      */
-    int updateProductType(@Param(value = "name")String name,@Param(value = "id")Integer id);
+    int updateProductType(ProductType productType);
 
     /**
      * 查找在数据库中和指定用户名重名的个数
