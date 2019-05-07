@@ -73,7 +73,7 @@
             <span><img src="images/leftico01.png"/></span>客户模块
         </div>
         <ul class="menuson">
-            <li><cite></cite><a href="<%=basePath %>backstage/adminmanage/toManageAdmin" target="rightFrame">客户管理</a><i></i></li>
+            <li><cite></cite><a href="<%=basePath %>backstage/customer/tocustomer" target="rightFrame">客户管理</a><i></i></li>
         </ul>
     </dd>
 

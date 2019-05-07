@@ -42,7 +42,7 @@
             <li><label>*图片</label><input name="imageUrl" type="text" class="dfinput" value="${requestScope.producttype.imageUrl}"/><i></i></li>
             <li><label>*优先级</label><input name="orderNum" type="text" class="dfinput" value="${requestScope.producttype.orderNum}"/><i></i></li>
             <li><label>外部链接地址</label><input name="linkUrl" type="text" class="dfinput" value="${requestScope.producttype.linkUrl}"/><i></i></li>
-            <li><label>产品描述</label><input name="intro" type="text" class="dfinput" value="${requestScope.producttype.intro}"/><i></i></li>
+            <li><label>产品描述</label><input style="height:180px;width:500px" name="intro" type="text" class="dfinput" value="${requestScope.producttype.intro}"/><i></i></li>
             <li><label>&nbsp;</label><input name="" type="submit" class="btn" value="编辑产品类别"/></li>
         </ul>
     </form>

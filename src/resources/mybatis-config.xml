@@ -13,6 +13,7 @@
          userMapper.xml位于me.gacl.mapping这个包下，所以resource写成me/gacl/mapping/userMapper.xml-->
         <mapper resource="mapper/AdminMapper.xml"/>
         <mapper resource="mapper/ProductTypeMapper.xml"/>
+        <mapper resource="mapper/CustomerMapper.xml"/>
      </mappers>
     
 </configuration>

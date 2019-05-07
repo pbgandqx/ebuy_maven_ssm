@@ -31,10 +31,10 @@
                 $(".tip").fadeOut(100);
             });
 
-            $("a[name='deleteProductType']").click(function () {
+            $("a[name='deleteCustomer']").click(function () {
                 var url=$(this).attr("href");
                 var name=$(this).attr("id");
-                if(window.confirm("确认删除该产品分类("+name+")吗？")){
+                if(window.confirm("确认删除该客户("+name+")吗？")){
                     return true;//执行链接跳转
                 }else{
                     return false;//不执行链接的跳转
@@ -54,7 +54,7 @@
     <span>位置：</span>
     <ul class="placeul">
         <li><a href="#">首页</a></li>
-        <li><a href="#">产品分类管理</a></li>
+        <li><a href="#">客户管理</a></li>
 
     </ul>
 </div>
@@ -64,8 +64,8 @@
     <div class="tools">
 
         <ul class="toolbar">
-            <a href="<%=basePath%>backstage/producttype/toSaveProductType">
-                <li class="click"><span><img src="<%=basePath%>jsp/backstage/images/t01.png"/></span>添加产品分类</li>
+            <a href="<%=basePath%>backstage/customer/toSaveCustomer">
+                <li class="click"><span><img src="<%=basePath%>jsp/backstage/images/t01.png"/></span>添加客户</li>
             </a>
         </ul>
 
@@ -81,25 +81,27 @@
         <thead>
         <tr>
             <th><input name="" type="checkbox" value="" checked="checked"/></th>
-            <th>产品分类名<i class="sort"><img src="images/px.gif"/></i></th>
-            <th>图片</th>
-            <th>外部链接</th>
-            <th>优先级</th>
-            <th>产品数量</th>
+            <th>账号名<i class="sort"><img src="images/px.gif"/></i></th>
+            <th>名字</th>
+            <th>电子邮箱</th>
+            <th>注册时间</th>
+            <th>订单数量</th>
+            <th>消费金额</th>
             <th>操作</th>
         </tr>
         </thead>
         <tbody>
-        <c:forEach var="producttype" items="${requestScope.list}">
+        <c:forEach var="customer" items="${requestScope.list}">
             <tr>
                 <td><input name="" type="checkbox" value=""/></td>
-                <td>${producttype.name}</td>
-                <td>${producttype.imageUrl}</td>
-                <td>${producttype.linkUrl}</td>
-                <td>${producttype.orderNum}</td>
-                <td>${producttype.intro}</td>
+                <td>${customer.username}</td>
+                <td>${customer.name}</td>
+                <td>${customer.email}</td>
+                <td>${customer.createTime}</td>
+                <td></td>
+                <td></td>
 
-                <td><a href="<%=basePath%>backstage/producttype/toProductTypeupdate?id=${producttype.id}" class="tablelink">修改</a> <a id="${producttype.name}" name="deleteProductType"  href="<%=basePath%>backstage/producttype/dodeleteProductType?id=${producttype.id}" class="tablelink"> 删除</a></td>
+                <td><a href="<%=basePath%>backstage/customer/toCustomerUpdate?id=${customer.id}" class="tablelink">修改</a> <a id="${customer.username}" name="deleteCustomer"  href="<%=basePath%>backstage/customer/dodeleteCustomer?id=${customer.id}" class="tablelink"> 删除</a></td>
             </tr>
         </c:forEach>
 

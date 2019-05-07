@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- 为这个mapper指定一个唯一的namespace，namespace的值习惯上设置成包名+sql映射文件名，这样就能够保证namespace的值是唯一的
+例如namespace="com.cn.mybatis.test1.dao.userMapper"就是com.cn.mybatis.test1.dao(包名)+userMapper(userMapper.xml文件去除后缀)
+ -->
+<mapper namespace="com.lcvc.ebuy_maven_ssm.dao.CustomerDao">
+
+	<select id="getCustomerList" resultType="com.lcvc.ebuy_maven_ssm.model.Customer">
+		select * from customer order by id asc
+	</select>
+
+	<insert id="SaveCustomer">
+		insert into customer(id,username,name,picUrl,tel,address,zip,email,intro) values(null,#{username},#{name},#{picUrl},#{tel},#{address},#{zip},#{email},#{intro})
+	</insert>
+
+	<delete id="deleteCustomer">
+		delete from customer where id=#{id}
+	</delete>
+
+	<update id="updateCustomer">
+		update customer set username=#{username}, name=#{name},picUrl=#{picUrl},tel=#{tel},address=#{address},zip=#{zip}, email=#{email},intro=#{intro}where id=#{id}
+	</update>
+
+	<select id="getCustomer" resultType="com.lcvc.ebuy_maven_ssm.model.Customer">
+		select * from customer where id=#{id}
+	</select>
+
+	<select id="existsUsername" resultType="int">
+		select count(id) from customer where username=#{username}
+	</select>
+</mapper>
