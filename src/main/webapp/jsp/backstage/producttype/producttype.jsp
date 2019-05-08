@@ -94,8 +94,28 @@
             <tr>
                 <td><input name="" type="checkbox" value=""/></td>
                 <td>${producttype.name}</td>
-                <td>${producttype.imageUrl}</td>
-                <td>${producttype.linkUrl}</td>
+                <td>
+                    <c:choose>
+                        <c:when test="${producttype.imageUrl==null||producttype.imageUrl==''}">
+                            无图片
+                        </c:when>
+                        <c:otherwise>
+                            有图片
+                        </c:otherwise>
+                    </c:choose>
+
+                        </td>
+                <td>
+                    <c:choose>
+                        <c:when test=" ${producttype.linkUrl==null||producttype.linkUrl==''}">
+                            无
+                        </c:when>
+                        <c:otherwise>
+                            ${producttype.linkUrl}
+                        </c:otherwise>
+                    </c:choose>
+
+                       </td>
                 <td>${producttype.orderNum}</td>
                 <td>${producttype.intro}</td>
 

@@ -64,7 +64,7 @@
         </div>
         <ul class="menuson">
             <li><cite></cite><a href="<%=basePath%>backstage/producttype/toProducttype" target="rightFrame">产品分类管理</a><i></i></li>
-            <li><cite></cite><a href="<%=basePath%>backstage/admin/toUpdateAdmin" target="rightFrame">产品管理</a><i></i></li>
+            <li><cite></cite><a href="<%=basePath%>backstage/product/toProduct" target="rightFrame">产品管理</a><i></i></li>
         </ul>
     </dd>
 

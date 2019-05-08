@@ -30,11 +30,11 @@
             $(".cancel").click(function () {
                 $(".tip").fadeOut(100);
             });
-            
-            $("a[name='deleteAdmin']").click(function () {
+
+            $("a[name='deleteProductType']").click(function () {
                 var url=$(this).attr("href");
-                var username=$(this).attr("id");
-                if(window.confirm("确认删除该账户("+username+")吗？")){
+                var name=$(this).attr("id");
+                if(window.confirm("确认删除该产品分类("+name+")吗？")){
                     return true;//执行链接跳转
                 }else{
                     return false;//不执行链接的跳转
@@ -54,7 +54,7 @@
     <span>位置：</span>
     <ul class="placeul">
         <li><a href="#">首页</a></li>
-        <li><a href="#">管理员账号管理</a></li>
+        <li><a href="#">产品管理</a></li>
 
     </ul>
 </div>
@@ -64,9 +64,9 @@
     <div class="tools">
 
         <ul class="toolbar">
-         <a href="<%=basePath%>backstage/adminmanage/toSaveAdmin">
-             <li class="click"><span><img src="<%=basePath%>jsp/backstage/images/t01.png"/></span>添加管理账户</li>
-         </a>
+            <a href="<%=basePath%>backstage/producte/toSaveProduct">
+                <li class="click"><span><img src="<%=basePath%>jsp/backstage/images/t01.png"/></span>添加产品</li>
+            </a>
         </ul>
 
 
@@ -81,23 +81,32 @@
         <thead>
         <tr>
             <th><input name="" type="checkbox" value="" checked="checked"/></th>
-            <th>账户名<i class="sort"><img src="images/px.gif"/></i></th>
-            <th>姓名</th>
-            <th>籍贯</th>
-            <th>发布时间</th>
+            <th>产品图片</th>
+            <th>产品名<i class="sort"><img src="images/px.gif"/></i></th>
+            <th>产品分类</th>
+            <th>产品价格</th>
+            <th>发布人</th>
+            <th>是否上架</th>
+            <th>库存</th>
+            <th>点击数</th>
             <th>操作</th>
         </tr>
         </thead>
         <tbody>
-        <c:forEach var="admin" items="${requestScope.list}">
-        <tr>
-            <td><input name="" type="checkbox" value=""/></td>
-            <td>${admin.username}</td>
-            <td>${admin.name}</td>
-            <td>江苏南京</td>
-            <td><fmt:formatDate value="${admin.createTime}" pattern="yyyy年MM月dd日 HH:mm"/></td>
-            <td><a href="<%=basePath%>backstage/adminmanage/toUpdateAdmin?id=${admin.id}" class="tablelink">修改</a> <a id="${admin.username}" name="deleteAdmin"  href="<%=basePath%>backstage/adminmanage/doDeleteAdmin?id=${admin.id}" class="tablelink"> 删除</a></td>
-        </tr>
+        <c:forEach var="product" items="${requestScope.list}">
+            <tr>
+                <td><input name="" type="checkbox" value=""/></td>
+                <td>${product.picUrl}</td>
+                <td>${product.name}</td>
+                <td>产品分类</td>
+                <td>${product.price}</td>
+                <td>${product.creator}</td>
+                <td>${product.onSale}</td>
+                <td>${product.number}</td>
+                <td>${product.click}</td>
+
+                <td><a href="<%=basePath%>backstage/producttype/toProductTypeupdate?id=${producttype.id}" class="tablelink">修改</a> <a id="${producttype.name}" name="deleteProductType"  href="<%=basePath%>backstage/producttype/dodeleteProductType?id=${producttype.id}" class="tablelink"> 删除</a></td>
+            </tr>
         </c:forEach>
 
         </tbody>

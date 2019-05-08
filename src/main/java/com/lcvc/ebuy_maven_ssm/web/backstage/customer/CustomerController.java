@@ -78,7 +78,7 @@ public class CustomerController {
         if (customer.getUsername().equals("")) {
             request.setAttribute("myMessage", "编辑失败：客户账号名不能为空！");
         } else if (customer.getName().equals("")) {
-            request.setAttribute("myMessage", "客户添加:客户名字不能为空！");
+            request.setAttribute("myMessage", "编辑失败:客户名字不能为空！");
         }  else {
             if (customerService.updateCustomer(customer)) {
                 request.setAttribute("myMessage", "客户信息编辑成功！");

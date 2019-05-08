@@ -10,7 +10,7 @@
 	</select>
 
 	<insert id="SaveCustomer">
-		insert into customer(id,username,name,picUrl,tel,address,zip,email,intro) values(null,#{username},#{name},#{picUrl},#{tel},#{address},#{zip},#{email},#{intro})
+		insert into customer(id,username,name,password,picUrl,tel,address,zip,email,intro,createTime) values(null,#{username},#{name},#{password},#{picUrl},#{tel},#{address},#{zip},#{email},#{intro},#{createTime})
 	</insert>
 
 	<delete id="deleteCustomer">

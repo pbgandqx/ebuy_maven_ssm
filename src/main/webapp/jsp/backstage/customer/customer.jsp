@@ -97,7 +97,8 @@
                 <td>${customer.username}</td>
                 <td>${customer.name}</td>
                 <td>${customer.email}</td>
-                <td>${customer.createTime}</td>
+              <%--  <td>${customer.createTime}</td>--%>
+                <td><fmt:formatDate value="${customer.createTime}" pattern="yyyy年MM月dd日 HH:mm"/></td>
                 <td></td>
                 <td></td>
 
