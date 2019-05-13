@@ -38,7 +38,7 @@ public class ProductTypeController {
             request.setAttribute("myMessage", "产品分类添加:产品名称不能为空");
         } else if (productType.getImageUrl().length() == 0) {
             request.setAttribute("myMessage", "产品分类添加:产品图片不能为空");
-        } else if (productType.getLinkUrl().length() == 0) {
+        } else if (productType.getOrderNum().equals("")) {
             request.setAttribute("myMessage", "产品分类添加:产品优先级不能为空");
         } else {
             if (productTypeService.SaveProductType(productType)) {

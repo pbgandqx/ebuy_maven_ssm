@@ -16,7 +16,7 @@ public interface ProductDao {
      */
     List<Product> getProductList();
 
-     int SaveProductType(ProductType productType);
+     int SaveProduct(Product product);
 
 
     /**
@@ -46,6 +46,6 @@ public interface ProductDao {
        *  @param id
        *  @return null 表示没有找到
        * */
-    ProductType getProductType(int id);
+    Product getProduct(int id);
 
 }

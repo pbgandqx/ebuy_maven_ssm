@@ -9,23 +9,23 @@
 		select * from product order by id asc
 	</select>
 
-	<insert id="SaveProductType">
-		insert into producttype(id,name,linkUrl,imageUrl,intro,orderNum) values(null,#{name},#{linkUrl},#{imageUrl},#{intro},#{orderNum})
+	<insert id="SaveProduct">
+		insert into product(id,name,picUrl,productTypeId,orderNum,description,) values(null,#{name},#{picUrl},#{productTypeId},#{orderNum},#{description})
 	</insert>
 
-	<delete id="deleteProductType">
-		delete from producttype where id=#{id}
+	<delete id="deleteProduct">
+		delete from product where id=#{id}
 	</delete>
 
-	<select id="existsProductType" resultType="int">
+	<select id="existsProduct" resultType="int">
 		select count(id) from producttype where name=#{name} and id!=#{id}
 	</select>
 
-	<update id="updateProductType">
-		update producttype set name=#{name},linkUrl=#{linkUrl},imageUrl=#{imageUrl},intro=#{intro},orderNum=#{orderNum} where id=#{id}
+	<update id="updateProduct">
+		update product set name=#{name},linkUrl=#{linkUrl},imageUrl=#{imageUrl},intro=#{intro},orderNum=#{orderNum} where id=#{id}
 	</update>
 
-	<select id="getProductType" resultType="com.lcvc.ebuy_maven_ssm.model.ProductType">
-		select * from producttype where id=#{id}
+	<select id="getProduct" resultType="com.lcvc.ebuy_maven_ssm.model.ProductType">
+		select * from product where id=#{id}
 	</select>
 </mapper>

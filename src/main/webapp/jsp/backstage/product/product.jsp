@@ -64,7 +64,7 @@
     <div class="tools">
 
         <ul class="toolbar">
-            <a href="<%=basePath%>backstage/producte/toSaveProduct">
+            <a href="<%=basePath%>backstage/product/toSaveProduct">
                 <li class="click"><span><img src="<%=basePath%>jsp/backstage/images/t01.png"/></span>添加产品</li>
             </a>
         </ul>
@@ -82,7 +82,7 @@
         <tr>
             <th><input name="" type="checkbox" value="" checked="checked"/></th>
             <th>产品图片</th>
-            <th>产品名<i class="sort"><img src="images/px.gif"/></i></th>
+            <th>产品名</i></th>
             <th>产品分类</th>
             <th>产品价格</th>
             <th>发布人</th>
@@ -97,15 +97,30 @@
             <tr>
                 <td><input name="" type="checkbox" value=""/></td>
                 <td>${product.picUrl}</td>
-                <td>${product.name}</td>
-                <td>产品分类</td>
-                <td>${product.price}</td>
+                <td style="text-align: center;">${product.name}
+                <p style="color: #7f7f7f">发布时间：${product.createTime}</p>
+                </td>
+                <td>产品分类
+                <p style="color: #7f7f7f;line-height: 8px">ID:${product.id}</p>
+                </td>
+                <td style="color: red">${product.price}<br/>
+                    <p style="color: #7f7f7f;line-height: 8px"><s>${product.originalPrice}</s></p>
+                </td>
                 <td>${product.creator}</td>
-                <td>${product.onSale}</td>
+                <td>
+                    <c:choose>
+                        <c:when test="${product.onSale==true}">
+                            上架中
+                        </c:when>
+                        <c:otherwise>
+                            否
+                        </c:otherwise>
+                    </c:choose>
+                </td>
                 <td>${product.number}</td>
                 <td>${product.click}</td>
 
-                <td><a href="<%=basePath%>backstage/producttype/toProductTypeupdate?id=${producttype.id}" class="tablelink">修改</a> <a id="${producttype.name}" name="deleteProductType"  href="<%=basePath%>backstage/producttype/dodeleteProductType?id=${producttype.id}" class="tablelink"> 删除</a></td>
+                <td><a href="<%=basePath%>backstage/product/toProductupdate?id=${product.id}" class="tablelink">修改</a> <a id="${producttype.name}" name="deleteProductType"  href="<%=basePath%>backstage/producttype/dodeleteProductType?id=${producttype.id}" class="tablelink"> 删除</a></td>
             </tr>
         </c:forEach>
 

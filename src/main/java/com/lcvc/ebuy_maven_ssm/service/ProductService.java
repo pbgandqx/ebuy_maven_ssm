@@ -27,9 +27,9 @@ public class ProductService {
     * @param  producttype
     * @return true表示保存成功，false表示保存失败
     * */
- public boolean SaveProductType(ProductType productType) {
+ public boolean SaveProduct(Product product) {
      boolean stsatus = false;
-     if (productDao.SaveProductType(productType)==1){
+     if (productDao.SaveProduct(product)==1){
          stsatus= true;
      }else {
          stsatus= false;
@@ -89,11 +89,11 @@ public class ProductService {
         *  @param id
         *  @return null 表示没有找到
         * */
-    public ProductType getProductType(Integer id){
-        ProductType productType=null;
+    public Product getProduct(Integer id){
+        Product product=null;
         if (id!=null){
-            productType=productDao.getProductType(id);
+            product=productDao.getProduct(id);
         }
-        return productType;
+        return product;
     }
 }

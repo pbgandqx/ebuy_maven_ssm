@@ -39,11 +39,14 @@
                    value="${requestScope.producttype.id}"/>--%>
             <li><label></label><input name="id" type="hidden" class="dfinput" value="${requestScope.producttype.id}"/><i></i></li>
             <li><label>*产品分类名称</label><input name="name" type="text" class="dfinput" value="${requestScope.producttype.name}"/><i></i></li>
-            <li><label>*图片</label><input name="imageUrl" type="text" class="dfinput" value="${requestScope.producttype.imageUrl}"/><i></i></li>
+            <li><label>*图片</label><input name="imageUrl" type="text" class="dfinput" value="${requestScope.producttype.imageUrl}"/>
+                <input type="button" id="image1" class="dfinput" style="width:120px;" value="点我选择图片" />
+                <a href="#" id="clearImagePath1">清除选择图片路径</a>
+                <i></i></li>
             <li><label>*优先级</label><input name="orderNum" type="text" class="dfinput" value="${requestScope.producttype.orderNum}"/><i></i></li>
             <li><label>外部链接地址</label><input name="linkUrl" type="text" class="dfinput" value="${requestScope.producttype.linkUrl}"/><i></i></li>
-            <li><label>产品描述</label><input style="height:180px;width:500px" name="intro" type="text" class="dfinput" value="${requestScope.producttype.intro}"/><i></i></li>
-            <li><label>&nbsp;</label><input name="" type="submit" class="btn" value="编辑产品类别"/></li>
+           <li><label>产品描述</label><textarea name="intro" cols="90" rows="30" class="textinput" value="${requestScope.producttype.intro}}"></textarea><i></i></li>
+           <li><label>&nbsp;</label><input name="" type="submit" class="btn" value="编辑产品类别"/></li>
         </ul>
     </form>
 
