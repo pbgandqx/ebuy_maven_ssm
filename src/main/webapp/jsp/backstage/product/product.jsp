@@ -82,7 +82,7 @@
         <tr>
             <th><input name="" type="checkbox" value="" checked="checked"/></th>
             <th>产品图片</th>
-            <th>产品名</i></th>
+            <th>产品名</th>
             <th>产品分类</th>
             <th>产品价格</th>
             <th>发布人</th>
@@ -100,7 +100,7 @@
                 <td style="text-align: center;">${product.name}
                 <p style="color: #7f7f7f">发布时间：${product.createTime}</p>
                 </td>
-                <td>产品分类
+                <td>${product.productTypeId}
                 <p style="color: #7f7f7f;line-height: 8px">ID:${product.id}</p>
                 </td>
                 <td style="color: red">${product.price}<br/>

@@ -9,7 +9,7 @@ package com.lcvc.ebuy_maven_ssm.model;
 public class Product implements java.io.Serializable {
 
 	private Integer id;
-	private ProductType productType;//所属产品类别
+	private ProductType productTypeId;//所属产品类别
 	private String name;//产品名称
 	private Integer orderNum;//优先级
 	private String description;//产品描述
@@ -52,12 +52,12 @@ public class Product implements java.io.Serializable {
 
 	
 
-	public ProductType getProductType() {
-		return productType;
+	public ProductType getProductTypeId() {
+		return productTypeId;
 	}
 
-	public void setProductType(ProductType productType) {
-		this.productType = productType;
+	public void setProductTypeId(ProductType productTypeId) {
+		this.productTypeId = productTypeId;
 	}
 
 	public String getName() {

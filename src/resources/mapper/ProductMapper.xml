@@ -10,7 +10,7 @@
 	</select>
 
 	<insert id="SaveProduct">
-		insert into product(id,name,picUrl,productTypeId,orderNum,description,) values(null,#{name},#{picUrl},#{productTypeId},#{orderNum},#{description})
+		insert into product(id,name,picUrl,productTypeId,orderNum,description,content,price,originalPrice,click,onSale,createTime) values(null,#{name},#{picUrl},#{productTypeId},#{orderNum},#{description},#{content},#{price},#{originalPrice},#{click},#{onSale},#{createTime})
 	</insert>
 
 	<delete id="deleteProduct">
@@ -22,10 +22,10 @@
 	</select>
 
 	<update id="updateProduct">
-		update product set name=#{name},linkUrl=#{linkUrl},imageUrl=#{imageUrl},intro=#{intro},orderNum=#{orderNum} where id=#{id}
+		update product set name=#{name},picUrl=#{pickUrl},productTypeId=#{productTypeId},orderNum=#{orderNum},description=#{description},content=#{content},price=#{price},originalPrice=#{originalPrice},click=#{click},onSale=#{onSale},createTime=#{createTime} where id=#{id}
 	</update>
 
-	<select id="getProduct" resultType="com.lcvc.ebuy_maven_ssm.model.ProductType">
+	<select id="getProduct" resultType="com.lcvc.ebuy_maven_ssm.model.Product">
 		select * from product where id=#{id}
 	</select>
 </mapper>

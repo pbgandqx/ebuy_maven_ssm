@@ -24,13 +24,13 @@ public interface ProductDao {
      * @param id 关键字
      * @return 删除了多少条记录
      */
-    int deleteProductType(Integer id);
+    int deleteProduct(Integer id);
 
     /**
      * 修改账户的基本信息
      * @return 更改了多少条记录
      */
-    int updateProductType(ProductType productType);
+    int updateProduct(Product product);
 
     /**
      * 查找在数据库中和指定用户名重名的个数
@@ -47,5 +47,4 @@ public interface ProductDao {
        *  @return null 表示没有找到
        * */
     Product getProduct(int id);
-
 }

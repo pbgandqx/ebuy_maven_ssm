@@ -41,9 +41,9 @@ public class ProductService {
      * @param id 被删除的账户id
      * @return true表示删除成功
      */
-    public boolean deleteProductType(Integer id){
+    public boolean deleteProduct(Integer id){
         boolean status=false;//存储修改结果
-        int n=productDao.deleteProductType(id);
+        int n=productDao.deleteProduct(id);
                 if(n==1){
                     status=true;
                 }
@@ -73,9 +73,9 @@ public class ProductService {
      * @param
      * @return false表示修改失败，true表示修改成功
      */
-    public boolean updateProductType(ProductType productType){
+    public boolean updateProduct(Product product){
         boolean status=false;//存储修改结果
-            if(productDao.updateProductType(productType)==1){
+            if(productDao.updateProduct(product)==1){
                 status=true;
             }else{
                 status=false;
