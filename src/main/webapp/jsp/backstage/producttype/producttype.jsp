@@ -90,36 +90,36 @@
         </tr>
         </thead>
         <tbody>
-        <c:forEach var="producttype" items="${requestScope.list}">
+        <c:forEach var="productType" items="${requestScope.list}">
             <tr>
                 <td><input name="" type="checkbox" value=""/></td>
-                <td>${producttype.name}</td>
+                <td>${productType.name}</td>
                 <td>
                     <c:choose>
-                        <c:when test="${producttype.imageUrl==null||producttype.imageUrl==''}">
+                        <c:when test="${productType.imageUrl==null||productType.imageUrl==''}">
                             无图片
                         </c:when>
                         <c:otherwise>
-                            有图片
+                         ${productType.imageUrl}
                         </c:otherwise>
                     </c:choose>
 
                         </td>
                 <td>
                     <c:choose>
-                        <c:when test=" ${producttype.linkUrl==null||producttype.linkUrl==''}">
+                        <c:when test=" ${productType.linkUrl==null||productType.linkUrl==''}">
                             无
                         </c:when>
                         <c:otherwise>
-                            ${producttype.linkUrl}
+                            ${productType.linkUrl}
                         </c:otherwise>
                     </c:choose>
 
                        </td>
-                <td>${producttype.orderNum}</td>
-                <td>${producttype.intro}</td>
+                <td>${productType.orderNum}</td>
+                <td>${productType.intro}</td>
 
-                <td><a href="<%=basePath%>backstage/producttype/toProductTypeupdate?id=${producttype.id}" class="tablelink">修改</a> <a id="${producttype.name}" name="deleteProductType"  href="<%=basePath%>backstage/producttype/dodeleteProductType?id=${producttype.id}" class="tablelink"> 删除</a></td>
+                <td><a href="<%=basePath%>backstage/producttype/toProductTypeupdate?id=${productType.id}" class="tablelink">修改</a> <a id="${productType.name}" name="deleteProductType"  href="<%=basePath%>backstage/producttype/dodeleteProductType?id=${productType.id}" class="tablelink"> 删除</a></td>
             </tr>
         </c:forEach>
 

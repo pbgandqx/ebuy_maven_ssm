@@ -9,13 +9,42 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>无标题文档</title>
 <link href="<%=basePath%>jsp/backstage/css/style.css" rel="stylesheet" type="text/css" />
+
+    <!-- 导入kindEditor所需插件 -->
+    <link rel="stylesheet" href="<%=basePath%>plugins/kindeditor-4.1.10/themes/default/default.css" />
+    <script src="<%=basePath%>plugins/kindeditor-4.1.10/kindeditor.js"></script>
+    <script src="<%=basePath%>plugins/kindeditor-4.1.10/lang/zh_CN.js"></script>
+
 <script>
  var message='${requestScope.myMessage}';
  //如果没有收到服务端发来的信息，那么就不弹出对话框
  if(message!=''){
     alert(message);
  }
-
+ //实现kindeditor弹出图片上传窗口
+ KindEditor.ready(function(K) {
+     var editor = K.editor({//图片上传
+         //指定上传文件的服务器端程序。
+         uploadJson:  '<%=basePath%>plugins/kindeditor-4.1.10/jsp/upload_json.jsp',
+         //指定浏览远程图片的服务器端程序
+         fileManagerJson: '<%=basePath%>plugins/kindeditor-4.1.10/jsp/file_manager_json.jsp',
+         allowFileManager : true
+     });
+     K('#image1').click(function() {
+         editor.loadPlugin('image', function() {//动态加载插件，image为插件名
+             editor.plugin.imageDialog({
+                 showLocal : true,//是否显示本地图片上传窗口
+                 showRemote : true,//是否显示网络图片窗口
+                 fillDescAfterUploadImage:false,//个人建议只在文本编辑器中使用true，true时图片上传成功后切换到图片编辑标签，false时插入图片后关闭弹出框。
+                 imageUrl : K('#url1').val(),
+                 clickFn : function(url, title, width, height, border, align) {
+                     K('#url1').val(url);
+                     editor.hideDialog();
+                 }
+             });
+         });
+     });
+ });
 </script>
 </head>
 
@@ -34,15 +63,18 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     
     <div class="formtitle"><span>产品类别添加</span></div>
     <form action="<%=basePath%>backstage/producttype/doSaveProductType" method="post">
+        <input name="page" type="hidden" value="${requestScope.page}"/>
     <ul class="forminfo">
-    <li><label>*产品分类名称</label><input name="name" type="text" class="dfinput" /><i></i></li>
-    <li><label>*图片</label><input name="imageUrl" type="text" class="dfinput"/>
-        <input type="button" id="image1" class="dfinput" style="width:120px;" value="点我选择图片" />
-        <a href="#" id="clearImagePath1">清除选择图片路径</a>
-        <i></i></li>
-        <li><label>*优先级</label><input name="orderNum" type="text" class="dfinput" /><i></i></li>
-        <li><label>外部链接地址</label><input name="linkUrl" type="text" class="dfinput" /><i></i></li>
-        <li><label>产品描述</label><textarea name="intro" cols="90" rows="30" class="textinput" ></textarea><i></i></li>
+    <li><label>*产品分类名称</label><input name="name" type="text" class="dfinput" value="${requestScope.productType.name}"/><i></i></li>
+        <li><label>*图片</label>
+            <input id="url1" name="imageUrl" type="text" class="dfinput" value="${requestScope.productType.imageUrl}" readonly="readonly"/>
+            <input type="button" id="image1" class="dfinput" style="width:120px;" value="点我选择图片" />
+            <a href="#" id="clearImagePath1">清除选择图片路径</a>
+            <i>${requestScope.errors["imageUrl"]}</i>
+        </li>
+        <li><label>*优先级</label><input name="orderNum" type="text" class="dfinput" value="${requestScope.productType.orderNum}"/><i><i></i></li>
+        <li><label>外部链接地址</label><input name="linkUrl" type="text" class="dfinput" value="${requestScope.productType.linkUrl}"/><i></i></li>
+        <li><label>产品描述</label><textarea name="intro" cols="90" rows="30" class="textinput" value="${requestScope.productType.intro}"></textarea><i></i></li>
         <li><label>&nbsp;</label><input name="" type="submit" class="btn" value="添加产品类别"/></li>
     </ul>
     </form>

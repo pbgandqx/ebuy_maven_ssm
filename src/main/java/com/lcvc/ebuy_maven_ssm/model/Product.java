@@ -21,7 +21,7 @@ public class Product implements java.io.Serializable {
 	private Integer click;//点击数
 	private Boolean onSale;//是否上架（true表示上架，但是要考虑上架时间；false表示不上架）
 	private java.util.Date createTime;//创建时间
-	private Admin creator;//创建产品管理员
+	private Admin creatorId;//创建产品管理员
 	private Admin finalEditor;//最后编辑管理员
 	private java.util.Date updateTime;//最后编辑时间
 	
@@ -156,12 +156,12 @@ public class Product implements java.io.Serializable {
 		this.totalNumberOfOrder = totalNumberOfOrder;
 	}
 
-	public Admin getCreator() {
-		return creator;
+	public Admin getCreatorId() {
+		return creatorId;
 	}
 
-	public void setCreator(Admin creator) {
-		this.creator = creator;
+	public void setCreatorId(Admin creatorId) {
+		this.creatorId = creatorId;
 	}
 
 	public Admin getFinalEditor() {

@@ -10,7 +10,7 @@
 	</select>
 
 	<insert id="SaveProduct">
-		insert into product(id,name,picUrl,productTypeId,orderNum,description,content,price,originalPrice,click,onSale,createTime) values(null,#{name},#{picUrl},#{productTypeId},#{orderNum},#{description},#{content},#{price},#{originalPrice},#{click},#{onSale},#{createTime})
+		insert into product(id,name,picUrl,productTypeId,orderNum,description,content,price,originalPrice,click,onSale,createTime,creatorId) values(null,#{name},#{picUrl},#{productTypeId},#{orderNum},#{description},#{content},#{price},#{originalPrice},#{click},#{onSale},#{createTime},#{creatorId})
 	</insert>
 
 	<delete id="deleteProduct">
@@ -22,7 +22,7 @@
 	</select>
 
 	<update id="updateProduct">
-		update product set name=#{name},picUrl=#{pickUrl},productTypeId=#{productTypeId},orderNum=#{orderNum},description=#{description},content=#{content},price=#{price},originalPrice=#{originalPrice},click=#{click},onSale=#{onSale},createTime=#{createTime} where id=#{id}
+		update product set name=#{name},picUrl=#{pickUrl},productTypeId=#{productTypeId},orderNum=#{orderNum},description=#{description},content=#{content},price=#{price},originalPrice=#{originalPrice},click=#{click},onSale=#{onSale},createTime=#{createTime},creatorId=#{creatorId} where id=#{id}
 	</update>
 
 	<select id="getProduct" resultType="com.lcvc.ebuy_maven_ssm.model.Product">

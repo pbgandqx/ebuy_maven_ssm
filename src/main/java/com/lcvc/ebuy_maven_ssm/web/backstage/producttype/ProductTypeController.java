@@ -42,6 +42,7 @@ public class ProductTypeController {
             request.setAttribute("myMessage", "产品分类添加:产品优先级不能为空");
         } else {
             if (productTypeService.SaveProductType(productType)) {
+
                 request.setAttribute("myMessage", "产品分类添加成功！！！");
             } else {
                 request.setAttribute("myMessage", "产品分类添加失败！！！");
@@ -63,7 +64,7 @@ public class ProductTypeController {
     //跳转到产品添加编辑页面
     @RequestMapping(value = "/backstage/producttype/toProductTypeupdate", method = RequestMethod.GET)
     public String toProductTypeupdate(HttpServletRequest request, Integer id) {
-        request.setAttribute("producttype",productTypeService.getProductType(id));
+        request.setAttribute("productType",productTypeService.getProductType(id));
         return "/jsp/backstage/producttype/productTypeupdate.jsp";
     }
 
