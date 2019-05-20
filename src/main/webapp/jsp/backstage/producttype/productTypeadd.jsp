@@ -72,7 +72,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
             <a href="#" id="clearImagePath1">清除选择图片路径</a>
             <i>${requestScope.errors["imageUrl"]}</i>
         </li>
-        <li><label>*优先级</label><input name="orderNum" type="text" class="dfinput" value="${requestScope.productType.orderNum}"/><i><i></i></li>
+        <li><label>*优先级</label><input name="orderNum" type="text" class="dfinput" value="${requestScope.productType.orderNum}"/><i></i></li>
         <li><label>外部链接地址</label><input name="linkUrl" type="text" class="dfinput" value="${requestScope.productType.linkUrl}"/><i></i></li>
         <li><label>产品描述</label><textarea name="intro" cols="90" rows="30" class="textinput" value="${requestScope.productType.intro}"></textarea><i></i></li>
         <li><label>&nbsp;</label><input name="" type="submit" class="btn" value="添加产品类别"/></li>

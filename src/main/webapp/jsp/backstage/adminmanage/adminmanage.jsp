@@ -81,7 +81,7 @@
         <thead>
         <tr>
             <th><input name="" type="checkbox" value="" checked="checked"/></th>
-            <th>账户名<i class="sort"><img src="images/px.gif"/></i></th>
+            <th>账户名</th>
             <th>姓名</th>
             <th>籍贯</th>
             <th>发布时间</th>

@@ -62,10 +62,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <div class="formtitle"><span>客户添加</span></div>
     <form action="<%=basePath%>backstage/customer/doSaveCustomer" method="post">
     <ul class="forminfo">
-    <li><label>*账号名</label><input name="username" type="text" class="dfinput"  value="${requestScope.customer.username}"/><i></i></li>
-    <li><label>*姓名</label><input name="name" type="text" class="dfinput" value="${requestScope.customer.name}"/><i></i></li>
-    <%--    <li><label>头像</label><input name="picUrl" type="text" class="dfinput" /><i></i></li>--%>
-    <%--    <li><label>头像</label><input name="picUrl" type="text" class="dfinput" /><i></i></li>--%>
+        <li><label>*账号名</label><input name="username" type="text" class="dfinput"  value="${requestScope.customer.username}"/><i></i></li>
+        <li><label>*姓名</label><input name="name" type="text" class="dfinput" value="${requestScope.customer.name}"/><i></i></li>
+        <%--    <li><label>头像</label><input name="picUrl" type="text" class="dfinput" /><i></i></li>--%>
+        <%--    <li><label>头像</label><input name="picUrl" type="text" class="dfinput" /><i></i></li>--%>
         <li><label>头像</label>
             <input id="url1" name="picUrl" type="text" class="dfinput" value="${requestScope.customer.picUrl}" readonly="readonly"/>
             <input type="button" id="image1" class="dfinput" style="width:120px;" value="点我选择图片" />

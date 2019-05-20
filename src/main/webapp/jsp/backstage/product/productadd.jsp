@@ -66,11 +66,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <ul class="forminfo">
         <li><label>*产品分类</label><select name="productTypeId" class="dfinput"><option value="${requestScope.product.productTypeId}">请选择</option>
         </select><i></i></li>
-    <li><label>*产品名称</label><input name="name" type="text" class="dfinput" value="${requestScope.product.name}"/><i></i></li>
-    <li><label>*产品图片</label><input name="picUrl" type="text" class="dfinput" value="${requestScope.product.picUrl}"/>
-        <input type="button" id="image1" class="dfinput" style="width:120px;" value="点我选择图片" />
-        <a href="#" id="clearImagePath1">清除选择图片路径</a>
-        <i></i></li>
+        <li><label>*产品名称</label><input name="name" type="text" class="dfinput" value="${requestScope.product.name}"/><i></i></li>
+        <li><label>*产品图片</label><input name="picUrl" type="text" class="dfinput" value="${requestScope.product.picUrl}"/>
+            <input type="button" id="image1" class="dfinput" style="width:120px;" value="点我选择图片" />
+            <a href="#" id="clearImagePath1">清除选择图片路径</a>
+            <i></i></li>
         <li><label>*产品原价</label><input name="originalPrice" type="text" class="dfinput" value="${requestScope.product.originalPrice}"/><i></i></li>
         <li><label>*产品现价</label><input name="Price" type="text" class="dfinput" value="${requestScope.product.Price}"/><i></i></li>
         <li><label>*产品库存</label><input name="number" type="text" class="dfinput" value="${requestScope.product.number}" /><i></i></li>

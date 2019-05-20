@@ -96,7 +96,9 @@
         <c:forEach var="product" items="${requestScope.list}">
             <tr>
                 <td><input name="" type="checkbox" value=""/></td>
-                <td>${product.picUrl}</td>
+                <td  class="imgtd">
+                     <img src="jsp/backstage/images?= ${product.picUrl}" style="width:80px;height:60px;"/>
+                      </td>
                 <td style="text-align: center;">${product.name}
                 <p style="color: #7f7f7f">发布时间：${product.createTime}</p>
                 </td>

@@ -81,7 +81,7 @@
         <thead>
         <tr>
             <th><input name="" type="checkbox" value="" checked="checked"/></th>
-            <th>产品分类名<i class="sort"><img src="images/px.gif"/></i></th>
+            <th>产品分类名</th>
             <th>图片</th>
             <th>外部链接</th>
             <th>优先级</th>
@@ -100,7 +100,7 @@
                             无图片
                         </c:when>
                         <c:otherwise>
-                         ${productType.imageUrl}
+                        <img src="${productType.imageUrl}" style="width:80px;height:60px;"/>
                         </c:otherwise>
                     </c:choose>
 
