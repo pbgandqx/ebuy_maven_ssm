@@ -5,8 +5,10 @@ import com.lcvc.ebuy_maven_ssm.model.ProductType;
 import com.lcvc.ebuy_maven_ssm.service.CustomerService;
 import com.lcvc.ebuy_maven_ssm.service.ProductTypeService;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.ModelAndView;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
@@ -34,20 +36,21 @@ public class CustomerController {
 //执行客户添加页面d
 
     @RequestMapping(value = "/backstage/customer/doSaveCustomer", method = RequestMethod.POST)
-    public String doSaveCustomer(HttpServletRequest request, Customer customer) {
+    public String doSaveCustomer(Model model, ModelAndView modelAndView, Customer customer) {
         customer.setUsername(customer.getUsername().trim());
         customer.setName(customer.getName().trim());
         if (customer.getName().length() == 0) {
-            request.setAttribute("myMessage", "客户添加:客户名字不能为空");
+            model.addAttribute("myMessage", "客户添加:客户名字不能为空");
         } else if (customer.getUsername().length() == 0) {
-            request.setAttribute("myMessage", "客户添加:客户账号名不能为空");
+            model.addAttribute("myMessage", "客户添加:客户账号名不能为空");
         }else if(customerService.existsUsername(customer.getUsername())){
-            request.setAttribute("myMessage","客户添加失败:客户账户名已存在，请选择其他的账户名");
+            model.addAttribute("myMessage","客户添加失败:客户账户名已存在，请选择其他的账户名");
         } else {
             if (customerService.SaveCustomer(customer)) {
-                request.setAttribute("myMessage", "客户添加成功！！！");
+                model.addAttribute("customer",null) ;
+                model.addAttribute("myMessage", "客户添加成功！！！");
             } else {
-                request.setAttribute("myMessage", "客户添加失败！！！");
+                model.addAttribute("myMessage", "客户添加失败！！！");
             }
         }
         return "jsp/backstage/customer/customeradd.jsp";

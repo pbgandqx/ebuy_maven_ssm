@@ -3,10 +3,12 @@
 <configuration>
 
     <!-- 实体类,简称 -设置别名 -->
-<!--    <typeAliases>
-        <typeAlias alias="Admin" type="com.lcvc.ebuytest.model.Admin" />
-        <typeAlias alias="ProductType" type="com.lcvc.ebuytest.model.ProductType" />
-    </typeAliases>-->
+    <typeAliases>
+        <typeAlias alias="Admin" type="com.lcvc.ebuy_maven_ssm.model.Admin" />
+        <typeAlias alias="ProductType" type="com.lcvc.ebuy_maven_ssm.model.ProductType" />
+        <typeAlias alias="Product" type="com.lcvc.ebuy_maven_ssm.model.Product" ></typeAlias>
+        <typeAlias alias="Customer" type="com.lcvc.ebuy_maven_ssm.model.Customer"></typeAlias>
+    </typeAliases>
 
     <mappers>
          <!-- 注册userMapper.xml文件， 

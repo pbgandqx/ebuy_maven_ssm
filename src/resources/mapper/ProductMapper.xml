@@ -4,13 +4,21 @@
 例如namespace="com.cn.mybatis.test1.dao.userMapper"就是com.cn.mybatis.test1.dao(包名)+userMapper(userMapper.xml文件去除后缀)
  -->
 <mapper namespace="com.lcvc.ebuy_maven_ssm.dao.ProductDao">
+<!-- 自定义返回类型-->
+	<resultMap id="product" type="Product">
+               <association property="productType" javaType="ProductType" column="productTypeId" select="com.lcvc.ebuy_maven_ssm.dao.ProductTypeDao.get">
 
-	<select id="getProductList" resultType="com.lcvc.ebuy_maven_ssm.model.Product">
+			   </association>
+	</resultMap>
+
+	<select id="getProductList" resultType="product">
 		select * from product order by id asc
 	</select>
 
 	<insert id="SaveProduct">
-		insert into product(id,name,picUrl,productTypeId,orderNum,description,content,price,originalPrice,click,onSale,createTime,creatorId) values(null,#{name},#{picUrl},#{productTypeId},#{orderNum},#{description},#{content},#{price},#{originalPrice},#{click},#{onSale},#{createTime},#{creatorId})
+		insert into
+		product(id,name,picUrl,productTypeId,orderNum,description,content,price,originalPrice,click,onSale,createTime,creatorId)
+		values(null,#{name},#{picUrl},#{productTypeId},#{orderNum},#{description},#{content},#{price},#{originalPrice},#{click},#{onSale},#{createTime},#{creatorId})
 	</insert>
 
 	<delete id="deleteProduct">
@@ -22,10 +30,25 @@
 	</select>
 
 	<update id="updateProduct">
-		update product set name=#{name},picUrl=#{pickUrl},productTypeId=#{productTypeId},orderNum=#{orderNum},description=#{description},content=#{content},price=#{price},originalPrice=#{originalPrice},click=#{click},onSale=#{onSale},createTime=#{createTime},creatorId=#{creatorId} where id=#{id}
+		update product
+		<set>
+			<if test="name!=null and name.length()>0">name=#{name},</if>
+			<if test="picUrl!=null">picUrl=#{pickUrl},</if>
+			<if test="productTypeId!=null">productTypeId=#{productTypeId},</if>
+			<if test="orderNum!=null">orderNum=#{orderNum},</if>
+			<if test="description!=null">description=#{description},</if>
+			<if test="content!=null">content=#{content},</if>
+			<if test="price!=null and price>0">price=#{price},</if>
+			<if test="originalPrice!=null and originalPrice>0">originalPrice=#{originalPrice},</if>
+			<if test="click!=null and click>0">click=#{click},</if>
+			<if test="onSale!=null">onSale=#{onSale},</if>
+			<if test="createTime!=null">createTime=#{createTime},</if>
+			<if test="creatorId!=null">creatorId=#{creatorId},</if>
+	    </set>
+	where id=#{id}
 	</update>
 
-	<select id="getProduct" resultType="com.lcvc.ebuy_maven_ssm.model.Product">
+	<select id="getProduct" resultType="Product">
 		select * from product where id=#{id}
 	</select>
 </mapper>

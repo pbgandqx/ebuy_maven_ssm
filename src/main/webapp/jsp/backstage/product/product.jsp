@@ -102,7 +102,7 @@
                 <td style="text-align: center;">${product.name}
                 <p style="color: #7f7f7f">发布时间：${product.createTime}</p>
                 </td>
-                <td>${product.productTypeId}
+                <td>${product.productType}
                 <p style="color: #7f7f7f;line-height: 8px">ID:${product.id}</p>
                 </td>
                 <td style="color: red">${product.price}<br/>

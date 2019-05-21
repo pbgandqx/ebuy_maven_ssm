@@ -3,13 +3,14 @@ package com.lcvc.ebuy_maven_ssm.model;
 
 /**
  * 产品
- * 
+ *
  */
 
 public class Product implements java.io.Serializable {
 
 	private Integer id;
-	private ProductType productTypeId;//所属产品类别
+	private ProductType productType;//所属产品类别
+	private Integer productTyoeId;//所属产品类别id
 	private String name;//产品名称
 	private Integer orderNum;//优先级
 	private String description;//产品描述
@@ -21,23 +22,23 @@ public class Product implements java.io.Serializable {
 	private Integer click;//点击数
 	private Boolean onSale;//是否上架（true表示上架，但是要考虑上架时间；false表示不上架）
 	private java.util.Date createTime;//创建时间
-	private Admin creatorId;//创建产品管理员
+	private Admin creator;//创建产品管理员
 	private Admin finalEditor;//最后编辑管理员
 	private java.util.Date updateTime;//最后编辑时间
-	
+
 	//非数据库字段
 	//private List<ProductOrder> productOrders = new ArrayList<ProductOrder>();//该产品对应的订单
 	//private Float totalPriceOfTrade;//该产品的总交易额
 	private Integer totalNumberOfOrder;//该产品的订单数
-	
+
 	//private Integer numberOfCart;//获取购物车的数量，用于在下订单时候显示
-	
+
 	//用于前台显示字段
 	//private Integer onSaleOfSelect;//上架选择，目前是-1表示永久上架、1表示临时上架和0表示下架
 
 	public Product() {
 	}
-	
+
 	public Product(int id) {
 		this.id=id;
 	}
@@ -50,14 +51,14 @@ public class Product implements java.io.Serializable {
 		this.id = id;
 	}
 
-	
 
-	public ProductType getProductTypeId() {
-		return productTypeId;
+
+	public ProductType getProductType() {
+		return productType;
 	}
 
-	public void setProductTypeId(ProductType productTypeId) {
-		this.productTypeId = productTypeId;
+	public void setProductType(ProductType productType) {
+		this.productType = productType;
 	}
 
 	public String getName() {
@@ -147,7 +148,7 @@ public class Product implements java.io.Serializable {
 	public void setCreateTime(java.util.Date createTime) {
 		this.createTime = createTime;
 	}
-	
+
 	public Integer getTotalNumberOfOrder() {
 		return totalNumberOfOrder;
 	}
@@ -156,12 +157,12 @@ public class Product implements java.io.Serializable {
 		this.totalNumberOfOrder = totalNumberOfOrder;
 	}
 
-	public Admin getCreatorId() {
-		return creatorId;
+	public Admin getCreator() {
+		return creator;
 	}
 
-	public void setCreatorId(Admin creatorId) {
-		this.creatorId = creatorId;
+	public void setCreator(Admin creator) {
+		this.creator = creator;
 	}
 
 	public Admin getFinalEditor() {

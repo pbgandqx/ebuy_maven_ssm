@@ -66,26 +66,26 @@ public class ProductTypeController {
 
     //跳转到产品添加编辑页面
     @RequestMapping(value = "/backstage/producttype/toProductTypeupdate", method = RequestMethod.GET)
-    public String toProductTypeupdate(HttpServletRequest request, Integer id) {
-        request.setAttribute("productType",productTypeService.getProductType(id));
+    public String toProductTypeupdate(Model model, Integer id) {
+        model.addAttribute("productType",productTypeService.getProductType(id));
         return "/jsp/backstage/producttype/productTypeupdate.jsp";
     }
 
     //执行产品分类编辑操作
     @RequestMapping(value = "/backstage/producttype/doProductTypeupdate", method = RequestMethod.POST)
-    public String doProductTypeupdate(HttpSession session, HttpServletRequest request, ProductType productType) {
+    public String doProductTypeupdate(Model model, ProductType productType) {
         productType.setName(productType.getName().trim());
-        if (productType.getName().equals("")) {
-            request.setAttribute("myMessage", "编辑失败：产品分类名不能为空！");
-        } else if (productType.getImageUrl().equals("")) {
-            request.setAttribute("myMessage", "产品分类添加:产品图片不能为空");
-        } else if (productType.getOrderNum().equals("")) {
-            request.setAttribute("myMessage", "产品分类添加:产品优先级不能为空");
+        if (productType.getName().length()==0) {
+            model.addAttribute("myMessage", "编辑失败：产品分类名不能为空！");
+        } else if (productType.getImageUrl().length()==0) {
+            model.addAttribute("myMessage", "产品分类添加:产品图片不能为空");
+        } else if (productType.getOrderNum()==null) {
+            model.addAttribute("myMessage", "产品分类添加:产品优先级不能为空");
         } else {
             if (productTypeService.updateProductType(productType)) {
-                request.setAttribute("myMessage", "产品分类信息编辑成功！");
+                model.addAttribute("myMessage", "产品分类信息编辑成功！");
             } else {
-                request.setAttribute("myMessage", "产品分类信息编辑失败！");
+                model.addAttribute("myMessage", "产品分类信息编辑失败！");
             }
         }
             return "/jsp/backstage/producttype/productTypeupdate.jsp";

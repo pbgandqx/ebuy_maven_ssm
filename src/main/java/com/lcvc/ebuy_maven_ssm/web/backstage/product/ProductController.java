@@ -1,9 +1,11 @@
 package com.lcvc.ebuy_maven_ssm.web.backstage.product;
 
+import com.lcvc.ebuy_maven_ssm.model.Product;
 import com.lcvc.ebuy_maven_ssm.model.ProductType;
 import com.lcvc.ebuy_maven_ssm.service.ProductService;
 import com.lcvc.ebuy_maven_ssm.service.ProductTypeService;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -63,33 +65,43 @@ public class ProductController {
 */
     //跳转到产品添加编辑页面
     @RequestMapping(value = "/backstage/product/toProductupdate", method = RequestMethod.GET)
-    public String toProductupdate(HttpServletRequest request, Integer id) {
-        request.setAttribute("product",productService.getProduct(id));
+    public String toProductupdate(Model model, Integer id) {
+        model.addAttribute("product",productService.getProduct(id));
         return "/jsp/backstage/product/productupdate.jsp";
     }
-/*
 
-    //执行产品分类编辑操作
-    @RequestMapping(value = "/backstage/producttype/doProductTypeupdate", method = RequestMethod.POST)
-    public String doProductTypeupdate(HttpSession session, HttpServletRequest request, ProductType productType) {
-        productType.setName(productType.getName().trim());
-        if (productType.getName().equals("")) {
-            request.setAttribute("myMessage", "编辑失败：产品分类名不能为空！");
-        } else if (productType.getImageUrl().equals("")) {
-            request.setAttribute("myMessage", "产品分类添加:产品图片不能为空");
-        } else if (productType.getOrderNum().equals("")) {
-            request.setAttribute("myMessage", "产品分类添加:产品优先级不能为空");
-        } else {
-            if (productTypeService.updateProductType(productType)) {
-                request.setAttribute("myMessage", "产品分类信息编辑成功！");
+
+    //执行产品编辑操作
+    @RequestMapping(value = "/backstage/product/doProductupdate", method = RequestMethod.POST)
+    public String doupdateProduct(Model model, Product product) {
+        product.setName(product.getName().trim());
+        if (product.getName().equals("")) {
+            model.addAttribute("myMessage", "产品分类编辑：产品名称不能为空！");
+        }else if (product.getProductType().equals("")) {
+            model.addAttribute("myMessage", "产品分类编辑:产品分类不能为空");
+        }  else if (product.getPicUrl().equals("")) {
+            model.addAttribute("myMessage", "产品分类编辑:产品图片不能为空");
+        } else if (product.getOrderNum().equals("")) {
+            model.addAttribute("myMessage", "产品分类编辑:产品优先级不能为空");
+        }else if (product.getPrice().equals("")) {
+            model.addAttribute("myMessage", "产品分类编辑:产品现价不能为空");
+        } else if (product.getOriginalPrice().equals("")) {
+            model.addAttribute("myMessage", "产品分类编辑:产品原价不能为空");
+        } else if (product.getClick().equals("")) {
+            model.addAttribute("myMessage", "产品分类编辑:产品点击数不能为空");
+        } else if (product.getOnSale().equals("")) {
+            model.addAttribute("myMessage", "产品分类编辑:产品是否上架不能为空");
+        }  else {
+            if (productService.updateProduct(product)) {
+                model.addAttribute("myMessage", "产品分类信息编辑成功！");
             } else {
-                request.setAttribute("myMessage", "产品分类信息编辑失败！");
+                model.addAttribute("myMessage", "产品分类信息编辑失败！");
             }
         }
-            return "/jsp/backstage/producttype/productTypeupdate.jsp";
+            return "/jsp/backstage/product/productupdate.jsp";
 
     }
 
-*/
+
 
 }
