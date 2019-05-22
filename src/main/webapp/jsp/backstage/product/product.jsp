@@ -102,13 +102,13 @@
                 <td style="text-align: center;">${product.name}
                 <p style="color: #7f7f7f">发布时间：${product.createTime}</p>
                 </td>
-                <td>${product.productType}
-                <p style="color: #7f7f7f;line-height: 8px">ID:${product.id}</p>
+                <td>${product.productType.name}
+                <p style="color: #7f7f7f;line-height: 8px">ID:${product.productType.id}</p>
                 </td>
                 <td style="color: red">${product.price}<br/>
                     <p style="color: #7f7f7f;line-height: 8px"><s>${product.originalPrice}</s></p>
                 </td>
-                <td>${product.creatorId}</td>
+                <td>${product.creator}</td>
                 <td>
                     <c:choose>
                         <c:when test="${product.onSale==true}">
@@ -122,7 +122,7 @@
                 <td>${product.number}</td>
                 <td>${product.click}</td>
 
-                <td><a href="<%=basePath%>backstage/product/toProductupdate?id=${product.id}" class="tablelink">修改</a> <a id="${producttype.name}" name="deleteProductType"  href="<%=basePath%>backstage/producttype/dodeleteProductType?id=${producttype.id}" class="tablelink"> 删除</a></td>
+                <td><a href="<%=basePath%>backstage/product/toProductupdate?id=${product.id}" class="tablelink">修改</a> <a id="${product.name}" name="deleteProduct"  href="<%=basePath%>backstage/product/dodeleteProduct?id=${product.id}" class="tablelink"> 删除</a></td>
             </tr>
         </c:forEach>
 

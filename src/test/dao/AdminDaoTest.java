@@ -28,15 +28,12 @@ public class AdminDaoTest extends SpringJunitTest {
         System.out.println(admin2);
     }
 
-    @Test
-    public void testUpdatePassword(){
-        System.out.println(adminDao.updatePassword("555",2));
-    }
+
 
     @Test
     public void testUpdateAdmin(){
         //System.out.println(adminDao.updateAdmin("user11","小红",15));
-        System.out.println(adminDao.updateAdmin("user11","小红",3));
+
     }
 
     @Test

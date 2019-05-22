@@ -17,23 +17,9 @@ public interface AdminDao {
      */
     Admin login(@Param(value = "username") String username, @Param(value = "password") String password);
 
-    /*
-	 * 张三丰
-	 * 20180330
-	 * 将新密码保存到数据库中
-	 * @return 更改了多少条记录
-	 */
-    int updatePassword(@Param(value = "password")String newPass,@Param(value = "id")Integer id);
 
 
-    /**
-     * 修改账户的基本信息
-     * @param username 账户名
-     * @param name 姓名
-     * @param id 主键
-     * @return 更改了多少条记录
-     */
-    int updateAdmin(@Param(value = "username")String username,@Param(value = "name")String name,@Param(value = "id")Integer id);
+    int updateAdmin(Admin admin);
 
 
     /**

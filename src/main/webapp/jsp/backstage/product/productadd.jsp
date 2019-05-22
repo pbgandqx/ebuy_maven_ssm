@@ -64,7 +64,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <form action="<%=basePath%>backstage/product/doSaveProduct" method="post">
     <ul class="forminfo">
     <ul class="forminfo">
-        <li><label>*产品分类</label><select name="productTypeId" class="dfinput"><option value="${requestScope.product.productTypeId}">请选择</option>
+        <li><label>*产品分类</label><select name="productTypeId" class="dfinput"><option value="${requestScope.product.productType.name}">请选择</option>
         </select><i></i></li>
         <li><label>*产品名称</label><input name="name" type="text" class="dfinput" value="${requestScope.product.name}"/><i></i></li>
         <li><label>*产品图片</label><input name="picUrl" type="text" class="dfinput" value="${requestScope.product.picUrl}"/>

@@ -81,7 +81,7 @@ public class AdminManageController {
 			request.setAttribute("myMessage","编辑失败：账户名重名！");
 		}
 		else {
-			if (adminService.updateAdmin(admin.getUsername(),admin.getName(),admin.getId())){
+			if (adminService.updateAdmin(admin)){
 				request.setAttribute("myMessage","基本信息编辑成功！");
 		}else {
 				request.setAttribute("myMessage","基本信息编辑失败！");

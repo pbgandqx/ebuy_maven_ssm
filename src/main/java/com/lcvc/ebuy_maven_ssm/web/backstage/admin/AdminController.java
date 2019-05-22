@@ -49,19 +49,20 @@ public class AdminController {
 
 	//执行修改管理账户的基本信息
 	@RequestMapping(value = "/backstage/admin/doUpdateAdmin", method = RequestMethod.POST)
-	public String doUpdateAdmin(String username,String name,HttpSession session,HttpServletRequest request){
-		Admin admin=(Admin)session.getAttribute("admin");
-		if (username.equals("")){
+	public String doUpdateAdmin(Admin admin,HttpSession session,HttpServletRequest request){
+		Admin adminsession=(Admin)session.getAttribute("admin");
+		if (admin.getUsername().equals("")){
 			request.setAttribute("myMessage","账户名不能为空！");
-		}else if (name.equals("")){
+		}else if (admin.getName().equals("")){
 			request.setAttribute("myMessage","姓名不能为空！");
-		}else if (adminService.existsAdmin(username,admin.getId())==true){
+		}else if (adminService.existsAdmin(admin.getUsername(),adminsession.getId())==true){
 			request.setAttribute("myMessage","账户名重名！");
 		}
 		else {
-				if(adminService.updateAdmin(username,name,admin.getId())){
-					admin.setUsername(username);
-					admin.setName(name);
+			admin.setId(adminsession.getId());
+				if(adminService.updateAdmin(admin)){
+					adminsession.setUsername(admin.getUsername());
+					adminsession.setName(admin.getName());
 					request.setAttribute("myMessage","基本信息修改成功！");
 				}
 

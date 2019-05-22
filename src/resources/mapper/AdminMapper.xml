@@ -9,12 +9,15 @@
 		select * from admin where username=#{username} and password=#{password}
 	</select>
 
-	<update id="updatePassword">
-		update admin set password=#{password} where id=#{id}
-	</update>
 
 	<update id="updateAdmin">
-		update admin set username=#{username},name=#{name} where id=#{id}
+		update admin
+		<set>
+			<if test="username!=null and username.length()>0">username=#{username},</if>
+			<if test="password!=null and password.length()>0">password=#{password},</if>
+			<if test="name!=null and name.length()>0">name=#{name},</if>
+		</set>
+		where id=#{id}
 	</update>
 
 	<select id="existsAdmin" resultType="int">

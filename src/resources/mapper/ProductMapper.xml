@@ -6,19 +6,19 @@
 <mapper namespace="com.lcvc.ebuy_maven_ssm.dao.ProductDao">
 <!-- 自定义返回类型-->
 	<resultMap id="product" type="Product">
-               <association property="productType" javaType="ProductType" column="productTypeId" select="com.lcvc.ebuy_maven_ssm.dao.ProductTypeDao.get">
+               <association property="productType" javaType="ProductType" column="ProductTypeId" select="com.lcvc.ebuy_maven_ssm.dao.ProductTypeDao.getProductType">
 
 			   </association>
 	</resultMap>
 
-	<select id="getProductList" resultType="product">
-		select * from product order by id asc
+	<select id="getProductList" resultMap="product">
+		select * from product order by orderNum asc,createTime desc
 	</select>
 
 	<insert id="SaveProduct">
 		insert into
-		product(id,name,picUrl,productTypeId,orderNum,description,content,price,originalPrice,click,onSale,createTime,creatorId)
-		values(null,#{name},#{picUrl},#{productTypeId},#{orderNum},#{description},#{content},#{price},#{originalPrice},#{click},#{onSale},#{createTime},#{creatorId})
+		product(id,name,picUrl,productType,orderNum,description,content,price,originalPrice,click,onSale,createTime,creatorId)
+		values(null,#{name},#{picUrl},#{productType},#{orderNum},#{description},#{content},#{price},#{originalPrice},#{click},#{onSale},#{createTime},#{creatorId})
 	</insert>
 
 	<delete id="deleteProduct">
@@ -34,7 +34,7 @@
 		<set>
 			<if test="name!=null and name.length()>0">name=#{name},</if>
 			<if test="picUrl!=null">picUrl=#{pickUrl},</if>
-			<if test="productTypeId!=null">productTypeId=#{productTypeId},</if>
+			<if test="productType!=null">productType=#{productType},</if>
 			<if test="orderNum!=null">orderNum=#{orderNum},</if>
 			<if test="description!=null">description=#{description},</if>
 			<if test="content!=null">content=#{content},</if>

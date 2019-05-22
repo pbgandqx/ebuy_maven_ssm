@@ -29,17 +29,20 @@ public class AdminService {
         return admin;
     }
 
-
-    /*
+/*
 	 * 张三丰
 	 * 20180330
 	 * 将新密码保存到数据库中
 	 * @return true表示密码更改成功，false表示密码更改失败
 	 */
+
     public boolean updatePassword(String newPass,Integer id){
         Boolean status=false;//默认编辑失败
         newPass= SHA.getResult(newPass);
-        if(adminDao.updatePassword(newPass,id)>0){
+        Admin admin=new Admin();
+        admin.setId(id);
+        admin.setPassword(newPass);
+        if(adminDao.updateAdmin(admin)>0){
             status=true;
         }
         return status;
@@ -50,15 +53,15 @@ public class AdminService {
      * 修改账户的基本信息
      * 说明：
      * 1、修改后的账户名不能与其他账户的账户名重名
-     * @param username
-     * @param name
-     * @param id
+     * @param
+     * @param
+     * @param
      * @return false表示修改失败，true表示修改成功
      */
-    public boolean updateAdmin(String username,String name,Integer id){
+    public boolean updateAdmin(Admin admin){
         boolean status=false;//存储修改结果
-        if(adminDao.existsAdmin(username,id)==0){//如果不重名
-            if(adminDao.updateAdmin(username,name,id)==1){
+        if(adminDao.existsAdmin(admin.getUsername(),admin.getId())==0){//如果不重名
+            if(adminDao.updateAdmin(admin)==1){
                 status=true;
             }else{
                 status=false;

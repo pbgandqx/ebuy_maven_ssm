@@ -77,7 +77,7 @@ public class ProductController {
         product.setName(product.getName().trim());
         if (product.getName().equals("")) {
             model.addAttribute("myMessage", "产品分类编辑：产品名称不能为空！");
-        }else if (product.getProductType().equals("")) {
+        }else if (product.getProductType().getName().equals("")) {
             model.addAttribute("myMessage", "产品分类编辑:产品分类不能为空");
         }  else if (product.getPicUrl().equals("")) {
             model.addAttribute("myMessage", "产品分类编辑:产品图片不能为空");

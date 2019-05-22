@@ -65,11 +65,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <ul class="forminfo">
     <ul class="forminfo">
         <li><label></label><input name="id" type="hidden" class="dfinput" value="${requestScope.product.id}"/><i></i></li>
-        <li><label>*产品分类</label><select name="productTypeId" class="dfinput" value=""><option value="">请选择</option>
-            <option value="${requestScope.product.productTypeId}"></option>
+        <li><label>*产品分类</label><select name="productTypeId" class="dfinput" value="${requestScope.product.productType.name}"><option value="">请选择</option>
+            <option value="${requestScope.product.productType.name}"></option>
         </select><i></i></li>
     <li><label>*产品名称</label><input name="name" type="text" class="dfinput" value="${requestScope.product.name}"/><i></i></li>
-    <li><label>*产品图片</label><input name="picUrl" type="text" class="dfinput"/>
+    <li><label>*产品图片</label><input name="picUrl" type="text" class="dfinput"  value="${requestScope.product.picUrl}"/>
         <input type="button" id="image1" class="dfinput" style="width:120px;" value="点我选择图片" />
         <a href="#" id="clearImagePath1">清除选择图片路径</a>
         <i></i></li>
@@ -83,7 +83,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
             <option value="false">下架</option>
         </select><i></i></li>
         <li><label>*产品描述</label><textarea name="description" cols="90" rows="30" class="textinput" value="${requestScope.product.description}" ></textarea><i></i></li>
-        <li><label>*产品内容</label><textarea name="content" cols="90" rows="30" class="textinput" value="${requestScope.product.content}" ></textarea><i></i></li>
+        <li><label>*产品内容</label><textarea id="content" name="content" cols="90" rows="30" class="textinput" value="${requestScope.product.content}" ></textarea><i></i></li>
         <li><label>&nbsp;</label><input name="" type="submit" class="btn" value="编辑产品"/></li>
     </ul>
     </form>

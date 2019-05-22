@@ -10,7 +10,7 @@ public class Product implements java.io.Serializable {
 
 	private Integer id;
 	private ProductType productType;//所属产品类别
-	private Integer productTyoeId;//所属产品类别id
+	private Integer productTypeId;//所属产品类别id
 	private String name;//产品名称
 	private Integer orderNum;//优先级
 	private String description;//产品描述
@@ -180,6 +180,7 @@ public class Product implements java.io.Serializable {
 	public void setUpdateTime(java.util.Date updateTime) {
 		this.updateTime = updateTime;
 	}
+
 
 	@Override
 	public int hashCode() {
