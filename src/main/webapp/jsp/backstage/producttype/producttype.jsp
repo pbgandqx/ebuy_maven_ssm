@@ -108,10 +108,10 @@
                 <td>
                     <c:choose>
                         <c:when test=" ${productType.linkUrl==null||productType.linkUrl==''}">
-                            无
+                            ${productType.linkUrl}
                         </c:when>
                         <c:otherwise>
-                            ${productType.linkUrl}
+                            无
                         </c:otherwise>
                     </c:choose>
 

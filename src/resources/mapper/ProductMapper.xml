@@ -7,11 +7,12 @@
 <!-- 自定义返回类型-->
 	<resultMap id="product" type="Product">
                <association property="productType" javaType="ProductType" column="ProductTypeId" select="com.lcvc.ebuy_maven_ssm.dao.ProductTypeDao.getProductType">
-
 			   </association>
+		      <association property="creator" javaType="Admin" column="creatorId" select="com.lcvc.ebuy_maven_ssm.dao.AdminDao.getAdmin">
+			  </association>
 	</resultMap>
 
-	<select id="getProductList" resultMap="product">
+	<select id="getProductList" resultMap="product" >
 		select * from product order by orderNum asc,createTime desc
 	</select>
 

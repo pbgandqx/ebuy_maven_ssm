@@ -108,7 +108,7 @@
                 <td style="color: red">${product.price}<br/>
                     <p style="color: #7f7f7f;line-height: 8px"><s>${product.originalPrice}</s></p>
                 </td>
-                <td>${product.creator}</td>
+                <td>${product.creator.name}</td>
                 <td>
                     <c:choose>
                         <c:when test="${product.onSale==true}">

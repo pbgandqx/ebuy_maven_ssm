@@ -64,7 +64,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <form action="<%=basePath%>backstage/product/doSaveProduct" method="post">
     <ul class="forminfo">
     <ul class="forminfo">
-        <li><label>*产品分类</label><select name="productTypeId" class="dfinput"><option value="${requestScope.product.productType.name}">请选择</option>
+        <li><label>*产品分类</label><select name="productType" class="dfinput"><option value="${requestScope.product.productType.name}">请选择</option>
+        <option value="${requestScope.product.productType.name}"></option>
         </select><i></i></li>
         <li><label>*产品名称</label><input name="name" type="text" class="dfinput" value="${requestScope.product.name}"/><i></i></li>
         <li><label>*产品图片</label><input name="picUrl" type="text" class="dfinput" value="${requestScope.product.picUrl}"/>
@@ -76,7 +77,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         <li><label>*产品库存</label><input name="number" type="text" class="dfinput" value="${requestScope.product.number}" /><i></i></li>
         <li><label>*优先级</label><input name="orderNum" type="text" class="dfinput" value="${requestScope.product.orderNum}"/><i></i></li>
         <li><label>*点击数</label><input name="click" type="text" class="dfinput" value="${requestScope.product.click}"/><i></i></li>
-        <li><label>*是否上架</label><select name="onSale"  class="dfinput" value="${requestScope.product.onSale}"></select><i></i></li>
+        <li><label>*是否上架</label><select name="onSale"  class="dfinput" value="${requestScope.product.onSale}">
+            <option value="true" selected="selected">上架</option>
+            <option value="false">下架</option>
+        </select><i></i></li>
         <li><label>*产品描述</label><textarea name="description" cols="90" rows="30" class="textinput" value="${requestScope.product.description}"></textarea><i></i></li>
         <li><label>*产品内容</label><textarea name="content" cols="90" rows="30" class="textinput" value="${requestScope.product.content}"></textarea><i></i></li>
         <li><label>&nbsp;</label><input name="" type="submit" class="btn" value="添加产品类别"/></li>

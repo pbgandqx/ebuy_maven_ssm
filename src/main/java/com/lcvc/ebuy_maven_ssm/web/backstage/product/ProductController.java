@@ -31,29 +31,36 @@ public class ProductController {
         return "jsp/backstage/product/productadd.jsp";
     }
 
-/*
+
 //执行产品添加页面
 
-    @RequestMapping(value = "/backstage/producttype/doSaveProductType", method = RequestMethod.POST)
-    public String doSaveProductType(HttpServletRequest request, ProductType productType) {
-        productType.setName(productType.getName().trim());
-        if (productType.getName().length() == 0) {
-            request.setAttribute("myMessage", "产品分类添加:产品名称不能为空");
-        } else if (productType.getImageUrl().length() == 0) {
-            request.setAttribute("myMessage", "产品分类添加:产品图片不能为空");
-        } else if (productType.getLinkUrl().length() == 0) {
-            request.setAttribute("myMessage", "产品分类添加:产品优先级不能为空");
+    @RequestMapping(value = "/backstage/product/doSaveProduct", method = RequestMethod.POST)
+    public String doSaveProduct(Model model, Product product) {
+        product.setName(product.getName().trim());
+        if (product.getName().length() == 0) {
+            model.addAttribute("myMessage", "产品分类编辑：产品名称不能为空！");
+        }else if (product.getProductType()==null) {
+            model.addAttribute("myMessage", "产品分类编辑:产品分类不能为空");
+        }  else if (product.getPicUrl().length() == 0) {
+            model.addAttribute("myMessage", "产品分类编辑:产品图片不能为空");
+        } else if (product.getOrderNum()==null) {
+            model.addAttribute("myMessage", "产品分类编辑:产品优先级不能为空");
+        }else if (product.getPrice()==null) {
+            model.addAttribute("myMessage", "产品分类编辑:产品现价不能为空");
+        } else if (product.getOriginalPrice()==null) {
+            model.addAttribute("myMessage", "产品分类编辑:产品原价不能为空");
+        } else if (product.getClick()==null) {
+            model.addAttribute("myMessage", "产品分类编辑:产品点击数不能为空");
+        } else if (product.getOnSale()==null) {
+            model.addAttribute("myMessage", "产品分类编辑:产品是否上架不能为空");
         } else {
-            if (productTypeService.SaveProductType(productType)) {
-                request.setAttribute("myMessage", "产品分类添加成功！！！");
-            } else {
-                request.setAttribute("myMessage", "产品分类添加失败！！！");
+                model.addAttribute("myMessage", "产品分类添加失败！！！");
             }
-        }
-        return "jsp/backstage/producttype/productTypeadd.jsp";
+
+        return "jsp/backstage/product/productadd.jsp";
     }
 
-
+/*
     //执行删除产品分类操作
     @RequestMapping(value = "/backstage/producttype/dodeleteProductType", method = RequestMethod.GET)
     public String dodeleteProductType(HttpServletRequest request, HttpSession session, Integer id) {
@@ -77,7 +84,7 @@ public class ProductController {
         product.setName(product.getName().trim());
         if (product.getName().equals("")) {
             model.addAttribute("myMessage", "产品分类编辑：产品名称不能为空！");
-        }else if (product.getProductType().getName().equals("")) {
+        }else if (product.getProductType().equals("")) {
             model.addAttribute("myMessage", "产品分类编辑:产品分类不能为空");
         }  else if (product.getPicUrl().equals("")) {
             model.addAttribute("myMessage", "产品分类编辑:产品图片不能为空");

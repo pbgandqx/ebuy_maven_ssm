@@ -65,7 +65,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <ul class="forminfo">
     <ul class="forminfo">
         <li><label></label><input name="id" type="hidden" class="dfinput" value="${requestScope.product.id}"/><i></i></li>
-        <li><label>*产品分类</label><select name="productTypeId" class="dfinput" value="${requestScope.product.productType.name}"><option value="">请选择</option>
+        <li><label>*产品分类</label><select name="productType" class="dfinput" value="${requestScope.product.productType.name}"><option value="">请选择</option>
             <option value="${requestScope.product.productType.name}"></option>
         </select><i></i></li>
     <li><label>*产品名称</label><input name="name" type="text" class="dfinput" value="${requestScope.product.name}"/><i></i></li>

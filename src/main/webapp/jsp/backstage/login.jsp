@@ -34,7 +34,17 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     $('.loginbox').css({'position':'absolute','left':($(window).width()-692)/2});
 	$(window).resize(function(){  
     $('.loginbox').css({'position':'absolute','left':($(window).width()-692)/2});
-    })  
+    })
+
+		//处理登录按钮点击之后的事件
+		$("#login_button").click(function () {
+			$.post("<%=basePath%>backstage/doLogin",
+                $("#myForm").serialize(),
+                function (data) {
+                    alert(data);
+                }
+                );
+        });
 });  
 </script>
 
@@ -67,13 +77,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		<span class="systemlogo"></span>
 
 		<div class="loginbox">
-			<form action="backstage/doLogin" method="post">
+			<form id="myForm" method="post">
 				<ul>
 					<li><input name="username" type="text" class="loginuser"/>
 					</li>
 					<li><input name="password" type="password" class="loginpwd"/>
 					</li>
-					<li><input name="login" type="submit" class="loginbtn" value="登录" />
+					<li><input id="login_button" type="button" class="loginbtn" value="登录" />
 					    <label><input  type="checkbox" value="" checked="checked" />记住密码</label>
 					    <label><a href="#">忘记密码？</a>
 					</label>
