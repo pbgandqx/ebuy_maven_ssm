@@ -41,7 +41,12 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			$.post("<%=basePath%>backstage/doLogin",
                 $("#myForm").serialize(),
                 function (data) {
-                    alert(data);
+                   if (data.status==1){
+                       alert("登录成功！");
+                       window.location.href="<%=basePath%>backstage/index"
+				   }else {
+                       alert("登录失败！");
+				   }
                 }
                 );
         });

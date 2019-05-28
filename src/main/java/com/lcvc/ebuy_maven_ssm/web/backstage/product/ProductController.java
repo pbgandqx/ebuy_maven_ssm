@@ -8,10 +8,13 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+import java.util.HashMap;
+import java.util.Map;
 
 @Controller
 public class ProductController {
@@ -60,16 +63,17 @@ public class ProductController {
         return "jsp/backstage/product/productadd.jsp";
     }
 
-/*
+
     //执行删除产品分类操作
-    @RequestMapping(value = "/backstage/producttype/dodeleteProductType", method = RequestMethod.GET)
-    public String dodeleteProductType(HttpServletRequest request, HttpSession session, Integer id) {
-        ProductType producTtype = (ProductType) session.getAttribute("productType");
-        productTypeService.deleteProductType(id);
-        request.setAttribute("list", productTypeService.getProductTypeList());
-        return "/jsp/backstage/producttype/producttype.jsp";
+    @ResponseBody
+    @RequestMapping(value = "/backstage/product/dodeleteProduct", method = RequestMethod.GET)
+    public Map<String,Object> dodeleteProduct(Integer id) {
+        Map<String,Object> map=new HashMap<String,Object>();
+        productService.deleteProduct(id);
+        map.put("status",1);
+        return map;
     }
-*/
+
     //跳转到产品添加编辑页面
     @RequestMapping(value = "/backstage/product/toProductupdate", method = RequestMethod.GET)
     public String toProductupdate(Model model, Integer id) {
@@ -82,21 +86,21 @@ public class ProductController {
     @RequestMapping(value = "/backstage/product/doProductupdate", method = RequestMethod.POST)
     public String doupdateProduct(Model model, Product product) {
         product.setName(product.getName().trim());
-        if (product.getName().equals("")) {
+        if (product.getName().length() == 0) {
             model.addAttribute("myMessage", "产品分类编辑：产品名称不能为空！");
-        }else if (product.getProductType().equals("")) {
+        }else if (product.getProductType()==null) {
             model.addAttribute("myMessage", "产品分类编辑:产品分类不能为空");
-        }  else if (product.getPicUrl().equals("")) {
+        }  else if (product.getPicUrl().length() == 0) {
             model.addAttribute("myMessage", "产品分类编辑:产品图片不能为空");
-        } else if (product.getOrderNum().equals("")) {
+        } else if (product.getOrderNum()==null) {
             model.addAttribute("myMessage", "产品分类编辑:产品优先级不能为空");
-        }else if (product.getPrice().equals("")) {
+        }else if (product.getPrice()==null) {
             model.addAttribute("myMessage", "产品分类编辑:产品现价不能为空");
-        } else if (product.getOriginalPrice().equals("")) {
+        } else if (product.getOriginalPrice()==null) {
             model.addAttribute("myMessage", "产品分类编辑:产品原价不能为空");
-        } else if (product.getClick().equals("")) {
+        } else if (product.getClick()==null) {
             model.addAttribute("myMessage", "产品分类编辑:产品点击数不能为空");
-        } else if (product.getOnSale().equals("")) {
+        } else if (product.getOnSale()==null) {
             model.addAttribute("myMessage", "产品分类编辑:产品是否上架不能为空");
         }  else {
             if (productService.updateProduct(product)) {

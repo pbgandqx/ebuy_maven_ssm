@@ -1,5 +1,6 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8" %>
 <%@ taglib prefix="c"  uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%
     String path = request.getContextPath();
@@ -9,7 +10,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <title>订餐系统后台管理</title>
+    <title>网站后台管理系统HTML模板--模板之家 www.cssmoban.com</title>
     <link href="<%=basePath%>jsp/backstage/css/style.css" rel="stylesheet" type="text/css"/>
     <script type="text/javascript" src="<%=basePath%>jsp/backstage/js/jquery.js"></script>
 
@@ -30,7 +31,7 @@
             $(".cancel").click(function () {
                 $(".tip").fadeOut(100);
             });
-            
+
             $("a[name='deleteAdmin']").click(function () {
                 var url=$(this).attr("href");
                 var username=$(this).attr("id");
@@ -54,8 +55,8 @@
     <span>位置：</span>
     <ul class="placeul">
         <li><a href="#">首页</a></li>
-        <li><a href="#">管理员账号管理</a></li>
-
+        <li><a href="<%=basePath%>/backstage/adminmanage/toManageAdmin">管理员账户</a></li>
+        <li><a href="#">账户编辑</a></li>
     </ul>
 </div>
 
@@ -64,9 +65,9 @@
     <div class="tools">
 
         <ul class="toolbar">
-         <a href="<%=basePath%>backstage/adminmanage/toSaveAdmin">
-             <li class="click"><span><img src="<%=basePath%>jsp/backstage/images/t01.png"/></span>添加管理账户</li>
-         </a>
+            <a href="<%=basePath%>backstage/adminmanage/toSaveAdmin">
+                <li class="click"><span><img src="<%=basePath%>jsp/backstage/images/t01.png"/></span>添加管理账户</li>
+            </a>
         </ul>
 
 
@@ -81,23 +82,21 @@
         <thead>
         <tr>
             <th><input name="" type="checkbox" value="" checked="checked"/></th>
-            <th>账户名</th>
+            <th>编号<i class="sort"><img src="images/px.gif"/></i></th>
             <th>姓名</th>
-            <th>籍贯</th>
-            <th>发布时间</th>
+            <th>注册时间</th>
             <th>操作</th>
         </tr>
         </thead>
         <tbody>
         <c:forEach var="admin" items="${requestScope.list}">
-        <tr>
-            <td><input name="" type="checkbox" value=""/></td>
-            <td>${admin.username}</td>
-            <td>${admin.name}</td>
-            <td>江苏南京</td>
-            <td><fmt:formatDate value="${admin.createTime}" pattern="yyyy年MM月dd日 HH:mm"/></td>
-            <td><a href="<%=basePath%>backstage/adminmanage/toUpdateAdmin?id=${admin.id}" class="tablelink">修改</a> <a id="${admin.username}" name="deleteAdmin"  href="<%=basePath%>backstage/adminmanage/doDeleteAdmin?id=${admin.id}" class="tablelink"> 删除</a></td>
-        </tr>
+            <tr>
+                <td><input name="" type="checkbox" value=""/></td>
+                <td>${admin.username}</td>
+                <td>${admin.name}</td>
+                <td><fmt:formatDate value="${admin.createTime}" pattern="yyyy年MM月dd日 HH:mm"/></td>
+                <td><a href="<%=basePath%>backstage/adminmanage/toUpdateAdmin?id=${admin.id}" class="tablelink">修改</a> <a id="${admin.username}" name="deleteAdmin"  href="<%=basePath%>backstage/adminmanage/doDeleteAdmin?id=${admin.id}" class="tablelink"> 删除</a></td>
+            </tr>
         </c:forEach>
 
         </tbody>
@@ -105,7 +104,7 @@
 
 
     <div class="pagin">
-        <div class="message">共<i class="blue"></i>条记录，当前显示第&nbsp;<i class="blue">2&nbsp;</i>页</div>
+        <div class="message">共<i class="blue">${fn:length(list)}</i>条记录</div>
         <ul class="paginList">
 
         </ul>

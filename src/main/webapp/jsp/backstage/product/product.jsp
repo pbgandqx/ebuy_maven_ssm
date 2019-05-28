@@ -31,14 +31,18 @@
                 $(".tip").fadeOut(100);
             });
 
-            $("a[name='deleteProductType']").click(function () {
-                var url=$(this).attr("href");
-                var name=$(this).attr("id");
-                if(window.confirm("确认删除该产品分类("+name+")吗？")){
-                    return true;//执行链接跳转
-                }else{
-                    return false;//不执行链接的跳转
+            $("a[name='deleteProduct']").click(function () {
+            $this=$(this);
+                if(window.confirm("确认要删除该产品("+name+")吗？删除后无法恢复！")){
+                  var url=$(this).attr("href");
+                  $.get(url,
+                  function (data) {
+                      if (data.status==1){
+                          $this.parent().parent().remove();
+                      }
+                  });
                 }
+                return false;
             });
 
         });
@@ -131,7 +135,7 @@
 
 
     <div class="pagin">
-        <div class="message">共<i class="blue"></i>条记录，当前显示第&nbsp;<i class="blue">2&nbsp;</i>页</div>
+        <div class="message">共<i class="blue">${fn:length(list)}</i>条记录</div>
         <ul class="paginList">
 
         </ul>
