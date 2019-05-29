@@ -1,6 +1,7 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8" %>
 <%@ taglib prefix="c"  uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%
     String path = request.getContextPath();
     String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + path + "/";
@@ -33,6 +34,7 @@
 
             $("a[name='deleteProduct']").click(function () {
             $this=$(this);
+                var name=$(this).attr("id");
                 if(window.confirm("确认要删除该产品("+name+")吗？删除后无法恢复！")){
                   var url=$(this).attr("href");
                   $.get(url,

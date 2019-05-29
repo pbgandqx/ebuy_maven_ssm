@@ -6,11 +6,14 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+import java.util.HashMap;
+import java.util.Map;
 
 @Controller
 public class ProductTypeController {
@@ -56,14 +59,14 @@ public class ProductTypeController {
 
 
     //执行删除产品分类操作
+    @ResponseBody
     @RequestMapping(value = "/backstage/producttype/dodeleteProductType", method = RequestMethod.GET)
-    public String dodeleteProductType(HttpServletRequest request, HttpSession session, Integer id) {
-        ProductType producTtype = (ProductType) session.getAttribute("productType");
+    public Map<String,Object> dodeleteProductType(Integer id) {
+        Map<String,Object> map=new HashMap<String,Object>();
         productTypeService.deleteProductType(id);
-        request.setAttribute("list", productTypeService.getProductTypeList());
-        return "/jsp/backstage/producttype/producttype.jsp";
+        map.put("status",1);
+        return map;
     }
-
     //跳转到产品添加编辑页面
     @RequestMapping(value = "/backstage/producttype/toProductTypeupdate", method = RequestMethod.GET)
     public String toProductTypeupdate(Model model, Integer id) {
