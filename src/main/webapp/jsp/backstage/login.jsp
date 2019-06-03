@@ -82,7 +82,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		<span class="systemlogo"></span>
 
 		<div class="loginbox">
-			<form id="myForm" method="post">
+			<form id="myForm" action="backstage/doLogin" method="post">
 				<ul>
 					<li><input name="username" type="text" class="loginuser"/>
 					</li>
