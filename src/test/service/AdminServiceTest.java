@@ -36,4 +36,8 @@ public class AdminServiceTest extends SpringJunitTest {
             System.out.println(admin.getName());
         }
     }
+    @Test
+    public void testMaxPage(){
+       System.out.println(adminService.maxPage());
+    }
 }

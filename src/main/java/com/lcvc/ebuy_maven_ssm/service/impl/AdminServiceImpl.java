@@ -48,9 +48,6 @@ public class AdminServiceImpl implements AdminService {
         return status;
     }
 
-    public List<Admin> getAdminList() {
-        return adminDao.getAdminList();
-    }
 
     public boolean deleteAdmin(Integer id, Integer adminId) {
         boolean status = false;//存储修改结果
@@ -101,15 +98,25 @@ public class AdminServiceImpl implements AdminService {
         }
         return admin;
     }
+    public List<Admin> getAdminList() {
+        return adminDao.getAdminList();
+    }
 
 @Override
     public List<Admin> getPartlist(Integer page) {
-        int pagesize = 10;
-        int offset = (page - 1) * pagesize + 1;
+        int pagesize = 10;//每页显示10条记录
+        if (page==null){//如果page为null，默认为第一页
+            page=1;
+        }else {
+            if (page<1){
+                page=1;
+            }
+        }
+        int offset = (page - 1) * pagesize + 1;//每页开始的记录数位置（仅在业务层使用，不考虑数据库）
 
-        return adminDao.getPartlist(offset - 1, pagesize);
+        return adminDao.getPartlist(offset - 1, pagesize);//数据库记录位置从0数起）
     }
-
+    @Override
     public int maxPage(){
         int maxPage=0;
         int pagesize=10;
@@ -119,6 +126,6 @@ public class AdminServiceImpl implements AdminService {
         }else {
             maxPage=total/pagesize+1;
         }
-        return  0;
+        return  maxPage;
     }
 }

@@ -33,18 +33,18 @@
             });
 
             $("a[name='deleteProduct']").click(function () {
-            $this=$(this);
-                var name=$(this).attr("id");
-                if(window.confirm("确认要删除该产品("+name+")吗？删除后无法恢复！")){
-                  var url=$(this).attr("href");
-                  $.get(url,
-                  function (data) {
-                      if (data.status==1){
-                          $this.parent().parent().remove();
-                      }
-                  });
-                }
-                return false;
+                    $this=$(this);
+                    var name=$(this).attr("id");
+                    if(window.confirm("确认要删除该产品("+name+")吗？删除后无法恢复！")){
+                        var url=$(this).attr("href");
+                        $.get(url,
+                            function (data) {
+                                if (data.status==1){
+                                    $this.parent().parent().remove();
+                                }
+                            });
+                    }
+                    return false;
             });
 
         });
@@ -121,7 +121,7 @@
                             上架中
                         </c:when>
                         <c:otherwise>
-                            否
+                           <a style="color: red">已下架</a>
                         </c:otherwise>
                     </c:choose>
                 </td>
@@ -137,9 +137,23 @@
 
 
     <div class="pagin">
-        <div class="message">共<i class="blue">${fn:length(list)}</i>条记录</div>
+        <div class="message">共<i class="blue">${fn:length(list)}</i>
+            条记录,当前显示第<i class="blue">${requestScope.page}</i>页,共
+            <i class="blue">${requestScope.maxPage}</i>页
+        </div>
         <ul class="paginList">
-
+            <li class="paginItem">
+                <a href="<%=basePath%>backstage/product/toProduct?page=1">首页</a>
+            </li>
+            <li class="paginItem">
+                <a href="<%=basePath%>backstage/product/toProduct?page=${requestScope.page-1}">上一页</a>
+            </li>
+            <li class="paginItem">
+                <a href="<%=basePath%>backstage/product/toProduct?page=${requestScope.page+1}">下一页</a>
+            </li>
+            <li class="paginItem">
+                <a href="<%=basePath%>backstage/product/toProduct?page=${requestScope.maxPage}">尾页</a>
+            </li>
         </ul>
     </div>
 

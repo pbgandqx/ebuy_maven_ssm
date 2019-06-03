@@ -68,4 +68,30 @@ public class ProductServiceImpl implements ProductService {
         }
         return product;
     }
+    @Override
+    public List<Product> getProductList(Integer page) {
+        int pagesize = 10;//每页显示10条记录
+        if (page==null){//如果page为null，默认为第一页
+            page=1;
+        }else {
+            if (page<1){
+                page=1;
+            }
+        }
+        int offset = (page - 1) * pagesize + 1;//每页开始的记录数位置（仅在业务层使用，不考虑数据库）
+
+        return productDao.getPartlist(offset - 1, pagesize);//数据库记录位置从0数起）
+    }
+    @Override
+    public int maxPage(){
+        int maxPage=0;
+        int pagesize=10;
+        int total=productDao.total();
+        if (total%pagesize==0){
+            maxPage=total/pagesize;
+        }else {
+            maxPage=total/pagesize+1;
+        }
+        return  maxPage;
+    }
 }

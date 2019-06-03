@@ -61,4 +61,10 @@ public interface ProductService {
         *  @return null 表示没有找到
         * */
     Product getProduct(Integer id);
+
+    /*分页
+   * */
+    List<Product> getProductList(Integer page);
+
+    int maxPage();
 }

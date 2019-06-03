@@ -23,8 +23,17 @@ public class ProductController {
 
     //跳转到产品模块页面
     @RequestMapping(value = "/backstage/product/toProduct", method = RequestMethod.GET)
-    public String toProduct(HttpServletRequest request) {
-        request.setAttribute("list", productService.getProductList());
+    public String toProduct(Model model,Integer page) {
+        if (page==null){
+            page=1;
+        }else {
+            if (page<1){
+                page=1;
+            }
+        }
+        model.addAttribute("list", productService.getProductList(page));
+        model.addAttribute("page",page);
+        model.addAttribute("maxPage",productService.maxPage());
         return "jsp/backstage/product/product.jsp";
     }
 
