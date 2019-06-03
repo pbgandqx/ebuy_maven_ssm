@@ -57,7 +57,7 @@
 		select count(id) from Product
 	</select>
 
-	<select id="getPartlist" resultMap="Product">
+	<select id="getPartlist" resultMap="product">
 		select * from product order by id asc limit #{offset},#{length}
 	</select>
 </mapper>

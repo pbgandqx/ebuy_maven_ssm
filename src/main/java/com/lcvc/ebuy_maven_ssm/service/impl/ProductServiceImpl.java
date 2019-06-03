@@ -70,7 +70,7 @@ public class ProductServiceImpl implements ProductService {
     }
     @Override
     public List<Product> getProductList(Integer page) {
-        int pagesize = 10;//每页显示10条记录
+        int pagesize = 6;//每页显示10条记录
         if (page==null){//如果page为null，默认为第一页
             page=1;
         }else {
@@ -85,7 +85,7 @@ public class ProductServiceImpl implements ProductService {
     @Override
     public int maxPage(){
         int maxPage=0;
-        int pagesize=10;
+        int pagesize=6;
         int total=productDao.total();
         if (total%pagesize==0){
             maxPage=total/pagesize;
