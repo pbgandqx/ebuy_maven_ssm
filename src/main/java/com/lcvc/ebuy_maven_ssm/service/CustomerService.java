@@ -12,59 +12,32 @@ import java.util.Date;
 import java.util.List;
 
 @Service
-public class CustomerService {
-    @Resource
-    private CustomerDao customerDao;
+public interface CustomerService {
 
     /**
      * 返回所有的管理账户集合
      * @return 以List方式返回
      */
-    public List<Customer> getCustomerList(){
-        return customerDao.getCustomerList();
-    }
+     List<Customer> getCustomerList();
 
  /*
     * 将账户信息存进数据库
     * @param  producttype
     * @return true表示保存成功，false表示保存失败
     * */
- public boolean SaveCustomer(Customer customer) {
-     boolean stsatus = false;
-     customer.setPassword(SHA.getResult("123456"));
-     customer.setCreateTime(new Date());//系统当前时间为创建日期
-     if (customerDao.SaveCustomer(customer)==1){
-         stsatus= true;
-     }else {
-         stsatus= false;
-     }
-     return stsatus;
- }
+  boolean SaveCustomer(Customer customer) ;
     /**
      * 删除指定账户
      * @param id 被删除的账户id
      * @return true表示删除成功
      */
-    public boolean deleteCustomer(Integer id){
-        boolean status=false;//存储修改结果
-        int n=customerDao.deleteCustomer(id);
-                if(n==1){
-                    status=true;
-                }
-        return status;
-    }
+     boolean deleteCustomer(Integer id);
 /**
         * 判断账户名是否存在（用于创建新账户的时候）
             * @param username
      * @return true表示存在，false表示存在
      */
-    public boolean existsUsername(String username){
-        if(customerDao.existsUsername(username)==0){
-            return false;
-        }else{
-            return true;
-        }
-    }
+     boolean existsUsername(String username);
 
     /**
      * 修改账户的基本信息
@@ -75,27 +48,12 @@ public class CustomerService {
      * @param
      * @return false表示修改失败，true表示修改成功
      */
-    public boolean updateCustomer(Customer customer){
-        boolean status=false;//存储修改结果
-            if(customerDao.updateCustomer(customer)==1){
-                status=true;
-            }else{
-                status=false;
-            }
-
-        return status;
-    }
+     boolean updateCustomer(Customer customer);
 
     /*
         *  根据标识符获取相应的管理账户对象
         *  @param id
         *  @return null 表示没有找到
         * */
-    public Customer getCustomer(Integer id){
-        Customer customer=null;
-        if (id!=null){
-            customer=customerDao.getCustomer(id);
-        }
-        return customer;
-    }
+     Customer getCustomer(Integer id);
 }

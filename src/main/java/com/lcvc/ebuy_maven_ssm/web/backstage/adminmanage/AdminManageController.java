@@ -3,6 +3,7 @@ package com.lcvc.ebuy_maven_ssm.web.backstage.adminmanage;
 import com.lcvc.ebuy_maven_ssm.model.Admin;
 import com.lcvc.ebuy_maven_ssm.service.AdminService;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -18,8 +19,13 @@ public class AdminManageController {
 
 	//跳转到管理员管理页面
 	@RequestMapping(value = "/backstage/adminmanage/toManageAdmin", method = RequestMethod.GET)
-	public String toManageAdmin(HttpServletRequest request){
-		request.setAttribute("list",adminService.getAdminList());
+	public String toManageAdmin(Model model,Integer page){
+		if (page==null){
+			page=1;
+		}
+		model.addAttribute("list",adminService.getPartlist(page));
+		model.addAttribute("page",page);
+		model.addAttribute("maxPage",adminService.maxPage());
 		return "/jsp/backstage/adminmanage/adminmanage.jsp";
 	}
 

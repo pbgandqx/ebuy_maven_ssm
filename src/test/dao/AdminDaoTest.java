@@ -79,4 +79,13 @@ public class AdminDaoTest extends SpringJunitTest {
           System.out.println(adminDao.getAdmin(22));
       }
 
+    @Test
+    public void testGetPartList(){
+        List<Admin> list= adminDao.getPartlist(0,10);
+        for(int i=0;i<list.size();i++){
+            Admin admin=list.get(i);
+            System.out.println(admin.getName()+"\t");
+            System.out.println();
+        }
+    }
 }

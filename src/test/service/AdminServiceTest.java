@@ -8,6 +8,7 @@ import org.junit.Test;
 
 import javax.annotation.Resource;
 import java.util.Date;
+import java.util.List;
 
 public class AdminServiceTest extends SpringJunitTest {
     @Resource
@@ -27,5 +28,12 @@ public class AdminServiceTest extends SpringJunitTest {
         admin.setCreateTime(new Date());
         System.out.println(adminService.saveAdmin(admin));
     }
-
+    @Test
+    public void testGetPartList(){
+        List<Admin> list= adminService.getPartlist(2);
+        for(int i=0;i<list.size();i++){
+            Admin admin=list.get(i);
+            System.out.println(admin.getName());
+        }
+    }
 }

@@ -29,7 +29,7 @@
 	</select>
 
 	<select id="getAdminList" resultType="Admin">
-		select * from admin order by id asc
+		select * from admin limit #{offset},#{length} order by id asc
 	</select>
 
 	<delete id="deleteAdmin">
@@ -43,5 +43,10 @@
 	<select id="getAdmin" resultType="Admin">
 	select * from admin where id=#{id}
 </select>
+
+	<select id="getPartlist" resultType="Admin">
+		select * from admin order by id asc limit #{offset},#{length}
+	</select>
+
 
 </mapper>

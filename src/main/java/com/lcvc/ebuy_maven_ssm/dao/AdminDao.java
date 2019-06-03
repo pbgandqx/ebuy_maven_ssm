@@ -31,7 +31,7 @@ public interface AdminDao {
     int existsAdmin(@Param(value = "username")String username,@Param(value = "id")Integer id);
 
 
-    /**
+    /**分页显示数据库记录
      * 返回所有的管理账户集合
      * @return 以List方式返回
      */
@@ -62,5 +62,10 @@ public interface AdminDao {
     Admin getAdmin(int id);
 
 
+        /*
+        * 分页显示数据库记录
+        *
+        * */
 
+        List<Admin> getPartlist(@Param(value = "offset")int offset,@Param(value = "length")int length);
 }

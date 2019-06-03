@@ -1,5 +1,5 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8" %>
-<%@ taglib prefix="c"  uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%
@@ -33,11 +33,11 @@
             });
 
             $("a[name='deleteAdmin']").click(function () {
-                var url=$(this).attr("href");
-                var username=$(this).attr("id");
-                if(window.confirm("确认删除该账户("+username+")吗？")){
+                var url = $(this).attr("href");
+                var username = $(this).attr("id");
+                if (window.confirm("确认删除该账户(" + username + ")吗？")) {
                     return true;//执行链接跳转
-                }else{
+                } else {
                     return false;//不执行链接的跳转
                 }
             });
@@ -95,7 +95,10 @@
                 <td>${admin.username}</td>
                 <td>${admin.name}</td>
                 <td><fmt:formatDate value="${admin.createTime}" pattern="yyyy年MM月dd日 HH:mm"/></td>
-                <td><a href="<%=basePath%>backstage/adminmanage/toUpdateAdmin?id=${admin.id}" class="tablelink">修改</a> <a id="${admin.username}" name="deleteAdmin"  href="<%=basePath%>backstage/adminmanage/doDeleteAdmin?id=${admin.id}" class="tablelink"> 删除</a></td>
+                <td><a href="<%=basePath%>backstage/adminmanage/toUpdateAdmin?id=${admin.id}" class="tablelink">修改</a>
+                    <a id="${admin.username}" name="deleteAdmin"
+                       href="<%=basePath%>backstage/adminmanage/doDeleteAdmin?id=${admin.id}" class="tablelink"> 删除</a>
+                </td>
             </tr>
         </c:forEach>
 
@@ -104,9 +107,12 @@
 
 
     <div class="pagin">
-        <div class="message">共<i class="blue">${fn:length(list)}</i>条记录</div>
+        <div class="message">共<i class="blue">${fn:length(list)}</i>
+            条记录,当前显示第<i class="blue">${}</i>页,共
+            <i class="blue"></i>
+        </div>
         <ul class="paginList">
-
+            <li class="pageItem"><a href="<%=basePath%>backstage/adminmanage/toManageAdmin?page=1">首页</a></li>
         </ul>
     </div>
 
