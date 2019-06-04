@@ -116,9 +116,23 @@
 
 
     <div class="pagin">
-        <div class="message">共<i class="blue">${fn:length(list)}</i>条记录，当前显示第&nbsp;<i class="blue">2&nbsp;</i>页</div>
+        <div class="message">共<i class="blue">${fn:length(list)}</i>
+            条记录,当前显示第<i class="blue">${requestScope.page}</i>页,共
+            <i class="blue">${requestScope.maxPage}</i>页
+        </div>
         <ul class="paginList">
-
+            <li class="paginItem">
+                <a href="<%=basePath%>backstage/customer/tocustomer?page=1">首页</a>
+            </li>
+            <li class="paginItem">
+                <a href="<%=basePath%>backstage/customer/tocustomer?page=${requestScope.page-1}">上一页</a>
+            </li>
+            <li class="paginItem">
+                <a href="<%=basePath%>backstage/customer/tocustomer?page=${requestScope.page+1}">下一页</a>
+            </li>
+            <li class="paginItem">
+                <a href="<%=basePath%>backstage/customer/tocustomer?page=${requestScope.maxPage}">尾页</a>
+            </li>
         </ul>
     </div>
 

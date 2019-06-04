@@ -42,7 +42,6 @@
                     $("#myForm").serialize(),
                     function (data) {
                         if (data.status==1){
-                            alert("登录成功！");
                             window.location.href="<%=basePath%>backstage/index"
                         }else {
                             alert("登录失败！");

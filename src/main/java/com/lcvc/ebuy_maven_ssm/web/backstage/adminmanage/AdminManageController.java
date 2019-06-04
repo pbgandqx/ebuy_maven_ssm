@@ -22,6 +22,10 @@ public class AdminManageController {
 	public String toManageAdmin(Model model,Integer page){
 		if (page==null){
 			page=1;
+		}else {
+			if (page<1){
+				page=1;
+			}
 		}
 		model.addAttribute("list",adminService.getPartlist(page));
 		model.addAttribute("page",page);

@@ -84,10 +84,10 @@ public class ProductServiceImpl implements ProductService {
     }
     @Override
     public int maxPage(){
-        int maxPage=0;
-        int pagesize=6;
-        int total=productDao.total();
-        if (total%pagesize==0){
+        int maxPage=0;//默认为0
+        int pagesize=6;//每页显示6记录
+        int total=productDao.total();//最大记录数
+        if (total%pagesize==0){//%表示余数，比如35%5=5
             maxPage=total/pagesize;
         }else {
             maxPage=total/pagesize+1;

@@ -47,4 +47,18 @@ public interface CustomerDao {
      * @return 返回重名的个数，0表示不重名
      */
     int existsUsername(@Param(value = "username")String username);
+
+     /*
+        * 分页显示数据库记录
+        *
+        * */
+
+    List<Customer> getPartlist(@Param(value = "offset")int offset,@Param(value = "length")int length);
+
+    /*
+       * 获取数据库总记录
+       *
+       * */
+    int total();
+
 }

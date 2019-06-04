@@ -28,4 +28,12 @@
 	<select id="existsUsername" resultType="int">
 		select count(id) from customer where username=#{username}
 	</select>
+
+	<select id="total" resultType="int">
+		select count(id) from customer
+	</select>
+
+	<select id="getPartlist" resultType="Customer">
+		select * from customer order by id asc limit #{offset},#{length}
+	</select>
 </mapper>

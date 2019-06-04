@@ -56,4 +56,10 @@ public interface CustomerService {
         *  @return null 表示没有找到
         * */
      Customer getCustomer(Integer id);
+
+    /*分页
+ * */
+    List<Customer> getCustomerList(Integer page);
+
+    int maxPage();
 }

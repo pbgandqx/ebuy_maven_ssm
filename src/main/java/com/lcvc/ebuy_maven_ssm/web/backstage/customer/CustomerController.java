@@ -24,8 +24,18 @@ public class CustomerController {
 
     //跳转到客户模块页面
     @RequestMapping(value = "/backstage/customer/tocustomer", method = RequestMethod.GET)
-    public String tocustomer(HttpServletRequest request) {
-        request.setAttribute("list", customerService.getCustomerList());
+    public String tocustomer(Model model,Integer page) {
+        if (page==null){//如果page为null，默认为第一页
+            page=1;
+        }else {
+            if (page<1){
+                page=1;
+            }
+        }
+        model.addAttribute("list", customerService.getCustomerList(page));//当前页显示的记录集合
+        model.addAttribute("page",page);//当前页
+        model.addAttribute("maxPage",customerService.maxPage());//最大也
+
         return "jsp/backstage/customer/customer.jsp";
     }
 

@@ -24,16 +24,16 @@ public class ProductController {
     //跳转到产品模块页面
     @RequestMapping(value = "/backstage/product/toProduct", method = RequestMethod.GET)
     public String toProduct(Model model,Integer page) {
-        if (page==null){
+        if (page==null){//如果page为null，默认为第一页
             page=1;
         }else {
             if (page<1){
                 page=1;
             }
         }
-        model.addAttribute("list", productService.getProductList(page));
-        model.addAttribute("page",page);
-        model.addAttribute("maxPage",productService.maxPage());
+        model.addAttribute("list", productService.getProductList(page));//当前页显示的记录集合
+        model.addAttribute("page",page);//当前页
+        model.addAttribute("maxPage",productService.maxPage());//最大也
         return "jsp/backstage/product/product.jsp";
     }
 
