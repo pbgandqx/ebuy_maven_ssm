@@ -1,7 +1,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <body>
-<h2>Hello,世界!</h2>
+<h2>Hello,欢迎你来到神秘的订餐系统页面!</h2>
 <a href="helloServlet" target="_blank">helloServlet</a><br/>
 <a href="helloSpringMvc" target="_blank">helloSpringMvc</a><br/>
 

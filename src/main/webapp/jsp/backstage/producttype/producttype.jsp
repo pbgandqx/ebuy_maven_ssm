@@ -106,7 +106,7 @@
                             无图片
                         </c:when>
                         <c:otherwise>
-                        <img src="${productType.imageUrl}" style="width:80px;height:60px;"/>
+                        <img src="<%=basePath%>${productType.imageUrl}" style="width:80px;height:60px;"/>
                         </c:otherwise>
                     </c:choose>
 
