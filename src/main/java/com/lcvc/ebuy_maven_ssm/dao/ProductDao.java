@@ -60,5 +60,7 @@ public interface ProductDao {
         * */
      int total();
 
+     List<Product>  getNewTopProductList(Integer pageSize);
+
 
 }

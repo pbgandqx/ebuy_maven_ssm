@@ -94,4 +94,10 @@ public class ProductServiceImpl implements ProductService {
         }
         return  maxPage;
     }
+
+    @Override
+    public List<Product>  getNewTopProductList(Integer pageSize){
+        return productDao.getNewTopProductList(pageSize);
+    }
+
 }
