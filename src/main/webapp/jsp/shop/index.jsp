@@ -1,8 +1,10 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c"  uri="http://java.sun.com/jsp/jstl/core" %>
 <%
 	String path = request.getContextPath();
 	String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
 %>
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -27,29 +29,16 @@
 			<div class="block">
 				<div class="title">
 					<label class="new">今日新品</label>
-					<a href="<%=basePath%>jsp/shop/shoplists.html">更多&gt;&gt;</a>
+					<a href="<%=basePath%>jsp/shop/shoplists">更多&gt;&gt;</a>
 				</div>
 				<div class="block-wrap">
+					<c:forEach var="product" items="${requestScope.newProducts}">
 					<div class="item">
-						<a href="<%=basePath%>jsp/shop/shopdetial.html"><img alt="" src="<%=basePath%>jsp/shop/resources/images/foods/01.jpg"></a>
-						<label><em>￥18.00</em><span>￥20.00</span>67人付款</label>
-						<h3>回锅肉炒西芹</h3>
+						<a href="<%=basePath%>jsp/shop/shopdetial.html"><img style="width: 250px;height: 180px;" alt="" src="<%=basePath%>${product.picUrl}"></a>
+						<label><em>￥${product.price}</em><span>￥${product.originalPrice}</span>67人付款</label>
+						<h3>${product.name}</h3>
 					</div>
-					<div class="item">
-						<a href="<%=basePath%>jsp/shop/shopdetial.html"><img alt="" src="<%=basePath%>jsp/shop/resources/images/foods/01.jpg"></a>
-						<label><em>￥18.00</em><span>￥20.00</span>67人付款</label>
-						<h3>回锅肉炒西芹</h3>
-					</div>
-					<div class="item">
-						<a href="<%=basePath%>jsp/shop/shopdetial.html"><img alt="" src="<%=basePath%>jsp/shop/resources/images/foods/01.jpg"></a>
-						<label><em>￥18.00</em><span>￥20.00</span>67人付款</label>
-						<h3>回锅肉炒西芹</h3>
-					</div>
-					<div class="item">
-						<a href="<%=basePath%>jsp/shop/shopdetial.html"><img alt="" src="<%=basePath%>jsp/shop/resources/images/foods/01.jpg"></a>
-						<label><em>￥18.00</em><span>￥20.00</span>67人付款</label>
-						<h3>回锅肉炒西芹</h3>
-					</div>
+					</c:forEach>
 				</div>
 			</div>
 			<div class="block">
@@ -58,26 +47,13 @@
 					<a href="<%=basePath%>jsp/shop/shoplists.html">更多&gt;&gt;</a>
 				</div>
 				<div class="block-wrap">
+					<c:forEach var="product" items="${requestScope.hotProduct}">
 					<div class="item">
-						<a href="<%=basePath%>jsp/shop/shopdetial.html"><img alt="" src="<%=basePath%>jsp/shop/resources/images/foods/01.jpg"></a>
-						<label><em>￥18.00</em><span>￥20.00</span>67人付款</label>
-						<h3>回锅肉炒西芹</h3>
+						<a href="<%=basePath%>jsp/shop/shopdetial.html"><img style="width: 250px;height: 180px;" alt="" src="<%=basePath%>${product.picUrl}"></a>
+						<label><em>￥${product.price}</em><span>￥${product.originalPrice}</span>67人付款</label>
+						<h3>${product.name}</h3>
 					</div>
-					<div class="item">
-						<a href="<%=basePath%>jsp/shop/shopdetial.html"><img alt="" src="<%=basePath%>jsp/shop/resources/images/foods/01.jpg"></a>
-						<label><em>￥18.00</em><span>￥20.00</span>67人付款</label>
-						<h3>回锅肉炒西芹</h3>
-					</div>
-					<div class="item">
-						<a href="<%=basePath%>jsp/shop/shopdetial.html"><img alt="" src="<%=basePath%>jsp/shop/resources/images/foods/01.jpg"></a>
-						<label><em>￥18.00</em><span>￥20.00</span>67人付款</label>
-						<h3>回锅肉炒西芹</h3>
-					</div>
-					<div class="item">
-						<a href="<%=basePath%>jsp/shop/shopdetial.html"><img alt="" src="<%=basePath%>jsp/shop/resources/images/foods/01.jpg"></a>
-						<label><em>￥18.00</em><span>￥20.00</span>67人付款</label>
-						<h3>回锅肉炒西芹</h3>
-					</div>
+					</c:forEach>
 				</div>
 			</div>
 			<div class="block">
@@ -95,7 +71,14 @@
 						</ul>
 						<a href="<%=basePath%>jsp/shop/shoplists.html">更多&gt;&gt;</a>
 					</div>
+					<c:forEach var="product" items="${requestScope.timeProduct}">
 					<div class="item">
+						<a href="<%=basePath%>jsp/shop/shopdetial.html"><img style="width: 250px;height: 180px;" alt="" src="<%=basePath%>${product.picUrl}"></a>
+						<label><em>￥${product.price}</em><span>￥${product.originalPrice}</span>67人付款</label>
+						<h3>${product.name}</h3>
+					</div>
+					</c:forEach>
+				<%--	<div class="item">
 						<a href="<%=basePath%>jsp/shop/shopdetial.html"><img alt="" src="<%=basePath%>jsp/shop/resources/images/foods/01.jpg"></a>
 						<label><em>￥18.00</em><span>￥20.00</span>67人付款</label>
 						<h3>回锅肉炒西芹</h3>
@@ -109,12 +92,7 @@
 						<a href="<%=basePath%>jsp/shop/shopdetial.html"><img alt="" src="<%=basePath%>jsp/shop/resources/images/foods/01.jpg"></a>
 						<label><em>￥18.00</em><span>￥20.00</span>67人付款</label>
 						<h3>回锅肉炒西芹</h3>
-					</div>
-					<div class="item">
-						<a href="<%=basePath%>jsp/shop/shopdetial.html"><img alt="" src="<%=basePath%>jsp/shop/resources/images/foods/01.jpg"></a>
-						<label><em>￥18.00</em><span>￥20.00</span>67人付款</label>
-						<h3>回锅肉炒西芹</h3>
-					</div>
+					</div>--%>
 				</div>
 			</div>
 			<br>

@@ -74,4 +74,13 @@ public interface ProductService {
 
     List<Product> getNewTopProductList(Integer pageSize);
 
+    /*
+    * 热门订单
+    * */
+    List<Product> getHotProductList(Integer pageSize);
+
+    /*
+   * 热门订单
+   * */
+    List<Product> getTimeProductList(Integer pageSize);
 }

@@ -64,4 +64,13 @@
 	<select id="getNewTopProductList" resultType="Product">
 		select * from product order by createTime desc limit 0,#{pageSize}
 	</select>
+
+	<select id="getHotProductList" resultType="Product">
+		select * from product order by click asc limit 0,#{pageSize}
+	</select>
+
+	<select id="getTimeProductList" resultType="Product">
+		select * from product order by orderNum asc limit 0,#{pageSize}
+	</select>
+
 </mapper>

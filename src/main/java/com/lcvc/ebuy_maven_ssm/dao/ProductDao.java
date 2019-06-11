@@ -63,4 +63,15 @@ public interface ProductDao {
      List<Product>  getNewTopProductList(Integer pageSize);
 
 
+     /*
+     *
+     * 获取热门订单
+     * */
+     List<Product> getHotProductList(Integer pageSize);
+
+    /*
+   *
+   * 获取活动推介
+   * */
+    List<Product> getTimeProductList(Integer pageSize);
 }
