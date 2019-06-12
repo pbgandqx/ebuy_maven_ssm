@@ -1,5 +1,6 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c"  uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%
 	String path = request.getContextPath();
 	String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
@@ -13,7 +14,7 @@
 </head>
 <body>
 	<div class="wrap">
-		<iframe src="<%=basePath%>jsp/shop/header.html" style="height: 168px;"></iframe>
+		<iframe src="<%=basePath%>jsp/shop/header.jsp" style="height: 168px;"></iframe>
 		<div class="content">
 			<div class="block">
 				<div class="crumb">
@@ -34,97 +35,23 @@
 				<div class="block-wrap">
 					<c:forEach var="product" items="${requestScope.newProducts}">
 					<div class="item">
-						<a href="<%=basePath%>jsp/shop/shopdetial.html"><img style="width: 250px;height: 180px;" alt="" src="<%=basePath%>${product.picUrl}"></a>
+						<a href="<%=basePath%>shop/toshopdetial?id=${product.id}"><img style="width: 250px;height: 180px;" alt="" src="<%=basePath%>${product.picUrl}"></a>
 						<label><em>￥${product.price}</em><span>￥${product.originalPrice}</span>67人付款</label>
-						<h3>${product.name}</h3>
+						<h3>${product.name}<button class="buy">购买</button></h3>
 					</div>
 					</c:forEach>
-					<%--<div class="item">
-						<a href="shopdetial.html"><img alt="" src="resources/images/foods/01.jpg"></a>
-						<label><em>￥18.00</em><span>￥20.00</span>67人付款</label>
-						<h3>回锅肉炒西芹<button class="buy">购买</button></h3>
-					</div>
-					<div class="item">
-						<a href="shopdetial.html"><img alt="" src="resources/images/foods/01.jpg"></a>
-						<label><em>￥18.00</em><span>￥20.00</span>67人付款</label>
-						<h3>回锅肉炒西芹</h3>
-					</div>
-					<div class="item">
-						<a href="shopdetial.html"><img alt="" src="resources/images/foods/01.jpg"></a>
-						<label><em>￥18.00</em><span>￥20.00</span>67人付款</label>
-						<h3>回锅肉炒西芹<button class="buy">购买</button></h3>
-					</div>
-					<div class="item">
-						<a href="shopdetial.html"><img alt="" src="resources/images/foods/01.jpg"></a>
-						<label><em>￥18.00</em><span>￥20.00</span>67人付款</label>
-						<h3>回锅肉炒西芹<button class="buy">购买</button></h3>
-					</div>
-					<div class="item">
-						<a href="shopdetial.html"><img alt="" src="resources/images/foods/01.jpg"></a>
-						<label><em>￥18.00</em><span>￥20.00</span>67人付款</label>
-						<h3>回锅肉炒西芹<button class="buy">购买</button></h3>
-					</div>
-					<div class="item">
-						<a href="shopdetial.html"><img alt="" src="resources/images/foods/01.jpg"></a>
-						<label><em>￥18.00</em><span>￥20.00</span>67人付款</label>
-						<h3>回锅肉炒西芹<button class="buy">购买</button></h3>
-					</div>
-					<div class="item">
-						<a href="shopdetial.html"><img alt="" src="resources/images/foods/01.jpg"></a>
-						<label><em>￥18.00</em><span>￥20.00</span>67人付款</label>
-						<h3>回锅肉炒西芹<button class="buy">购买</button></h3>
-					</div>
-					<div class="item">
-						<a href="shopdetial.html"><img alt="" src="resources/images/foods/01.jpg"></a>
-						<label><em>￥18.00</em><span>￥20.00</span>67人付款</label>
-						<h3>回锅肉炒西芹<button class="buy">购买</button></h3>
-					</div>
-					<div class="item">
-						<a href="shopdetial.html"><img alt="" src="resources/images/foods/01.jpg"></a>
-						<label><em>￥18.00</em><span>￥20.00</span>67人付款</label>
-						<h3>回锅肉炒西芹<button class="buy">购买</button></h3>
-					</div>
-					<div class="item">
-						<a href="shopdetial.html"><img alt="" src="resources/images/foods/01.jpg"></a>
-						<label><em>￥18.00</em><span>￥20.00</span>67人付款</label>
-						<h3>回锅肉炒西芹<button class="buy">购买</button></h3>
-					</div>
-					<div class="item">
-						<a href="shopdetial.html"><img alt="" src="resources/images/foods/01.jpg"></a>
-						<label><em>￥18.00</em><span>￥20.00</span>67人付款</label>
-						<h3>回锅肉炒西芹<button class="buy">购买</button></h3>
-					</div>
-					<div class="item">
-						<a href="shopdetial.html"><img alt="" src="resources/images/foods/01.jpg"></a>
-						<label><em>￥18.00</em><span>￥20.00</span>67人付款</label>
-						<h3>回锅肉炒西芹<button class="buy">购买</button></h3>
-					</div>
-					<div class="item">
-						<a href="shopdetial.html"><img alt="" src="resources/images/foods/01.jpg"></a>
-						<label><em>￥18.00</em><span>￥20.00</span>67人付款</label>
-						<h3>回锅肉炒西芹<button class="buy">购买</button></h3>
-					</div>
-					<div class="item">
-						<a href="shopdetial.html"><img alt="" src="resources/images/foods/01.jpg"></a>
-						<label><em>￥18.00</em><span>￥20.00</span>67人付款</label>
-						<h3>回锅肉炒西芹<button class="buy">购买</button></h3>
-					</div>
-					<div class="item">
-						<a href="shopdetial.html"><img alt="" src="resources/images/foods/01.jpg"></a>
-						<label><em>￥18.00</em><span>￥20.00</span>67人付款</label>
-						<h3>回锅肉炒西芹<button class="buy">购买</button></h3>
-					</div>--%>
+
 				</div>
 				<div class="pager">
-					<button>&lt;&lt;</button>
-					<button>1</button>
-					<button>2</button>
+					<button href="<%=basePath%>shop/toshoplists?page=${requestScope.page-1}">&lt;&lt;</button>
+					<button><a href="<%=basePath%>shop/toshoplists?page=${requestScope.page-1}">上一页</a></button>
+					<button><a href="<%=basePath%>shop/toshoplists?page=${requestScope.page+1}">下一页</a></button>
+					<%--
 					<button>3</button>
 					<button>4</button>
 					<button>5</button>
-					<button>6</button>
-					<button>&gt;&gt;</button>
-				</div>
+					<button>6</button>--%>
+					<button href="<%=basePath%>shop/shoplists?page=${requestScope.page+1}">&gt;&gt;</button>
 			</div>
 			<br>
 		</div>

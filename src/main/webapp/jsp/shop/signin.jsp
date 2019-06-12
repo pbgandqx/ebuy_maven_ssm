@@ -1,4 +1,12 @@
-<html lang="zh-CN">
+<%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c"  uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+<%
+	String path = request.getContextPath();
+	String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
+%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>橙汁园餐厅 -- 登录</title>
@@ -7,7 +15,7 @@
 <div class="wrap signin">
 	<div class="content">
 		<div class="title">
-			<a href="index.jsp">&nbsp;首页&nbsp;</a>
+			<a href="<%=basePath%>shop/toindex">&nbsp;首页&nbsp;</a>
 			<a href="signin.html">&nbsp;登录/注册&nbsp;</a>
 			<a href="shopcart.html">&nbsp;购物车&nbsp;</a>
 		</div>

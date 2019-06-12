@@ -14,14 +14,14 @@
 </head>
 <body>
 	<div class="wrap">
-		<iframe src="<%=basePath%>jsp/shop/header.html" style="height: 168px;"></iframe>
+		<iframe src="<%=basePath%>jsp/shop/header.jsp" style="height: 168px;"></iframe>
 		<div class="content">
 			<div class="logo">
 				<img alt="" src="<%=basePath%>jsp/shop/resources/images/index-logo.jpg">
 				<div class="menu">
 					<ul>
 						<c:forEach var="productType" items="${requestScope.productTypes}">
-						<li><a href="shoplists.html"><img class="left" alt="" src="<%=basePath%>${productType.imageUrl}">${productType.name}<img class="right" alt="" src="<%=basePath%>jsp/shop/resources/images/menu-right.png"></a></li>
+						<li><a href="shoplists.jsp"><img class="left" alt="" src="<%=basePath%>${productType.imageUrl}">${productType.name}<img class="right" alt="" src="<%=basePath%>jsp/shop/resources/images/menu-right.png"></a></li>
 						</c:forEach>
 					</ul>
 				</div>
@@ -29,12 +29,12 @@
 			<div class="block">
 				<div class="title">
 					<label class="new">今日新品</label>
-					<a href="<%=basePath%>jsp/shop/shoplists">更多&gt;&gt;</a>
+					<a href="<%=basePath%>shop/toshoplists">更多&gt;&gt;</a>
 				</div>
 				<div class="block-wrap">
 					<c:forEach var="product" items="${requestScope.newProducts}">
 					<div class="item">
-						<a href="<%=basePath%>jsp/shop/shopdetial.html"><img style="width: 250px;height: 180px;" alt="" src="<%=basePath%>${product.picUrl}"></a>
+						<a href="<%=basePath%>shop/toshopdetial?id=${product.id}"><img style="width: 250px;height: 180px;" alt="" src="<%=basePath%>${product.picUrl}"></a>
 						<label><em>￥${product.price}</em><span>￥${product.originalPrice}</span>67人付款</label>
 						<h3>${product.name}</h3>
 					</div>
@@ -44,13 +44,13 @@
 			<div class="block">
 				<div class="title">
 					<label class="hot">热门订单</label>
-					<a href="<%=basePath%>jsp/shop/shoplists.html">更多&gt;&gt;</a>
+					<a href="<%=basePath%>jsp/shop/shoplists.jsp">更多&gt;&gt;</a>
 				</div>
 				<div class="block-wrap">
 					<c:forEach var="product" items="${requestScope.hotProduct}">
 					<div class="item">
-						<a href="<%=basePath%>jsp/shop/shopdetial.html"><img style="width: 250px;height: 180px;" alt="" src="<%=basePath%>${product.picUrl}"></a>
-						<label><em>￥${product.price}</em><span>￥${product.originalPrice}</span>67人付款</label>
+						<a href="<%=basePath%>shop/toshopdetial?id=${product.id}"><img style="width: 250px;height: 180px;" alt="" src="<%=basePath%>${product.picUrl}"></a>
+						<label><em>￥${product.price}</em><span>￥${product.originalPrice}</span>${product.number}库存</label>
 						<h3>${product.name}</h3>
 					</div>
 					</c:forEach>
@@ -59,7 +59,7 @@
 			<div class="block">
 				<div class="title noborder">
 					<label class="act">活动推介</label>
-					<a href="<%=basePath%>jsp/shop/shoplists.html" style="display: none;">更多&gt;&gt;</a>
+					<a href="<%=basePath%>shop/shoplists.jsp" style="display: none;">更多&gt;&gt;</a>
 				</div>
 				<div class="block-wrap border">
 					<div class="crumb">
@@ -69,11 +69,11 @@
 							<li><a href="#">特惠</a></li>
 							<li><a href="#">热门排行</a></li>
 						</ul>
-						<a href="<%=basePath%>jsp/shop/shoplists.html">更多&gt;&gt;</a>
+						<a href="<%=basePath%>jsp/shop/shoplists.jsp">更多&gt;&gt;</a>
 					</div>
 					<c:forEach var="product" items="${requestScope.timeProduct}">
 					<div class="item">
-						<a href="<%=basePath%>jsp/shop/shopdetial.html"><img style="width: 250px;height: 180px;" alt="" src="<%=basePath%>${product.picUrl}"></a>
+						<a href="<%=basePath%>shop/toshopdetial?id=${product.id}"><img style="width: 250px;height: 180px;" alt="" src="<%=basePath%>${product.picUrl}"></a>
 						<label><em>￥${product.price}</em><span>￥${product.originalPrice}</span>67人付款</label>
 						<h3>${product.name}</h3>
 					</div>
