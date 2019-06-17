@@ -32,11 +32,11 @@ $(function(){
         
     <ul class="nav">
     <li><a href="#" target="rightFrame" class="selected"><img src="images/icon01.png" title="工作台" /><h2>工作台</h2></a></li>
-    <li><a href="#" target="rightFrame"><img src="images/icon02.png" title="模型管理" /><h2>模型管理</h2></a></li>
-    <li><a href="#"  target="rightFrame"><img src="images/icon03.png" title="模块设计" /><h2>模块设计</h2></a></li>
-    <li><a href="#"  target="rightFrame"><img src="images/icon04.png" title="常用工具" /><h2>常用工具</h2></a></li>
-    <li><a href="#" target="rightFrame"><img src="images/icon05.png" title="文件管理" /><h2>文件管理</h2></a></li>
-    <li><a href="#"  target="rightFrame"><img src="images/icon06.png" title="系统设置" /><h2>系统设置</h2></a></li>
+    <li><a href="<%=basePath %>backstage/adminmanage/toManageAdmin" target="rightFrame"><img src="images/icon02.png" title="管理账号模块" /><h2>管理账号模块</h2></a></li>
+    <li><a href="<%=basePath %>backstage/customer/tocustomer"  target="rightFrame"><img src="images/icon03.png" title="客户模块" /><h2>客户模块</h2></a></li>
+    <li><a href="<%=basePath%>backstage/producttype/toProducttype"  target="rightFrame"><img src="images/icon04.png" title="产品分类模块" /><h2>产品分类模块</h2></a></li>
+    <li><a href="<%=basePath%>backstage/product/toProduct" target="rightFrame"><img src="images/icon05.png" title="产品模块" /><h2>产品模块</h2></a></li>
+    <li><a href="#"  target="rightFrame"><img src="images/icon06.png" title="订单客户模块" /><h2>订单客户模块</h2></a></li>
     </ul>
             
     <div class="topright">    

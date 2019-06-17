@@ -1,5 +1,5 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8" %>
-<%@ taglib prefix="c"  uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%
@@ -33,18 +33,18 @@
             });
 
             $("a[name='deleteProduct']").click(function () {
-                    $this=$(this);
-                    var name=$(this).attr("id");
-                    if(window.confirm("确认要删除该产品("+name+")吗？删除后无法恢复！")){
-                        var url=$(this).attr("href");
-                        $.get(url,
-                            function (data) {
-                                if (data.status==1){
-                                    $this.parent().parent().remove();
-                                }
-                            });
-                    }
-                    return false;
+                $this = $(this);
+                var name = $(this).attr("id");
+                if (window.confirm("确认要删除该产品(" + name + ")吗？删除后无法恢复！")) {
+                    var url = $(this).attr("href");
+                    $.get(url,
+                        function (data) {
+                            if (data.status == 1) {
+                                $this.parent().parent().remove();
+                            }
+                        });
+                }
+                return false;
             });
 
         });
@@ -102,14 +102,14 @@
         <c:forEach var="product" items="${requestScope.list}">
             <tr>
                 <td><input name="" type="checkbox" value=""/></td>
-                <td  class="imgtd">
-                     <img src="<%=basePath%>${product.picUrl}" style="width:80px;height:60px;"/>
-                      </td>
+                <td class="imgtd">
+                    <img src="<%=basePath%>${product.picUrl}" style="width:80px;height:60px;"/>
+                </td>
                 <td style="text-align: center;">${product.name}
-                <p style="color: #7f7f7f">发布时间：${product.createTime}</p>
+                    <p style="color: #7f7f7f">发布时间：${product.createTime}</p>
                 </td>
                 <td>${product.productType.name}
-                <p style="color: #7f7f7f;line-height: 8px">ID:${product.productType.id}</p>
+                    <p style="color: #7f7f7f;line-height: 8px">ID:${product.productType.id}</p>
                 </td>
                 <td style="color: red">${product.price}<br/>
                     <p style="color: #7f7f7f;line-height: 8px"><s>${product.originalPrice}</s></p>
@@ -121,14 +121,17 @@
                             上架中
                         </c:when>
                         <c:otherwise>
-                           <a style="color: red">已下架</a>
+                            <a style="color: red">已下架</a>
                         </c:otherwise>
                     </c:choose>
                 </td>
                 <td>${product.number}</td>
                 <td>${product.click}</td>
 
-                <td><a href="<%=basePath%>backstage/product/toProductupdate?id=${product.id}" class="tablelink">修改</a> <a id="${product.name}" name="deleteProduct"  href="<%=basePath%>backstage/product/dodeleteProduct?id=${product.id}" class="tablelink"> 删除</a></td>
+                <td><a href="<%=basePath%>backstage/product/toProductupdate?id=${product.id}" class="tablelink">修改</a>
+                    <a id="${product.name}" name="deleteProduct"
+                       href="<%=basePath%>backstage/product/dodeleteProduct?id=${product.id}" class="tablelink"> 删除</a>
+                </td>
             </tr>
         </c:forEach>
 
