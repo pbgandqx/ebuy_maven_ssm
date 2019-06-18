@@ -104,6 +104,10 @@ body {
 	border: 1px solid #fc2400;
 	background-color: #fc2400;
 }
+.wrap .content .block .block-wrap .item h3 button a{
+	color:#FFFFFF;
+	text-decoration: none;
+}
 .wrap .content .block .pager {
 	margin: 30px 0;
 	text-align: center;

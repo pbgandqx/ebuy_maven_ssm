@@ -37,7 +37,7 @@
 					<div class="item">
 						<a href="<%=basePath%>shop/toshopdetial?id=${product.id}"><img style="width: 250px;height: 180px;" alt="" src="<%=basePath%>${product.picUrl}"></a>
 						<label><em>￥${product.price}</em><span>￥${product.originalPrice}</span>67人付款</label>
-						<h3>${product.name}<button class="buy">购买</button></h3>
+						<h3>${product.name}<button class="buy"><a href="<%=basePath%>shop/toshopdetial?id=${product.id}">购买</a></button></h3>
 					</div>
 					</c:forEach>
 

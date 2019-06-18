@@ -67,10 +67,10 @@
                 <li><label></label><input name="id" type="hidden" class="dfinput"
                                           value="${requestScope.product.id}"/><i></i></li>
                 <li><label>*产品分类</label><select name="productType" class="dfinput"
-                                                value="${product.productType.name}">
+                                                value="${requestScope.product.productType.name}">
                     <option value="">请选择</option>
                     <c:forEach var="productType" items="${productType}">
-                        <option value="${requestScope.productType.id}">${requestScope.productType.name}</option>
+                        <option value="${requestScope.product.productType.id}">${requestScope.product.productType.name}</option>
                     </c:forEach>
                 </select><i></i></li>
                 <li><label>*产品名称</label><input name="name" type="text" class="dfinput"

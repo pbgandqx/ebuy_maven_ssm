@@ -16,13 +16,13 @@
 	<div class="header">
 		<div class="toolbar">
 			<a href="<%=basePath%>shop/toindex" target="top">&nbsp;首页&nbsp;</a>
-			<a href="<%=basePath%>shop/signin.jsp" target="top">&nbsp;登录/注册&nbsp;</a>
+			<a href="<%=basePath%>shop/tosignin" target="top">&nbsp;登录/注册&nbsp;</a>
 			<a href="<%=basePath%>shop/toshopcart" target="top">&nbsp;购物车&nbsp;</a>
 		</div>
 		<div class="content">
 			<img alt="" src="<%=basePath%>jsp/shop/resources/images/logo.png">
 			<form class="search-wrap" target="_top" action="#">
-				<input type="text" id="s">
+				<input type="text" id="s" style="float: left">
 				<button id="submit">搜索</button>
 			</form>
 		</div>

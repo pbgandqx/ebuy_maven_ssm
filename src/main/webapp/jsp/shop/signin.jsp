@@ -10,38 +10,38 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>橙汁园餐厅 -- 登录</title>
-<link href="resources/css/signin.css" rel="stylesheet" type="text/css">
+<link href="<%=basePath%>jsp/shop/resources/css/signin.css" rel="stylesheet" type="text/css">
 </head>
 <div class="wrap signin">
 	<div class="content">
 		<div class="title">
 			<a href="<%=basePath%>shop/toindex">&nbsp;首页&nbsp;</a>
-			<a href="signin.html">&nbsp;登录/注册&nbsp;</a>
-			<a href="shopcart.html">&nbsp;购物车&nbsp;</a>
+			<a href="<%=basePath%>shop/tosignin">&nbsp;登录/注册&nbsp;</a>
+			<a href="<%=basePath%>shop/toshopcart">&nbsp;购物车&nbsp;</a>
 		</div>
 		<div class="main">
 			<div class="header">
-				<a href="signup.html">注册</a>
+				<a href="<%=basePath%>shop/tosignup">注册</a>
 			</div>
 			<div class="logo">
 				<div>
-					<img alt="" src="resources/images/signin-logo.png">
+					<img alt="" src="<%=basePath%>shop/resources/images/signin-logo.png">
 					<span>用户登陆</span>
 				</div>
 			</div>
 			<form action="#">
 				<div class="input-wrap">
-					<img alt="" src="resources/images/signin-user.png">
+					<img alt="" src="<%=basePath%>shop/resources/images/signin-user.png">
 					<input type="text" id="u" placeholder="请输入手机号">
 				</div>
 				<div class="input-wrap">
-					<img alt="" src="resources/images/signin-pwd.png">
+					<img alt="" src="<%=basePath%>shop/resources/images/signin-pwd.png">
 					<input type="password" id="p" placeholder="请输入密码">
 				</div>
 				<div class="input-wrap">
-					<img alt="" src="resources/images/signin-cpt.png">
+					<img alt="" src="<%=basePath%>shop/resources/images/signin-cpt.png">
 					<input class="sort" type="text" id="c" placeholder="请输入验证码">
-					<img class="signin-cpt" alt="" src="resources/images/signin-cpts.png">
+					<img class="signin-cpt" alt="" src="<%=basePath%>shop/resources/images/signin-cpts.png">
 				</div>
 				<div class="input-wrap nobg">
 					<button class="btn-inline lbtn" id="submit">登录</button>

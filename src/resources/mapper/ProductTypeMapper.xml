@@ -36,4 +36,12 @@
 	<select id="getProductType" resultType="ProductType">
 		select * from producttype where id=#{id}
 	</select>
+
+	<select id="total" resultType="int">
+		select count(id) from producttype
+	</select>
+
+	<select id="getPartlist" resultType="ProductType">
+		select * from producttype order by id asc limit #{offset},#{length}
+	</select>
 </mapper>

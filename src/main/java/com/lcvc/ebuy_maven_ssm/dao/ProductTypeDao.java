@@ -48,5 +48,19 @@ public interface ProductTypeDao {
        *  @return null 表示没有找到
        * */
     ProductType getProductType(int id);
+  /*
+        * 分页显示数据库记录
+        *
+        * */
+
+    List<ProductType> getPartlist(@Param(value = "offset")int offset,@Param(value = "length")int length);
+
+    /*
+       * 获取数据库总记录
+       *
+       * */
+    int total();
+
+
 
 }

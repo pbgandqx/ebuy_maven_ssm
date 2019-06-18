@@ -29,7 +29,7 @@
 						<input type="checkbox" class="check">
 					</span>
 					<span class="td td2">
-						<a href="<%=basePath%>jsp/shop/shopdetial.jsp"><img alt="" src="<%=basePath%>jsp/shop/resources/images/foods/41.jpg"></a>
+						<a href="<%=basePath%>jsp/shop/toshopdetial"><img alt="" src="<%=basePath%>jsp/shop/resources/images/foods/41.jpg"></a>
 						<span>干煸四季豆</span>
 					</span>
 					<span class="td td3">

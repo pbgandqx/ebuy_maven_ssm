@@ -22,8 +22,17 @@ public class ProductTypeController {
 
     //跳转到产品模块页面
     @RequestMapping(value = "/backstage/producttype/toProducttype", method = RequestMethod.GET)
-    public String toProducttype(HttpServletRequest request) {
-        request.setAttribute("list", productTypeService.getProductTypeList());
+    public String toProducttype(HttpServletRequest request,Model model,Integer page) {
+        if (page == null) {//如果page为null，默认为第一页
+            page = 1;
+        } else {
+            if (page < 1) {
+                page = 1;
+            }
+        }
+       model.addAttribute("list", productTypeService.getProductTypeList(page));//当前页显示的记录集合
+        model.addAttribute("page", page);//当前页
+       model.addAttribute("maxPage", productTypeService.maxPage());//最大也
         return "jsp/backstage/producttype/producttype.jsp";
     }
 

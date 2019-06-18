@@ -34,4 +34,12 @@ public class ProductDaoTest extends SpringJunitTest {
             System.out.println();
         }
     }
+    @Test
+    public void testSaveProduct(){
+        Product product=new Product();
+        product.setName("猕猴桃蛋糕");
+      //  product.setCreateTime(new Date());
+        productDao.SaveProduct(product);
+
+    }
 }

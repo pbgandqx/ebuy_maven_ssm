@@ -96,7 +96,7 @@ public class ProductController {
     public String toProductupdate(Model model, Integer id) {
 
         model.addAttribute("product", productService.getProduct(id));
-        model.addAttribute("productType", productTypeService.getProductTypeList());
+       model.addAttribute("productType", productTypeService.getProductTypeList());
         return "/jsp/backstage/product/productupdate.jsp";
     }
 
