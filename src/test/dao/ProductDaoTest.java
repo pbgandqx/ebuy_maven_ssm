@@ -7,6 +7,7 @@ import org.junit.Test;
 
 import javax.annotation.Resource;
 import java.util.List;
+import java.util.Date;
 
 public class ProductDaoTest extends SpringJunitTest {
 
@@ -38,8 +39,17 @@ public class ProductDaoTest extends SpringJunitTest {
     public void testSaveProduct(){
         Product product=new Product();
         product.setName("猕猴桃蛋糕");
-      //  product.setCreateTime(new Date());
-        productDao.SaveProduct(product);
+        product.setNumber(100);
+        product.setOnSale(true);
+        product.setPicUrl("/lcvc_ebuy/upload/image/20170907/20170907203238_612.jpg");
+       // product.setPrice();
+        product.setOrderNum(100);
+      //  product.setOriginalPrice(8.00);
+        product.setClick(100);
+
+       product.setCreateTime(new Date());
+       productDao.SaveProduct(product);
+        System.out.println(product.getId());
 
     }
 }

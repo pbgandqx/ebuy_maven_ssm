@@ -28,9 +28,9 @@
 		</div>
 		<div class="menu">
 			<ul>
-				<li class="cur"><a href="index.jsp" target="top">全部分类</a></li>
+				<li class="cur"><a href="<%=basePath%>shop/toindex" target="top">全部分类</a></li>
 				<li><a href="<%=basePath%>shop/toindex" target="top">首页</a></li>
-				<li><a href="<%=basePath%>shop/toshoplists" target="top" style="color: #d2364c;">今日新品</a></li>
+				<li><a href="<%=basePath%>shop/toshoplists" target="top" <%--style="color: #d2364c;"--%>>今日新品</a></li>
 				<li><a href="<%=basePath%>shop/toshoplists" target="top">热门订单</a></li>
 				<li><a href="<%=basePath%>shop/toshoplists" target="top">限时秒杀</a></li>
 				<li><a href="<%=basePath%>shop/toshoplists" target="top">拼团</a></li>

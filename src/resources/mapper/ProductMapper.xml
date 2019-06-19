@@ -70,7 +70,7 @@
 	</select>
 
 	<select id="getTimeProductList" resultType="Product">
-		select * from product order by orderNum asc limit 0,#{pageSize}
+		select * from product order by productTypeId asc limit 0,#{pageSize}
 	</select>
 
 </mapper>

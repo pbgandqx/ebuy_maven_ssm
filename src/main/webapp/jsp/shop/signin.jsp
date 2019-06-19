@@ -38,11 +38,11 @@
 					<img alt="" src="<%=basePath%>shop/resources/images/signin-pwd.png">
 					<input type="password" id="p" placeholder="请输入密码">
 				</div>
-				<div class="input-wrap">
+			<%--	<div class="input-wrap">
 					<img alt="" src="<%=basePath%>shop/resources/images/signin-cpt.png">
 					<input class="sort" type="text" id="c" placeholder="请输入验证码">
 					<img class="signin-cpt" alt="" src="<%=basePath%>shop/resources/images/signin-cpts.png">
-				</div>
+				</div>--%>
 				<div class="input-wrap nobg">
 					<button class="btn-inline lbtn" id="submit">登录</button>
 					<button class="btn-inline" id="pback">找回密码</button>

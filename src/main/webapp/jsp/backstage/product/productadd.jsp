@@ -77,16 +77,12 @@
                     <label>*产品图片</label>
                     <input id="url1" name="picUrl" type="text" class="dfinput" value="${requestScope.product.picUrl}"/>
                     <input type="button" id="image1" class="dfinput" style="width:120px;" value="点我选择图片"/>
-                    <a href="#" id="clearImagePath1">清除选择图片路径</a>
-                </li>
-                <li>
-                    <label>*产品原价</label>
+                    <a href="#" id="clearImagePath1">清除选择图片路径</a></li>
+                <li><label>*产品原价</label>
                     <input name="originalPrice" type="text" class="dfinput"
-                           value="${requestScope.product.originalPrice}"/>
-                    <i></i>
-                </li>
+                           value="${requestScope.product.originalPrice}"/><i></i></li>
                 <li><label>*产品现价</label><input name="Price" type="text" class="dfinput"
-                                               value="${requestScope.product.Price}"/><i></i></li>
+                                               value="${requestScope.product.price}"/><i></i></li>
                 <li><label>*产品库存</label><input name="number" type="text" class="dfinput"
                                                value="${requestScope.product.number}"/><i></i></li>
                 <li><label>*优先级</label><input name="orderNum" type="text" class="dfinput"
