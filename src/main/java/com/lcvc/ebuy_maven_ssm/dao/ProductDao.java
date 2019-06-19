@@ -74,4 +74,11 @@ public interface ProductDao {
    * 获取活动推介
    * */
     List<Product> getTimeProductList(Integer pageSize);
+
+    /*
+  *
+  * 获取产品分类列表
+  * */
+    List<Product> getProductTypeShoplistList(Integer id);
+
 }

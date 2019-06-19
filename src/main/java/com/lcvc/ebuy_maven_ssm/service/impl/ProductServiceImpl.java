@@ -109,4 +109,11 @@ public class ProductServiceImpl implements ProductService {
     public  List<Product> getTimeProductList(Integer pageSize) {
         return productDao.getTimeProductList(pageSize);
     }
+
+
+    public List<Product> getProductTypeShoplistList(Integer id){
+        return  productDao.getProductTypeShoplistList(id);
+    }
+
+
 }

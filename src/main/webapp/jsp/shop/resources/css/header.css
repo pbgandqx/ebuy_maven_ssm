@@ -78,6 +78,9 @@ body {
 	margin-left: -1px;
 	background-color: #d2364c;
 }
+.header .menu li.cur a:hover{
+	color: #fff;
+}
 .header .menu li.cur a {
 	color: #fff;
 	margin: 0;
@@ -86,4 +89,8 @@ body {
 }
 .header .menu li a:hover{
 	color: #d2364c;
+}
+
+.header .menu li:focus {
+	background-color: #d2364c;
 }

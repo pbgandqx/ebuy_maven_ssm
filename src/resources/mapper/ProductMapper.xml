@@ -73,4 +73,8 @@
 		select * from product order by productTypeId asc limit 0,#{pageSize}
 	</select>
 
+	<select id="getProductTypeShoplistList" resultType="Product">
+		select * from product where productTypeId=#{productTypeId}
+	</select>
+
 </mapper>

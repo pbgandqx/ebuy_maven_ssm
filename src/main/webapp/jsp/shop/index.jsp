@@ -23,7 +23,7 @@
                     <c:forEach var="productType" items="${requestScope.productTypes}">
 
                         <li>
-                            <a href="<%=basePath%>shop/toshoplists?=${product.productTypeId}"><img class="left" alt="" src="<%=basePath%>${productType.imageUrl}">
+                            <a href="<%=basePath%>shop/toshoptypelists?id=${productType.id}"><img class="left" alt="" src="<%=basePath%>${productType.imageUrl}">
                                     ${productType.name}
                                 <img class="right" alt=""
                                      src="<%=basePath%>jsp/shop/resources/images/menu-right.png"></a>
