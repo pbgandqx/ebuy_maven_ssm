@@ -20,7 +20,7 @@ public class ProductDaoTest extends SpringJunitTest {
         for (int i=0;i<list.size();i++){
             Product product=list.get(i);
             System.out.println(product.getName()+"\t");
-            System.out.println(product.getProductType().getName()+"\t");
+          //  System.out.println(product.getProductTypeId().getName()+"\t");
             System.out.println();
         }
         System.out.println(productDao.getProductList());
@@ -42,9 +42,9 @@ public class ProductDaoTest extends SpringJunitTest {
         product.setNumber(100);
         product.setOnSale(true);
         product.setPicUrl("/lcvc_ebuy/upload/image/20170907/20170907203238_612.jpg");
-       // product.setPrice();
+       //product.setPrice();
         product.setOrderNum(100);
-      //  product.setOriginalPrice(8.00);
+      //  product.setOriginalPrice();
         product.setClick(100);
 
        product.setCreateTime(new Date());

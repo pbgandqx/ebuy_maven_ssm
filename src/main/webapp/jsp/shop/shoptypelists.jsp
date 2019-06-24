@@ -19,7 +19,7 @@
 			<div class="block">
 				<div class="crumb">
 					<ul>
-						<li><a href="<%=basePath%>jsp/shop/index.jsp">首页</a></li>
+						<li><a href="<%=basePath%>shop/toindex">首页</a></li>
 						<li><span>/</span></li>
 						<li><a id="types" href="#">今日新品</a></li>
 						<li><span>/</span></li>

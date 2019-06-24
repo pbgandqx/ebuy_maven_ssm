@@ -18,8 +18,8 @@
 
 	<insert id="SaveProduct">
 		insert into
-		product(id,name,picUrl,productType,orderNum,description,content,price,originalPrice,click,onSale,createTime,creatorId)
-		values(null,#{name},#{picUrl},#{productType},#{orderNum},#{description},#{content},#{price},#{originalPrice},#{click},#{onSale},#{createTime},#{creatorId})
+		product(id,productTypeId,name,orderNum,description,content,price,originalPrice,picUrl,number,click,onSale,createTime,creatorId,finalEditorId,updateTime)
+		values(null,#{productTypeId},#{name},#{orderNum},#{description},#{content},#{price},#{originalPrice},#{picUrl},#{number},#{click},#{onSale},#{createTime},#{creatorId},#{finalEditorId},#{updateTime})
 	</insert>
 
 	<delete id="deleteProduct">
@@ -35,7 +35,7 @@
 		<set>
 			<if test="name!=null and name.length()>0">name=#{name},</if>
 			<if test="picUrl!=null">picUrl=#{pickUrl},</if>
-			<if test="productType!=null">productType=#{productType},</if>
+			<if test="productTypeId!=null">productTypeId=#{productTypeId},</if>
 			<if test="orderNum!=null">orderNum=#{orderNum},</if>
 			<if test="description!=null">description=#{description},</if>
 			<if test="content!=null">content=#{content},</if>

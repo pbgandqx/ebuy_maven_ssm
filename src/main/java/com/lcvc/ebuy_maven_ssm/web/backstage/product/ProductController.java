@@ -9,6 +9,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.ModelAndView;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
@@ -50,11 +51,11 @@ public class ProductController {
 //执行产品添加页面
 
     @RequestMapping(value = "/backstage/product/doSaveProduct", method = RequestMethod.POST)
-    public String doSaveProduct(Model model, Product product) {
+    public String doSaveProduct(Model model,Product product) {
         product.setName(product.getName().trim());
-        if (product.getName().length() == 0) {
+      /*  if (product.getName().length() == 0) {
             model.addAttribute("myMessage", "产品添加：产品名称不能为空！");
-        } else if (product.getProductType() == null) {
+        } else if (product.getProductType()==null) {
             model.addAttribute("myMessage", "产品添加:产品分类不能为空");
         } else if (product.getPicUrl().length() == 0) {
             model.addAttribute("myMessage", "产品添加:产品图片不能为空");
@@ -68,14 +69,14 @@ public class ProductController {
             model.addAttribute("myMessage", "产品添加:产品点击数不能为空");
         } else if (product.getOnSale() == null) {
             model.addAttribute("myMessage", "产品分类编辑:产品是否上架不能为空");
-        } else {
+        } else {*/
             if (productService.SaveProduct(product)) {
                 model.addAttribute("product", null);
                 model.addAttribute("myMessage", "产品添加成功！！！");
             } else {
                 model.addAttribute("myMessage", "产品添加失败！！！");
             }
-        }
+      /*  }*/
 
         return "jsp/backstage/product/productadd.jsp";
     }
@@ -107,8 +108,6 @@ public class ProductController {
         product.setName(product.getName().trim());
         if (product.getName().length() == 0) {
             model.addAttribute("myMessage", "产品分类编辑：产品名称不能为空！");
-        } else if (product.getProductType() == null) {
-            model.addAttribute("myMessage", "产品分类编辑:产品分类不能为空");
         } else if (product.getPicUrl().length() == 0) {
             model.addAttribute("myMessage", "产品分类编辑:产品图片不能为空");
         } else if (product.getOrderNum() == null) {

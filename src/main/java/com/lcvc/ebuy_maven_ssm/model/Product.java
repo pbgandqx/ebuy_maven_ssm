@@ -8,6 +8,8 @@ package com.lcvc.ebuy_maven_ssm.model;
 
 public class Product implements java.io.Serializable {
 
+
+
 	private Integer id;
 	private ProductType productType;//所属产品类别
 	private Integer productTypeId;//所属产品类别id
@@ -23,7 +25,9 @@ public class Product implements java.io.Serializable {
 	private Boolean onSale;//是否上架（true表示上架，但是要考虑上架时间；false表示不上架）
 	private java.util.Date createTime;//创建时间
 	private Admin creator;//创建产品管理员
+	private ProductType creatorId;//产品管理员Id
 	private Admin finalEditor;//最后编辑管理员
+	private ProductType finalEditorId;//最后编辑管理员Id
 	private java.util.Date updateTime;//最后编辑时间
 
 	//非数据库字段
@@ -51,15 +55,18 @@ public class Product implements java.io.Serializable {
 		this.id = id;
 	}
 
-
-
-	public ProductType getProductType() {
+	/*public ProductType productType(){
 		return productType;
 	}
-
-	public void setProductType(ProductType productType) {
-		this.productType = productType;
+	public void setProductType(ProductType productType){
+		this.productType=productType;
 	}
+	public Integer productTypeId() {
+		return productTypeId;
+	}
+	public void setproductTypeId(Integer productTypeId) {
+		this.productTypeId = productTypeId;
+	}*/
 
 	public String getName() {
 		return name;
@@ -181,6 +188,37 @@ public class Product implements java.io.Serializable {
 		this.updateTime = updateTime;
 	}
 
+	public ProductType getProductType() {
+		return productType;
+	}
+
+	public void setProductType(ProductType productType) {
+		this.productType = productType;
+	}
+
+	public Integer getProductTypeId() {
+		return productTypeId;
+	}
+
+	public void setProductTypeId(Integer productTypeId) {
+		this.productTypeId = productTypeId;
+	}
+
+	public ProductType getCreatorId() {
+		return creatorId;
+	}
+
+	public void setCreatorId(ProductType creatorId) {
+		this.creatorId = creatorId;
+	}
+
+	public ProductType getFinalEditorId() {
+		return finalEditorId;
+	}
+
+	public void setFinalEditorId(ProductType finalEditorId) {
+		this.finalEditorId = finalEditorId;
+	}
 
 	@Override
 	public int hashCode() {
