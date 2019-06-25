@@ -62,4 +62,8 @@ public interface CustomerService {
     List<Customer> getCustomerList(Integer page);
 
     int maxPage();
+
+    /*shop登录*/
+    Customer login(String username,String password);
+
 }

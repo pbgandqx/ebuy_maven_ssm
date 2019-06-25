@@ -36,4 +36,9 @@
 	<select id="getPartlist" resultType="Customer">
 		select * from customer order by id asc limit #{offset},#{length}
 	</select>
+
+	<select id="login" resultType="Customer">
+		select * from customer where username=#{username} and password=#{password}
+	</select>
+
 </mapper>

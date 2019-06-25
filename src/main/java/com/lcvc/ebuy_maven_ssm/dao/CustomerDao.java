@@ -61,4 +61,8 @@ public interface CustomerDao {
        * */
     int total();
 
+    /*shop登录页面*/
+
+    Customer login(@Param(value = "username") String username, @Param(value = "password") String password);
+
 }

@@ -11,6 +11,28 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>橙汁园餐厅 -- 登录</title>
 <link href="<%=basePath%>jsp/shop/resources/css/signin.css" rel="stylesheet" type="text/css">
+<script language="javascript">
+   /* //用于弹出窗口，将服务器返回的数据提交，本处用于账户提交后的状态
+    function alert_myMessage(){
+        var message="${requestScope.myMessage}";
+        if(message!=""){
+            alert(message);
+        }
+    }*/
+    //处理登录按钮点击之后的事件
+    $("#submit").click(function () {
+        $.post("<%=basePath%>shop/dosignin",
+            $("#myForm").serialize(),
+            function (data) {
+                if (data.status==1){
+                    window.location.href="<%=basePath%>shop/tosignin"
+                }else {
+                    alert("登录失败！");
+                }
+            }
+        );
+    });
+</script>
 </head>
 <div class="wrap signin">
 	<div class="content">
@@ -29,7 +51,7 @@
 					<span>用户登陆</span>
 				</div>
 			</div>
-			<form action="#">
+			<form id="myForm" method="post">
 				<div class="input-wrap">
 					<img alt="" src="<%=basePath%>shop/resources/images/signin-user.png">
 					<input type="text" id="u" placeholder="请输入手机号">

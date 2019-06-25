@@ -69,7 +69,7 @@
                 <li><label>*产品分类</label><select name="productType" class="dfinput"
                                                 value="${requestScope.product.productType.name}">
                     <option value="">请选择</option>
-                    <c:forEach var="productType" items="${productType}">
+                    <c:forEach var="productType" items="${requestScope.product.productType}">
                         <option value="${requestScope.product.productType.id}">${requestScope.product.productType.name}</option>
                     </c:forEach>
                 </select><i></i></li>

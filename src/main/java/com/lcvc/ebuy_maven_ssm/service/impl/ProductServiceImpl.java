@@ -115,5 +115,8 @@ public class ProductServiceImpl implements ProductService {
         return  productDao.getProductTypeShoplistList(id);
     }
 
+    public  List<Product> getProductShopPirceList(Integer id){
+        return productDao.getProductShopPirceList(id);
+    }
 
 }

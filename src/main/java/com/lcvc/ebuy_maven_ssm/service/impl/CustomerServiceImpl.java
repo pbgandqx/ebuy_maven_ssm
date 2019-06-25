@@ -96,4 +96,9 @@ public class CustomerServiceImpl implements CustomerService {
         }
         return  maxPage;
     }
+
+    public Customer login(String username, String password) {
+        Customer customer = customerDao.login(username, password);
+        return customer;
+    }
 }

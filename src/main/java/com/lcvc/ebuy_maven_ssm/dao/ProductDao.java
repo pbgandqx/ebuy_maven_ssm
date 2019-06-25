@@ -81,4 +81,10 @@ public interface ProductDao {
   * */
     List<Product> getProductTypeShoplistList(Integer id);
 
+    /*
+*
+* 获取产品分类列表
+* */
+    List<Product> getProductShopPirceList(Integer id);
+
 }

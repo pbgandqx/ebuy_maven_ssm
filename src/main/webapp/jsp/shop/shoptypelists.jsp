@@ -28,8 +28,7 @@
 				</div>
 				<div class="quick">
 					<button class="all cur">全部</button>
-					<button class="buy">已定</button>
-					<button class="price">价格</button>
+					<button class="price"><a href="<%=basePath%>shop/toshoptypepirce?id=${product.id}">价格</a></button>
 					<button class="sales">销量</button>
 				</div>
 				<div class="block-wrap">

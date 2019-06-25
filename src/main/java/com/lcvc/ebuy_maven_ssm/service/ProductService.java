@@ -90,4 +90,6 @@ public interface ProductService {
  * */
     List<Product> getProductTypeShoplistList(Integer id);
 
+/*产品分类按价格排序*/
+    List<Product> getProductShopPirceList(Integer id);
 }
