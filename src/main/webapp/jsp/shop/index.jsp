@@ -107,7 +107,7 @@
         </div>
         <br>
     </div>
-    <iframe src="<%=basePath%>jsp/shop/footer.html" style="height: 120px;"></iframe>
+    <iframe src="<%=basePath%>jsp/shop/footer.jsp" style="height: 120px;"></iframe>
 </div>
 </body>
 </html>

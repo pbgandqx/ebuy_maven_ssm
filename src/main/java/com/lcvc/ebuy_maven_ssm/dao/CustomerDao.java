@@ -18,6 +18,8 @@ public interface CustomerDao {
 
      int SaveCustomer(Customer customer);
 
+     /*前台注册*/
+     int SaveShopSignupCustomer(Customer customer);
 
     /**
      * 删除指定账户

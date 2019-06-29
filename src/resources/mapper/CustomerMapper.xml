@@ -41,4 +41,8 @@
 		select * from customer where username=#{username} and password=#{password}
 	</select>
 
+	<insert id="SaveShopSignupCustomer">
+		insert into customer(id,username,name,password,picUrl,tel,address,zip,email,intro,createTime) values(null,#{username},#{name},#{password},#{picUrl},#{tel},#{address},#{zip},#{email},#{intro},#{createTime})
+	</insert>
+
 </mapper>

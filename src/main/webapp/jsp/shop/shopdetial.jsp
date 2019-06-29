@@ -19,7 +19,7 @@
 			<div class="block">
 				<div class="crumb">
 					<ul>
-						<li><a href="<%=basePath%>shop/toindex">首页</a></li>
+						<li><a href="<%=basePath%>shop/index">首页</a></li>
 						<li><span>/</span></li>
 						<li><a id="types" href="#">今日新品</a></li>
 						<li><span>/</span></li>
@@ -78,7 +78,7 @@
 			</div>
 		</div>
 		<hr color="#e3e3e2">
-		<iframe src="<%=basePath%>jsp/shop/footer.html" style="height: 120px;"></iframe>
+		<iframe src="<%=basePath%>jsp/shop/footer.jsp" style="height: 120px;"></iframe>
 	</div>
 </body>
 </html>

@@ -101,4 +101,16 @@ public class CustomerServiceImpl implements CustomerService {
         Customer customer = customerDao.login(username, password);
         return customer;
     }
+
+    public boolean SaveShopSignupCustomer(Customer customer) {
+        boolean stsatus = false;//默认注册失败！
+        customer.setPassword(SHA.getResult(customer.getPassword()));
+        customer.setCreateTime(new Date());//系统当前时间为创建日期
+        if (customerDao.SaveShopSignupCustomer(customer)==1){
+            stsatus= true;
+        }else {
+            stsatus= false;
+        }
+        return stsatus;
+    }
 }

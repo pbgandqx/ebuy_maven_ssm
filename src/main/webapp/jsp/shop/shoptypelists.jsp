@@ -19,7 +19,7 @@
 			<div class="block">
 				<div class="crumb">
 					<ul>
-						<li><a href="<%=basePath%>shop/toindex">首页</a></li>
+						<li><a href="<%=basePath%>shop/index">首页</a></li>
 						<li><span>/</span></li>
 						<li><a id="types" href="#">今日新品</a></li>
 						<li><span>/</span></li>
@@ -28,13 +28,13 @@
 				</div>
 				<div class="quick">
 					<button class="all cur">全部</button>
-					<button class="price"><a href="<%=basePath%>shop/toshoptypepirce?id=${product.id}">价格</a></button>
+					<button class="price"><a href="<%=basePath%>shop/toshoptypepirce">价格</a></button>
 					<button class="sales">销量</button>
 				</div>
 				<div class="block-wrap">
 					<c:forEach var="getProductTypeShoplist" items="${requestScope.getProductTypeShoplist}">
 					<div class="item">
-						<a href="<%=basePath%>shop/toshopdetial"><img style="width: 250px;height: 180px;" alt="" src="<%=basePath%>${getProductTypeShoplist.picUrl}"></a>
+						<a href="<%=basePath%>shop/toshopdetial?id=${getProductTypeShoplist.id}"><img style="width: 250px;height: 180px;" alt="" src="<%=basePath%>${getProductTypeShoplist.picUrl}"></a>
 						<label><em>￥${getProductTypeShoplist.price}</em><span>￥${getProductTypeShoplist.originalPrice}</span>67人付款</label>
 						<h3>${getProductTypeShoplist.name}<button class="buy"><a href="<%=basePath%>shop/toshopdetial?id=${getProductTypeShoplist.id}">购买</a></button></h3>
 					</div>
@@ -54,7 +54,7 @@
 			</div>
 			<br>
 		</div>
-		<iframe src="<%=basePath%>jsp/shop/footer.html" style="height: 120px;"></iframe>
+		<iframe src="<%=basePath%>jsp/shop/footer.jsp" style="height: 120px;"></iframe>
 	</div>
 </body>
 </html>

@@ -32,10 +32,10 @@
 
 	<update id="updateProduct">
 		update product
-		<set>
+		<!--<set>
+			<if test="productTypeId!=null">productTypeId=#{productTypeId},</if>
 			<if test="name!=null and name.length()>0">name=#{name},</if>
 			<if test="picUrl!=null">picUrl=#{pickUrl},</if>
-			<if test="productTypeId!=null">productTypeId=#{productTypeId},</if>
 			<if test="orderNum!=null">orderNum=#{orderNum},</if>
 			<if test="description!=null">description=#{description},</if>
 			<if test="content!=null">content=#{content},</if>
@@ -45,7 +45,22 @@
 			<if test="onSale!=null">onSale=#{onSale},</if>
 			<if test="createTime!=null">createTime=#{createTime},</if>
 			<if test="creatorId!=null">creatorId=#{creatorId},</if>
-	    </set>
+	    </set>-->
+		<set>
+			<if test="productType!=null and productType.id!=null">productTypeId=#{productType.id},</if>
+			<if test="name!=null and name.length()>0">name=#{name},</if>
+			<if test="orderNum!=null">orderNum=#{orderNum},</if>
+			<if test="description!=null">description=#{description},</if>
+			<if test="content!=null">content=#{content},</if>
+			<if test="price!=null and price>0">price=#{price},</if>
+			<if test="originalPrice!=null and originalPrice>0">originalPrice=#{originalPrice},</if>
+			<if test="picUrl!=null">picUrl=#{picUrl},</if>
+			<if test="number!=null and number>0">number=#{number},</if>
+			<if test="click!=null and click>0">click=#{click},</if>
+			<if test="price!=null and price>0">price=#{price},</if>
+			<if test="finalEditor!=null and finalEditor.id!=null">finalEditorId=#{finalEditor.id},</if>
+			<if test="updateTime!=null">updateTime=#{updateTime},</if>
+		</set>
 	where id=#{id}
 	</update>
 

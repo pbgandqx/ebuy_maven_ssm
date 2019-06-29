@@ -9,6 +9,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.ModelAndView;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpSession;
@@ -22,8 +23,8 @@ public class ShopLoginController {
     private CustomerService customerService;
 
     /*
-	 * 显示登录页面，该登录页面是使用Ajax进行登录
-	 */
+      * 显示登录页面，该登录页面是使用Ajax进行登录
+      */
     @RequestMapping(value = "/tosignin", method = RequestMethod.GET)
     public String tosignin() {
         return "jsp/shop/signin.jsp";
@@ -46,5 +47,49 @@ public class ShopLoginController {
         }
         return map;
     }
+
+    /*
+	 * 显示登录页面，该登录页面是使用Ajax进行登录
+	 */
+    @RequestMapping(value = "/tosignup", method = RequestMethod.GET)
+    public String tosignup() {
+        return "jsp/shop/signup.jsp";
+    }
+
+
+    /*执行注册*/
+    @RequestMapping(value = "/doSaveShopSignup", method = RequestMethod.POST)
+    public String doSaveShopSignup(Model model, ModelAndView modelAndView, Customer customer) {
+        customer.setUsername(customer.getUsername().trim());
+        customer.setPassword(customer.getPassword().trim());
+        if (customer.getPassword().length() == 0) {
+            model.addAttribute("myMessage", "账号密码不能为空!");
+        } else if (customer.getUsername().length() == 0) {
+            model.addAttribute("myMessage", "账号名不能为空");
+        }else {
+            if (customerService.SaveCustomer(customer)==true) {
+                model.addAttribute("customer",null) ;
+                model.addAttribute("myMessage", "用户注册成功,请登录！！！");
+            } else {
+                model.addAttribute("myMessage", "用户注册失败，请重试！！！");
+            }
+        }
+        return "jsp/shop/signup.jsp";
+    }
+
+    /*执行注册页面
+    @ResponseBody
+    @RequestMapping(value = "/doSaveShopSignup", method = RequestMethod.POST)
+    public Map<String,Object> doSaveShopSignup(Customer customer, HttpSession session) {
+        Map<String,Object> map=new HashMap<String,Object>();
+        if(customerService.SaveShopSignupCustomer(customer)){
+            map.put("status",1);
+        }else{
+            map.put("status",0);
+            map.put("myMessage", "注册失败！");
+        }
+        return map;
+    }
+*/
 
 }

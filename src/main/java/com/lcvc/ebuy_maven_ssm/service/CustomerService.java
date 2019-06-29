@@ -66,4 +66,10 @@ public interface CustomerService {
     /*shop登录*/
     Customer login(String username,String password);
 
+    /*
+    * 将账户信息存进数据库
+    * @param  producttype
+    * @return true表示保存成功，false表示保存失败
+    * */
+    boolean SaveShopSignupCustomer(Customer customer) ;
 }

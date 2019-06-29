@@ -72,7 +72,7 @@
 			</div>
 			<hr color="#d2364c">
 		</div>
-		<iframe src="<%=basePath%>jsp/shop/footer.html" style="height: 120px;"></iframe>
+		<iframe src="<%=basePath%>jsp/shop/footer.jsp" style="height: 120px;"></iframe>
 	</div>
 	<script type="text/javascript">
 		// 获取全选复选框
