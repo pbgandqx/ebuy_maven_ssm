@@ -36,7 +36,7 @@ $(function(){
     <li><a href="<%=basePath %>backstage/customer/tocustomer"  target="rightFrame"><img src="images/icon03.png" title="客户模块" /><h2>客户模块</h2></a></li>
     <li><a href="<%=basePath%>backstage/producttype/toProducttype"  target="rightFrame"><img src="images/icon04.png" title="产品分类模块" /><h2>产品分类模块</h2></a></li>
     <li><a href="<%=basePath%>backstage/product/toProduct" target="rightFrame"><img src="images/icon05.png" title="产品模块" /><h2>产品模块</h2></a></li>
-    <li><a href="#"  target="rightFrame"><img src="images/icon06.png" title="订单客户模块" /><h2>订单客户模块</h2></a></li>
+    <li><a href="<%=basePath%>backstage/customer/tocustomer"  target="rightFrame"><img src="images/icon06.png" title="订单客户模块" /><h2>订单客户模块</h2></a></li>
     </ul>
             
     <div class="topright">    

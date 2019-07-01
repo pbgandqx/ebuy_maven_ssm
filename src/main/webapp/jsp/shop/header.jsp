@@ -19,22 +19,15 @@
 			<%--<a href="<%=basePath%>shop/tosignin" target="top">&nbsp;登录/注册&nbsp;</a>--%>
 			<c:choose>
 				<c:when test="${sessionScope.customer!=null}">
-					欢迎!<strong>用户：${customer.username}&nbsp;</strong><a href="<%=basePath%>shop/logout" target="_parent">&nbsp;退出</a>
+					欢迎您!<strong>用户：${customer.username}&nbsp;</strong>&nbsp;<a href="<%=basePath%>shop/logout" target="_parent">&nbsp;退出</a>
 				</c:when>
 				<c:otherwise>
-					<div>欢迎！</div>
+					<div>欢迎！&nbsp;</div>
 				</c:otherwise>
 			</c:choose>
 
 			<a href="<%=basePath%>shop/toshopcart" target="top">&nbsp;购物车&nbsp;</a>
-		<	<c:choose>
-				<c:when test="${sessionScope.cutomer!=null}">
 
-				</c:when>
-				<c:otherwise>
-					<a href="<%=basePath%>shop/tosignin" target="top">&nbsp;登录&nbsp;</a>
-				</c:otherwise>
-			</c:choose>
 		</div>
 		<div class="content">
 			<img alt="" src="<%=basePath%>jsp/shop/resources/images/logo.png">
