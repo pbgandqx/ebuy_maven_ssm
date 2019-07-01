@@ -42,15 +42,15 @@
 
 				</div>
 				<div class="pager">
-					<button href="<%=basePath%>shop/toshoplists?page=${requestScope.page-1}">&lt;&lt;</button>
-					<button><a href="<%=basePath%>shop/toshoplists?page=${requestScope.page-1}">上一页</a></button>
-					<button><a href="<%=basePath%>shop/toshoplists?page=${requestScope.page+1}">下一页</a></button>
+					<button href="<%=basePath%>shop/toshoptypelists?page=${requestScope.page-1}">&lt;&lt;</button>
+					<button><a href="<%=basePath%>shop/toshoptypelists?page=${requestScope.page-1}">上一页</a></button>
+					<button><a href="<%=basePath%>shop/toshoptypelists?page=${requestScope.page+1}">下一页</a></button>
 					<%--
 					<button>3</button>
 					<button>4</button>
 					<button>5</button>
 					<button>6</button>--%>
-					<button href="<%=basePath%>shop/shoplists?page=${requestScope.page+1}">&gt;&gt;</button>
+					<button href="<%=basePath%>shop/toshoptypelists?page=${requestScope.page+1}">&gt;&gt;</button>
 			</div>
 			<br>
 		</div>

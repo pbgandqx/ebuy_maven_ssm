@@ -67,7 +67,7 @@ public class ShopLoginController {
         } else if (customer.getUsername().length() == 0) {
             model.addAttribute("myMessage", "账号名不能为空");
         }else {
-            if (customerService.SaveCustomer(customer)==true) {
+            if (customerService.SaveShopSignupCustomer(customer)==true) {
                 model.addAttribute("customer",null) ;
                 model.addAttribute("myMessage", "用户注册成功,请登录！！！");
             } else {
@@ -91,5 +91,12 @@ public class ShopLoginController {
         return map;
     }
 */
-
+	/*
+	 * 显示登录页面，该登录页面是使用Ajax进行登录
+	 */
+    @RequestMapping(value = "/logout", method = RequestMethod.GET)
+    public String doLogout(HttpSession session) {
+        session.removeAttribute("cutomer");
+        return  "jsp/shop/signin.jsp";
+    }
 }
